@@ -1,0 +1,86 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const referanslar = [
+  { ad: "Polatlı Belediye Binası", metin: "Doğalgaz tesisatı borulama, test ve devreye alma işlemleri tamamlanmıştır.", gorsel: "/images/wp/1716460733.jpg" },
+  { ad: "Polatlı Ticaret Odası", metin: "Yerden ısıtma ve doğalgaz tesisatı uygulamalarıyla yüksek verimlilik sağlanmıştır.", gorsel: "/images/wp/yeni-bina_1.jpg" },
+  { ad: "Polatlı Ticaret Odası OSB", metin: "Isı pompası montajı ve devreye alma işlemleri profesyonel şekilde tamamlanmıştır.", gorsel: "/images/wp/1-18-jpg.webp", link: "/osb-referans-gorsel/" },
+  { ad: "Polatlı Yenimahalle Camii", metin: "Yerden ısıtma, doğalgaz ve kazan sistemleri kurulumu gerçekleştirilmiştir.", gorsel: "/images/wp/indir.jpg" },
+  { ad: "Polatlı Öğretmenevi", metin: "Konaklama odaları için 27 adet Bosch klima tedarik edilmiş; montaj Bosch yetkili servisi tarafından gerçekleştirilmiştir.", gorsel: null },
+  { ad: "Arzum Dinlenme Tesisleri", metin: "Elektrikli kombi ve yerden ısıtma uygulaması tamamlanmıştır.", gorsel: "/images/wp/image0-2.jpeg" },
+  { ad: "Polatlı Zirvekent Plus", metin: "Merkezi sistem, yerden ısıtma ve doğalgaz tesisatı kurulumu yapılmıştır.", gorsel: "/images/wp/images.jpg" },
+  { ad: "Polatlı ESA İş Merkezi", metin: "Yangın sprink hattı, mekanik tesisat ve hidrofor pompa montajları yapılmıştır.", gorsel: null },
+  { ad: "Polatlı Boztepe İş Merkezi", metin: "Yerden ısıtma sistemi ve doğalgaz tesisatı modern standartlarda uygulanmıştır.", gorsel: null },
+  { ad: "Polatlı Şehir Stadı", metin: "Isıtma, sıcak su tesisatı ve kazan sistemleri kurulumu tamamlanmıştır.", gorsel: "/images/wp/hlyldwgg40gkkswg4s.png" },
+  { ad: "Provet Veteriner Ürünleri A.Ş.", metin: "LPG ısıtma sistemi ve kombi montajı gerçekleştirilmiştir.", gorsel: "/images/wp/indir-3-300x134.jpg" },
+  { ad: "Polatlı Recep Usta", metin: "Üretim alanı doğalgaz tesisatı, ısıtma ve soğutma sistemleri kurulmuştur.", gorsel: "/images/wp/image0-1.jpeg" },
+  { ad: "Nergis Cafe", metin: "Üretim amaçlı doğalgaz tesisatı modern standartlarda uygulanmıştır.", gorsel: null },
+  { ad: "Hanımlar Konağı", metin: "Isıtma ve doğalgaz tesisatı çalışmaları güvenli şekilde tamamlanmıştır.", gorsel: "/images/wp/4qx0wdw8c80s0c080008o.jpeg" },
+];
+---
+
+<Layout
+  title="Polatlı Referans Projelerimiz | BNS Enerji & Doğalgaz"
+  description="Polatlı Belediyesi, Ticaret Odası, Şehir Stadı dahil Polatlı ve çevresinde tamamladığımız 14 doğalgaz, ısıtma, klima ve tesisat projesi."
+>
+  <section class="bolum bolum-beyaz">
+    <div class="container">
+      <header class="section-head">
+        <p class="eyebrow">Referanslarımız</p>
+        <h1 class="page-title">Polatlı'nın altyapısında imzamız var</h1>
+        <p class="page-intro">
+          Kamu binalarından işletmelere kadar Polatlı ve çevresinde tamamladığımız
+          14 kurumsal proje.
+        </p>
+      </header>
+
+      <div class="kart-grid g-3">
+        {referanslar.map((r) => (
+          r.gorsel ? (
+            <article class="kart kart-gorselli">
+              <div class="kart-foto">
+                <img src={r.gorsel} alt={r.ad} loading="lazy" decoding="async" />
+              </div>
+              <div class="kart-govde">
+                <h2 class="kart-baslik kart-baslik-sm">
+                  {r.link ? <a href={r.link}>{r.ad}</a> : r.ad}
+                </h2>
+                <p class="kart-metin">{r.metin}</p>
+              </div>
+            </article>
+          ) : (
+            <article class="kart kart-gorselli">
+              <div class="ref-bos" aria-hidden="true">
+                <img src="/images/bns-logo-white.png" alt="" />
+              </div>
+              <div class="kart-govde">
+                <h2 class="kart-baslik kart-baslik-sm">{r.ad}</h2>
+                <p class="kart-metin">{r.metin}</p>
+              </div>
+            </article>
+          )
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style is:global>
+  /* fotoğrafı olmayan referans — yeşil marka placeholder */
+  .ref-bos {
+    aspect-ratio: 16 / 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-8);
+    background:
+      radial-gradient(circle at 70% 20%, var(--color-primary-hover), transparent 60%),
+      var(--color-primary);
+  }
+  .ref-bos img {
+    width: auto;
+    max-width: 62%;
+    max-height: 56px;
+    opacity: 0.95;
+  }
+</style>

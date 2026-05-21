@@ -1,0 +1,745 @@
+---
+import "../styles/global.css";
+import { hizmetler } from "../data/hizmetler";
+
+interface BreadcrumbItem { name: string; href: string; }
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  modifiedDate?: string;
+  publishDate?: string;
+  extraSchemas?: object[];
+  mainEntityId?: string;
+  breadcrumbs?: BreadcrumbItem[];
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  ogImage = "/og-image.png",
+  modifiedDate,
+  publishDate,
+  extraSchemas = [],
+  mainEntityId,
+  breadcrumbs,
+  noindex = false,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const buildDate = new Date().toISOString();
+const yil = new Date().getFullYear();
+
+/* ── BREADCRUMBS ── */
+const finalBreadcrumbs: BreadcrumbItem[] =
+  breadcrumbs ?? (Astro.url.pathname === "/"
+    ? []
+    : [{ name: "Anasayfa", href: "/" }, { name: title.split(" — ")[0] ?? title, href: Astro.url.pathname }]);
+
+const breadcrumbSchema = finalBreadcrumbs.length > 0
+  ? {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "@id": canonicalURL.href + "#breadcrumb",
+      itemListElement: finalBreadcrumbs.map((item, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: item.name,
+        item: new URL(item.href, Astro.site).href,
+      })),
+    }
+  : null;
+
+/* ── SCHEMA: WebSite ── */
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://bnsenerjidogalgaz.com/#website",
+  name: "BNS Enerji & Doğalgaz",
+  alternateName: "Polatlı Doğalgaz BNS",
+  url: "https://bnsenerjidogalgaz.com",
+  publisher: { "@id": "https://bnsenerjidogalgaz.com/#organization" },
+  inLanguage: "tr-TR",
+};
+
+/* ── SCHEMA: WebPage ── */
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": canonicalURL.href + "#webpage",
+  url: canonicalURL.href,
+  name: title,
+  description: description,
+  inLanguage: "tr-TR",
+  isPartOf: { "@id": "https://bnsenerjidogalgaz.com/#website" },
+  about: { "@id": "https://bnsenerjidogalgaz.com/#business" },
+  dateModified: modifiedDate ?? buildDate,
+  ...(publishDate && { datePublished: publishDate }),
+  ...(breadcrumbSchema && { breadcrumb: { "@id": canonicalURL.href + "#breadcrumb" } }),
+  ...(mainEntityId && { mainEntity: { "@id": mainEntityId } }),
+};
+
+/* ── SCHEMA: Organization ── */
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://bnsenerjidogalgaz.com/#organization",
+  name: "BNS Enerji & Doğalgaz",
+  alternateName: ["BNS Enerji", "BNS Doğalgaz", "Polatlı BNS Enerji", "BNS Enerji Doğal Gaz"],
+  legalName: "BNS Enerji Doğal Gaz Tesisat Taahhüt Mühendislik Tarım Turizm İnşaat Emlak Sanayi ve Ticaret Limited Şirketi",
+  description: "Polatlı/Ankara merkezli doğalgaz ve tesisat firması. Doğalgaz tesisatı, klima, ısı pompası, yangın söndürme, yerden ısıtma ve merkezi ısıtma sistemleri.",
+  url: "https://bnsenerjidogalgaz.com",
+  logo: {
+    "@type": "ImageObject",
+    url: "https://bnsenerjidogalgaz.com/images/wp/cropped-cropped-cropped-IMG_9920-2-1.jpg",
+    creator: { "@id": "https://bnsenerjidogalgaz.com/#organization" },
+    copyrightHolder: { "@id": "https://bnsenerjidogalgaz.com/#organization" },
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+905324993986",
+    contactType: "customer service",
+    areaServed: "TR",
+    availableLanguage: ["Turkish"],
+  },
+  sameAs: [
+    "https://www.instagram.com/bnsenerjidogalgaz/",
+    "https://www.linkedin.com/company/bns-enerji%CC%87-%26-do%C4%9Falgaz/",
+  ],
+};
+
+/* ── SCHEMA: LocalBusiness ── */
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://bnsenerjidogalgaz.com/#business",
+  name: "BNS Enerji & Doğalgaz",
+  alternateName: ["BNS Enerji", "BNS Doğalgaz", "Polatlı BNS Enerji"],
+  description: "Polatlı/Ankara merkezli doğalgaz tesisat, klima, ısı pompası, yangın söndürme, yerden ısıtma ve merkezi ısıtma hizmeti.",
+  url: "https://bnsenerjidogalgaz.com",
+  telephone: "+905324993986",
+  email: "bnsenerji@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Fatih Mah., Bıyıktay Cd. 37/A",
+    addressLocality: "Polatlı",
+    addressRegion: "Ankara",
+    postalCode: "06900",
+    addressCountry: "TR",
+  },
+  geo: { "@type": "GeoCoordinates", latitude: 39.5840, longitude: 32.1469 },
+  areaServed: [
+    { "@type": "City", name: "Polatlı" },
+    { "@type": "AdministrativeArea", name: "Ankara" },
+  ],
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    opens: "08:00",
+    closes: "20:00",
+  },
+  priceRange: "₺₺",
+  image: "https://bnsenerjidogalgaz.com/og-image.png",
+  isicV4: "4322",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Enerji ve Tesisat Hizmetleri",
+    itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Doğalgaz Tesisatı ve Projelendirme" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Isı Pompası Montajı" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Yangın Söndürme Sistemleri" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Klima Sistemleri" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Yerden Isıtma Sistemleri" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Merkezi Isıtma ve Kazan Sistemleri" } },
+    ],
+  },
+};
+
+const allSchemas = [
+  websiteSchema,
+  webPageSchema,
+  organizationSchema,
+  localBusinessSchema,
+  ...(breadcrumbSchema ? [breadcrumbSchema] : []),
+  ...extraSchemas,
+];
+
+const currentPath = Astro.url.pathname;
+
+/* ── NAVİGASYON ── */
+const hizmetAlt = hizmetler.map((h) => ({ href: `/hizmetler/${h.slug}/`, label: h.kisaAd }));
+const nav = [
+  { href: "/", label: "Anasayfa" },
+  { href: "/hizmetler/", label: "Hizmetler", dropdown: hizmetAlt },
+  { href: "/urunler/", label: "Ürünler" },
+  { href: "/referanslar/", label: "Referanslar" },
+  { href: "/hakkimizda/", label: "Hakkımızda" },
+  { href: "/iletisim/", label: "İletişim" },
+];
+---
+
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#7FC241" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL.href} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <meta name="author" content="BNS Enerji & Doğalgaz" />
+    <meta name="geo.region" content="TR-06" />
+    <meta name="geo.placename" content="Polatlı, Ankara" />
+    <meta name="geo.position" content="39.5840;32.1469" />
+    <meta name="ICBM" content="39.5840, 32.1469" />
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="BNS Enerji & Doğalgaz" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site).href} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content={canonicalURL.href} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="tr_TR" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(ogImage, Astro.site).href} />
+
+    <!-- Favicon set -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- JSON-LD schema graph -->
+    {allSchemas.map((schema) => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ))}
+
+    <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+  </head>
+
+  <body>
+    <a href="#main-content" class="skip-link">İçeriğe atla</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="/" class="site-logo" aria-label="BNS Enerji & Doğalgaz - Anasayfa">
+          <img
+            src="/images/bns-logo.png"
+            alt="BNS ENERJİ & DOĞALGAZ"
+            width="684"
+            height="503"
+            decoding="async"
+          />
+        </a>
+
+        <nav aria-label="Ana navigasyon" class="main-nav" id="main-nav">
+          {nav.map((item) => (
+            item.dropdown ? (
+              <div class="nav-item has-dropdown">
+                <a
+                  href={item.href}
+                  class:list={["nav-link", { active: currentPath.startsWith("/hizmetler") }]}
+                >
+                  {item.label}
+                  <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" width="13" height="13" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                </a>
+                <div class="dropdown">
+                  {item.dropdown.map((d) => (
+                    <a href={d.href} class="dropdown-link">{d.label}</a>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <a
+                href={item.href}
+                class:list={["nav-link", { active: currentPath === item.href }]}
+              >
+                {item.label}
+              </a>
+            )
+          ))}
+        </nav>
+
+        <a href="tel:+905324993986" class="header-cta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>0 532 499 39 86</span>
+        </a>
+
+        <button class="nav-toggle" id="nav-toggle" aria-label="Menü" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="main-content"><slot /></main>
+
+    <a
+      href="https://wa.me/905324993986?text=Merhaba%20BNS%20Enerji%2C%20bilgi%20almak%20istiyorum."
+      class="whatsapp-float"
+      target="_blank"
+      rel="noopener"
+      aria-label="WhatsApp ile yazın"
+    >
+      <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    </a>
+
+    <footer class="site-footer">
+      <div class="footer-main">
+        <div class="container footer-cols">
+          <!-- Marka -->
+          <div class="footer-brand">
+            <span class="footer-logo"><strong>BNS</strong> ENERJİ &amp; DOĞALGAZ</span>
+            <p>
+              Polatlı'da 2020'den beri doğalgaz tesisatı, klima, ısı pompası ve
+              yangın söndürme sistemleri.
+            </p>
+            <div class="footer-social">
+              <a href="https://www.instagram.com/bnsenerjidogalgaz" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/company/bns-enerji%CC%87-%26-do%C4%9Falgaz/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+              <a href="https://wa.me/905324993986" target="_blank" rel="noopener" aria-label="WhatsApp">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Hizmetler -->
+          <div class="footer-col">
+            <h3>Hizmetler</h3>
+            <ul>
+              {hizmetler.map((h) => (
+                <li><a href={`/hizmetler/${h.slug}/`}>{h.kisaAd}</a></li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Kurumsal -->
+          <div class="footer-col">
+            <h3>Kurumsal</h3>
+            <ul>
+              <li><a href="/hakkimizda/">Hakkımızda</a></li>
+              <li><a href="/referanslar/">Referanslar</a></li>
+              <li><a href="/urunler/">Ürünler</a></li>
+              <li><a href="/kalite-politikasi/">Kalite Politikası</a></li>
+              <li><a href="/iletisim/">İletişim</a></li>
+            </ul>
+          </div>
+
+          <!-- İletişim -->
+          <div class="footer-col footer-contact">
+            <h3>İletişim</h3>
+            <ul>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Fatih Mah., Bıyıktay Cd. 37/A, Polatlı / Ankara</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <a href="tel:+905324993986">0 (532) 499 39 86</a>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+                <a href="mailto:bnsenerji@gmail.com">bnsenerji@gmail.com</a>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                <span>Pazartesi – Cumartesi, 08.00 – 20.00</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+          <p>© 2020 – {yil} BNS Enerji &amp; <span class="lite-green">Doğalgaz</span></p>
+          <p class="footer-bottom-loc">Polatlı / Ankara</p>
+        </div>
+      </div>
+    </footer>
+
+    <script is:inline>
+      document.getElementById('nav-toggle')?.addEventListener('click', function () {
+        var expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        document.getElementById('main-nav')?.classList.toggle('open');
+      });
+
+      // Scroll'da header'a gölge
+      (function () {
+        var header = document.querySelector('.site-header');
+        if (!header) return;
+        var onScroll = function () {
+          header.classList.toggle('scrolled', window.scrollY > 8);
+        };
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+      })();
+
+      // Scroll-reveal — çok katmanlı güvenlik (memory dersi: içerik daima görünür)
+      (function () {
+        if (!('IntersectionObserver' in window)) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        document.documentElement.classList.add('motion-on');
+        var sec =
+          '.bolum-head, .kart, .surec-adim, .kesit-cizim, .kesit-madde, .kesit-adim, .bosch-urun, .stat, .kesif-blok, .il-harita, .hd-blok, .hd-gorsel, .metin-blok, .kp-quote, .ilke-list, .hd-hero-gorsel';
+        var hedefler = document.querySelectorAll(sec);
+        var obs = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                e.target.classList.add('gorundu');
+                obs.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.1, rootMargin: '0px 0px -8% 0px' }
+        );
+        hedefler.forEach(function (el, i) {
+          el.classList.add('reveal');
+          el.style.transitionDelay = (i % 4) * 0.06 + 's';
+          obs.observe(el);
+        });
+        // güvenlik ağı — observer bir şeyi kaçırırsa içerik 2.6 sn sonra görünür
+        setTimeout(function () {
+          document.querySelectorAll('.reveal:not(.gorundu)').forEach(function (el) {
+            el.classList.add('gorundu');
+          });
+        }, 2600);
+      })();
+    </script>
+
+    <style is:global>
+      /* ─── HEADER ─── */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: #ffffff;
+        border-bottom: 3px solid #7fc241;
+        transition: box-shadow var(--duration-base) var(--ease-bns);
+      }
+      .site-header.scrolled {
+        box-shadow: 0 6px 24px -12px rgba(0, 0, 0, 0.25);
+      }
+      .header-inner {
+        display: flex;
+        align-items: center;
+        gap: var(--space-6);
+        padding-block: 14px;
+      }
+      .site-logo {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+        margin-right: auto;
+      }
+      .site-logo img {
+        height: 58px;
+        width: auto;
+      }
+
+      .main-nav {
+        display: flex;
+        gap: var(--space-6);
+        align-items: center;
+      }
+      .nav-item { position: relative; }
+      .nav-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-family: "Poppins", sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        color: #292929;
+        transition: color var(--duration-base) var(--ease-bns);
+      }
+      .nav-link:hover,
+      .nav-link.active { color: #7fc241; }
+      .nav-chevron {
+        transition: transform var(--duration-base) var(--ease-bns);
+      }
+      .has-dropdown:hover .nav-chevron { transform: rotate(180deg); }
+
+      /* Açılır menü — CSS-only, JS yok */
+      .dropdown {
+        position: absolute;
+        top: calc(100% + 14px);
+        left: 50%;
+        transform: translateX(-50%) translateY(8px);
+        min-width: 248px;
+        background: #ffffff;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-lg);
+        padding: var(--space-2);
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        opacity: 0;
+        visibility: hidden;
+        transition:
+          opacity var(--duration-base) var(--ease-bns),
+          transform var(--duration-base) var(--ease-bns);
+        z-index: 110;
+      }
+      .has-dropdown::after {
+        /* hover boşluğu köprüsü */
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        height: 16px;
+      }
+      .has-dropdown:hover .dropdown,
+      .has-dropdown:focus-within .dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+      }
+      .dropdown-link {
+        padding: 11px 14px;
+        border-radius: var(--radius-sm);
+        font-size: 14px;
+        font-weight: 500;
+        color: #292929;
+        white-space: nowrap;
+        transition:
+          background-color var(--duration-fast) var(--ease-bns),
+          color var(--duration-fast) var(--ease-bns);
+      }
+      .dropdown-link:hover {
+        background: var(--color-primary-bg);
+        color: var(--color-primary-deep);
+      }
+
+      /* Telefon CTA */
+      .header-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+        background: var(--color-primary);
+        color: #ffffff;
+        padding: 11px 18px;
+        border-radius: var(--radius-md);
+        font-family: "Poppins", sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        transition:
+          background-color var(--duration-base) var(--ease-bns),
+          transform var(--duration-fast) var(--ease-bns);
+      }
+      .header-cta:hover { background: var(--color-primary-hover); }
+      .header-cta:active { transform: scale(0.97); }
+
+      .nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        padding: 8px;
+        flex-shrink: 0;
+      }
+      .nav-toggle span {
+        width: 24px;
+        height: 2px;
+        background: #292929;
+        border-radius: 1px;
+        transition: all var(--duration-base) var(--ease-bns);
+      }
+
+      @media (max-width: 960px) {
+        .header-cta span { display: none; }
+        .header-cta { padding: 11px; }
+      }
+      @media (max-width: 860px) {
+        .main-nav {
+          position: fixed;
+          inset: 0 0 0 auto;
+          width: min(82vw, 340px);
+          background: #ffffff;
+          flex-direction: column;
+          align-items: stretch;
+          padding: 88px var(--space-6) var(--space-8);
+          gap: var(--space-2);
+          overflow-y: auto;
+          transform: translateX(100%);
+          transition: transform var(--duration-base) var(--ease-bns);
+          box-shadow: var(--shadow-xl);
+        }
+        .main-nav.open { transform: translateX(0); }
+        .nav-toggle { display: flex; }
+        .nav-link { padding-block: 10px; font-size: 16px; }
+        /* mobilde açılır menü her zaman açık alt liste */
+        .dropdown {
+          position: static;
+          transform: none;
+          opacity: 1;
+          visibility: visible;
+          min-width: 0;
+          border: none;
+          box-shadow: none;
+          padding: 0 0 var(--space-2) var(--space-4);
+          border-left: 2px solid var(--color-border);
+          margin-left: var(--space-2);
+        }
+        .has-dropdown::after { display: none; }
+        .nav-chevron { display: none; }
+        /* telefon CTA mobilde ikon-only kalır (960px kuralı) — menü simgesi en sağda */
+      }
+
+      /* ─── WHATSAPP FLOAT ─── */
+      .whatsapp-float {
+        position: fixed;
+        right: var(--space-5);
+        bottom: var(--space-5);
+        z-index: 90;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 56px;
+        height: 56px;
+        border-radius: var(--radius-full);
+        background: #25d366;
+        color: #ffffff;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+        transition: transform var(--duration-base) var(--ease-bns);
+      }
+      .whatsapp-float:hover { transform: scale(1.08); }
+
+      /* ─── FOOTER ─── */
+      .site-footer {
+        margin-top: var(--space-24);
+        font-family: "Poppins", sans-serif;
+      }
+      .footer-main {
+        background: #1f2420;
+        color: #ffffff;
+        padding-block: var(--space-16);
+      }
+      .footer-cols {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr 1fr 1.5fr;
+        gap: var(--space-10);
+      }
+
+      /* Marka sütunu */
+      .footer-logo {
+        font-size: 1.05rem;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        color: rgba(255, 255, 255, 0.85);
+      }
+      .footer-logo strong {
+        font-weight: 800;
+        color: #7fc241;
+      }
+      .footer-brand p {
+        margin-top: var(--space-4);
+        font-size: 0.9rem;
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.6);
+        max-width: 30ch;
+      }
+      .footer-social {
+        display: flex;
+        gap: var(--space-3);
+        margin-top: var(--space-5);
+      }
+      .footer-social a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: var(--radius-sm);
+        background: rgba(255, 255, 255, 0.07);
+        color: rgba(255, 255, 255, 0.75);
+        transition:
+          background-color var(--duration-base) var(--ease-bns),
+          color var(--duration-base) var(--ease-bns);
+      }
+      .footer-social a:hover { background: #7fc241; color: #ffffff; }
+
+      /* Link sütunları */
+      .footer-col h3 {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #7fc241;
+        margin-bottom: var(--space-5);
+      }
+      .footer-col ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+      }
+      .footer-col a {
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 0.9rem;
+        transition: color var(--duration-base) var(--ease-bns);
+      }
+      .footer-col a:hover { color: #ffffff; }
+
+      .footer-contact li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.72);
+        line-height: 1.5;
+      }
+      .footer-contact svg { flex-shrink: 0; color: #7fc241; margin-top: 1px; }
+      .footer-contact a { color: rgba(255, 255, 255, 0.72); }
+      .footer-contact a:hover { color: #ffffff; }
+
+      .footer-bottom {
+        background: #161917;
+        color: rgba(255, 255, 255, 0.55);
+        padding-block: 18px;
+      }
+      .footer-bottom-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--space-4);
+        flex-wrap: wrap;
+      }
+      .footer-bottom p { font-size: 0.85rem; }
+      .footer-bottom-loc { color: rgba(255, 255, 255, 0.4); }
+      .lite-green { color: #a5f775; }
+
+      @media (max-width: 860px) {
+        .footer-cols { grid-template-columns: 1fr 1fr; gap: var(--space-8); }
+        .footer-brand { grid-column: 1 / -1; }
+      }
+      @media (max-width: 540px) {
+        .footer-cols { grid-template-columns: 1fr; }
+        .footer-bottom-inner { justify-content: center; }
+      }
+    </style>
+  </body>
+</html>

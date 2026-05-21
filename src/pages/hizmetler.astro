@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { hizmetler } from "../data/hizmetler";
+---
+
+<Layout
+  title="Polatlı Doğalgaz, Klima, Isı Pompası Hizmetleri | BNS Enerji"
+  description="Polatlı'da doğalgaz tesisatı, ısı pompası, yangın söndürme, klima, yerden ısıtma ve merkezi ısıtma sistemleri. BNS Enerji & Doğalgaz profesyonel kurulum hizmetleri."
+>
+  <section class="bolum bolum-beyaz">
+    <div class="container">
+      <header class="section-head">
+        <p class="eyebrow">Hizmetlerimiz</p>
+        <h1 class="page-title">Konut, iş yeri ve endüstri için tesisat çözümleri</h1>
+        <p class="page-intro">
+          Enerji verimliliği, güvenlik ve konforu ön planda tutan profesyonel
+          kurulum hizmetleri. Detaylar için hizmet kartına dokunun.
+        </p>
+      </header>
+
+      <div class="kart-grid g-3">
+        {hizmetler.map((h) => (
+          <a class="kart kart-gorselli kart-link" href={`/hizmetler/${h.slug}/`}>
+            <div class="kart-foto">
+              <img src={h.gorsel} alt={h.ad} loading="lazy" decoding="async" />
+            </div>
+            <div class="kart-govde">
+              <h2 class="kart-baslik">{h.ad}</h2>
+              <p class="kart-metin">{h.ozet}</p>
+              <span class="kart-ok">Detayları gör →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="bolum-cta">
+        <a class="btn btn-fill" href="/iletisim/">İletişim / Teklif Al</a>
+      </div>
+    </div>
+  </section>
+</Layout>

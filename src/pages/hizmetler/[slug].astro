@@ -1,0 +1,338 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { hizmetler } from "../../data/hizmetler";
+
+export function getStaticPaths() {
+  return hizmetler.map((h) => ({
+    params: { slug: h.slug },
+    props: { hizmet: h },
+  }));
+}
+
+const { hizmet } = Astro.props;
+const digerleri = hizmetler.filter((h) => h.slug !== hizmet.slug);
+const sayfaURL = `https://bnsenerjidogalgaz.com/hizmetler/${hizmet.slug}/`;
+
+/* ── SCHEMA: Service ── */
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": sayfaURL + "#service",
+  name: `Polatlı ${hizmet.kisaAd}`,
+  description: hizmet.ozet,
+  serviceType: hizmet.ad,
+  provider: { "@id": "https://bnsenerjidogalgaz.com/#business" },
+  areaServed: [
+    { "@type": "City", name: "Polatlı" },
+    { "@type": "AdministrativeArea", name: "Ankara" },
+  ],
+  url: sayfaURL,
+};
+
+/* ── SCHEMA: HowTo ── */
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: `${hizmet.ad} nasıl yapılır?`,
+  description: hizmet.giris,
+  step: hizmet.adimlar.map((a, i) => ({
+    "@type": "HowToStep",
+    position: i + 1,
+    name: a.baslik,
+    text: a.metin,
+  })),
+};
+---
+
+<Layout
+  title={`Polatlı ${hizmet.kisaAd} — BNS Enerji & Doğalgaz`}
+  description={`Polatlı'da ${hizmet.kisaAd.toLowerCase()} hizmeti — ${hizmet.ozet}`}
+  extraSchemas={[serviceSchema, howToSchema]}
+  breadcrumbs={[
+    { name: "Anasayfa", href: "/" },
+    { name: "Hizmetler", href: "/hizmetler/" },
+    { name: hizmet.kisaAd, href: `/hizmetler/${hizmet.slug}/` },
+  ]}
+>
+  <section class="hd">
+    <div class="container page-inner">
+      <div class="hd-hero">
+        <div class="hd-hero-metin">
+          <p class="eyebrow">Hizmet · Polatlı</p>
+          <h1 class="page-title">{hizmet.ad}</h1>
+          <p class="hd-hero-ozet">{hizmet.ozet}</p>
+          <a class="btn btn-fill" href="/iletisim/#kesif-formu">Keşif talebi oluştur</a>
+        </div>
+        <figure class="hd-hero-gorsel">
+          <span class="hd-hero-frame" aria-hidden="true"></span>
+          <img src={hizmet.gorsel} alt={hizmet.ad} loading="eager" decoding="async" />
+        </figure>
+      </div>
+
+      <div class="hd-giris">
+        <p>{hizmet.giris}</p>
+      </div>
+
+      <div class="hd-blok">
+        <h2 class="hd-h2">Nasıl yapılır</h2>
+        <ol class="hd-adimlar">
+          {hizmet.adimlar.map((a, i) => (
+            <li>
+              <span class="hd-no">{String(i + 1).padStart(2, "0")}</span>
+              <div>
+                <h3>{a.baslik}</h3>
+                <p>{a.metin}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <div class="hd-blok">
+        <h2 class="hd-h2">Kullanım alanları</h2>
+        <ul class="hd-alanlar">
+          {hizmet.alanlar.map((al) => <li>{al}</li>)}
+        </ul>
+      </div>
+
+      <nav class="hd-diger" aria-label="Diğer hizmetler">
+        <span class="hd-diger-label">Diğer hizmetler</span>
+        <div class="hd-diger-links">
+          {digerleri.map((h) => (
+            <a href={`/hizmetler/${h.slug}/`}>{h.kisaAd}</a>
+          ))}
+        </div>
+      </nav>
+    </div>
+  </section>
+
+  <section class="kapanis">
+    <div class="container kapanis-grid">
+      <div class="kapanis-metin">
+        <p class="kapanis-kicker"><span class="kapanis-tick" aria-hidden="true"></span>İletişim</p>
+        <h2 class="kapanis-baslik">{hizmet.kisaAd} için teklif alın</h2>
+        <p class="kapanis-adres">Keşif ve bilgi için bize ulaşın — Polatlı / Ankara</p>
+      </div>
+      <div class="kapanis-cta">
+        <a class="btn btn-light" href="tel:+905324993986">0 532 499 39 86</a>
+        <a class="btn btn-wa" href="https://wa.me/905324993986?text=Merhaba%20BNS%20Enerji%2C%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">WhatsApp'tan yazın</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style is:global>
+  .hd { background: var(--color-bg); }
+
+  /* hizmet üst blok — split: sol metin / sağ görsel */
+  .hd-hero {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.05fr 0.9fr;
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+  .hd-hero-metin .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+  }
+  .hd-hero-metin .eyebrow::before {
+    content: "";
+    width: 1.9rem;
+    height: 2px;
+    background: var(--color-primary);
+    flex-shrink: 0;
+  }
+  .hd-hero-ozet {
+    margin-top: var(--space-5);
+    font-size: var(--text-lg);
+    line-height: var(--leading-body);
+    color: var(--color-text-muted);
+  }
+  .hd-hero-metin .btn { margin-top: var(--space-7); }
+  .hd-hero-gorsel {
+    position: relative;
+    margin: 0;
+  }
+  .hd-hero-gorsel img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    position: relative;
+    z-index: 1;
+  }
+  .hd-hero-frame {
+    position: absolute;
+    inset: 1.2rem -1.2rem -1.2rem 1.2rem;
+    border: 1.5px solid var(--color-primary);
+    border-radius: var(--radius-sm);
+    z-index: 0;
+  }
+  @media (max-width: 860px) {
+    .hd-hero { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
+  @media (max-width: 560px) {
+    .hd-hero-frame { inset: 0.9rem -0.9rem -0.9rem 0.9rem; }
+  }
+
+  .hd-giris { max-width: 760px; }
+  .hd-giris p {
+    font-size: var(--text-lg);
+    line-height: var(--leading-loose);
+    color: var(--color-text-body);
+  }
+
+  .hd-blok { width: 100%; max-width: 880px; }
+  .hd-h2 {
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-extrabold);
+    letter-spacing: var(--tracking-display);
+    color: var(--color-text);
+    margin-bottom: var(--space-8);
+  }
+
+  .hd-adimlar {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  .hd-adimlar li {
+    display: flex;
+    gap: var(--space-5);
+    padding: var(--space-6);
+    background: var(--color-bg-soft);
+    border-radius: var(--radius-md);
+  }
+  .hd-no {
+    font-family: var(--font-mono);
+    font-size: var(--text-lg);
+    font-weight: var(--weight-bold);
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  .hd-adimlar h3 {
+    font-size: var(--text-base);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text);
+    margin-bottom: 4px;
+  }
+  .hd-adimlar li p {
+    font-size: var(--text-sm);
+    line-height: var(--leading-body);
+    color: var(--color-text-body);
+  }
+
+  .hd-alanlar {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+  .hd-alanlar li {
+    padding: var(--space-3) var(--space-5);
+    background: var(--color-primary-bg);
+    color: var(--color-primary-deep);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+  }
+
+  .hd-diger {
+    width: 100%;
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-8);
+  }
+  .hd-diger-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-eyebrow);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-4);
+  }
+  .hd-diger-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+  .hd-diger-links a {
+    padding: var(--space-2) var(--space-4);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    color: var(--color-text-body);
+    transition:
+      border-color var(--duration-base) var(--ease-bns),
+      color var(--duration-base) var(--ease-bns);
+  }
+  .hd-diger-links a:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary-deep);
+  }
+
+  /* kapanış — editorial split */
+  .kapanis { background: var(--color-primary-deep); }
+  .kapanis-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: clamp(2rem, 5vw, 4rem);
+    flex-wrap: wrap;
+  }
+  .kapanis-kicker {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--color-primary-soft);
+  }
+  .kapanis-tick {
+    width: 1.9rem;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.5);
+    flex-shrink: 0;
+  }
+  .kapanis-baslik {
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-extrabold);
+    letter-spacing: var(--tracking-display);
+    line-height: var(--leading-tight);
+    color: #ffffff;
+    max-width: 22ch;
+  }
+  .kapanis-adres {
+    margin-top: var(--space-4);
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.72);
+  }
+  .kapanis-cta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    flex-shrink: 0;
+  }
+  .btn-light { background: #ffffff; color: var(--color-primary-deep); }
+  .btn-light:hover { background: var(--color-primary-soft); }
+  .btn-wa { background: #25d366; color: #ffffff; }
+  .btn-wa:hover { background: #1da851; }
+
+  @media (max-width: 560px) {
+    .kapanis-cta { width: 100%; }
+    .kapanis-cta .btn { width: 100%; justify-content: center; }
+  }
+</style>

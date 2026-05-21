@@ -1,0 +1,1181 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const hizmetler = [
+  {
+    baslik: "Doğalgaz Tesisatı",
+    metin:
+      "Güvenli, ekonomik ve verimli doğalgaz tesisat çözümleriyle konforu yaşam alanınıza taşıyoruz.",
+    href: "/hizmetler/dogalgaz-tesisati/",
+    icon: `<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>`,
+  },
+  {
+    baslik: "Isı Pompası Uygulamaları",
+    metin:
+      "Isı pompası sistemleriyle enerji verimliliğini artırıyor, çevreye dost çözümler sunuyoruz.",
+    href: "/hizmetler/isi-pompasi/",
+    icon: `<path d="M14 14.76V5a2 2 0 0 0-4 0v9.76a4 4 0 1 0 4 0z"/><path d="M19 8h-3M19 4h-3M19 12h-3"/>`,
+  },
+  {
+    baslik: "Yangın Söndürme Sistemleri",
+    metin:
+      "Yangın güvenliği standartlarına uygun profesyonel söndürme sistemleriyle işletmenizi koruma altına alıyoruz.",
+    href: "/hizmetler/yangin-sondurme/",
+    icon: `<path d="M15 6.5V19a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V6.5"/><path d="M9 6.5a3 3 0 0 1 6 0"/><path d="M12 3.6V2M15 5h3a2 2 0 0 1 2 2v2"/><path d="M9 11h6"/>`,
+  },
+];
+
+const surec = [
+  { no: "01", baslik: "Keşif ve Ölçüm", metin: "Mekânınıza gelir, ihtiyacı yerinde inceler ve doğru ölçüyü alırız." },
+  { no: "02", baslik: "Projelendirme", metin: "İhtiyaca uygun sistemi projelendirir, çözümü sizinle netleştiririz." },
+  { no: "03", baslik: "Montaj", metin: "Standartlara uygun malzeme ve yetkili işçilikle kurulumu gerçekleştiririz." },
+  { no: "04", baslik: "Devreye Alma", metin: "Sistemi devreye alır, güvenlik ve sızdırmazlık testlerinden geçiririz." },
+];
+
+/* ── KESİT — evin içindeki sistemler (işaret noktası → hizmet sayfası) ── */
+const sistemler = [
+  { no: "01", ad: "Doğalgaz Tesisatı", metin: "Sokak hattından kombiye, sızdırmazlık testli iç tesisat.", href: "/hizmetler/dogalgaz-tesisati/" },
+  { no: "02", ad: "Merkezi & Kombi Isıtma", metin: "Yoğuşmalı kombi ve kazan sistemiyle dengeli ısınma.", href: "/hizmetler/merkezi-isitma/" },
+  { no: "03", ad: "Yerden Isıtma", metin: "Zeminden eşit yayılan, radyatörsüz sıcaklık.", href: "/hizmetler/yerden-isitma/" },
+  { no: "04", ad: "Klima", metin: "Bosch inverter klimayla sessiz yaz serinliği.", href: "/hizmetler/klima/" },
+  { no: "05", ad: "Isı Pompası", metin: "Dış üniteyle havadan yüksek verimli ısıtma.", href: "/hizmetler/isi-pompasi/" },
+  { no: "06", ad: "Yangın Söndürme", metin: "Konut ve işyeri için yangın güvenlik sistemleri.", href: "/hizmetler/yangin-sondurme/" },
+];
+
+const bosch = [
+  { baslik: "Bosch Klima", metin: "Inverter teknolojisi, A++ verimlilik ve sessiz çalışma — yaz konforu için.", gorsel: "/images/bosch-klima-hd.webp" },
+  { baslik: "Bosch Kombi", metin: "Yoğuşmalı kombi sistemleriyle tasarruflu ve dengeli ısınma.", gorsel: "/images/bosch-kombi-hd.webp" },
+];
+
+const referanslar = [
+  { ad: "Polatlı Belediye Binası", is: "Doğalgaz tesisatı", icon: `<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>` },
+  { ad: "Polatlı Ticaret Odası", is: "Yerden ısıtma + doğalgaz", icon: `<path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 1.3 0 1.9-.5 2.5-1M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 1.3 0 1.9-.5 2.5-1M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 1.3 0 1.9-.5 2.5-1"/>` },
+  { ad: "Polatlı Şehir Stadı", is: "Isıtma + kazan sistemleri", icon: `<path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/><path d="M12 5v9"/>` },
+  { ad: "Polatlı Öğretmenevi", is: "Bosch oda kliması", vurgu: "27" },
+];
+
+const yetkiler = [
+  {
+    baslik: "Bosch Partner Program",
+    metin: "Climate serisi klima ve yoğuşmalı kombide orijinal Bosch ürünü ve üretici güvencesi.",
+    icon: `<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>`,
+  },
+  {
+    baslik: "Polgaz Yetkili Tesisat",
+    metin: "Polatlı doğalgaz dağıtıcısı Polgaz onaylı iç tesisat firması.",
+    icon: `<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>`,
+  },
+];
+
+const sss = [
+  { s: "Doğalgaz iç tesisatı nasıl bir süreçle yapılıyor?", c: "Keşif ve ölçümle başlıyoruz; ardından projelendirme, dağıtım şirketi onayı, tesisat montajı ve kontrol aşamalarıyla sistem devreye alınıyor." },
+  { s: "Klima montajını siz mi yapıyorsunuz?", c: "Bosch klima satışını BNS Enerji yapıyor; montaj, Bosch yetkili servisi tarafından gerçekleştiriliyor — tek elden Bosch güvencesiyle koordine ediyoruz." },
+  { s: "Hangi bölgelere hizmet veriyorsunuz?", c: "Polatlı merkez ve çevresine doğalgaz, ısıtma, klima ve yangın söndürme sistemleri hizmeti veriyoruz." },
+  { s: "Keşif için nasıl randevu alabilirim?", c: "Telefon ya da WhatsApp üzerinden bize ulaşarak keşif ve ölçüm talebi oluşturabilirsiniz." },
+];
+
+const istatistik = [
+  { num: "14", label: "Kurumsal referans projesi" },
+  { num: "6", label: "Uzmanlık ve hizmet alanı" },
+  { num: "2020", label: "Polatlı'da hizmet başlangıcı" },
+];
+const istatistikNot =
+  "Bosch Partner Program üyesi ve Polgaz yetkili iç tesisat firması.";
+
+/* ── SCHEMA: FAQPage ── */
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: sss.map((q) => ({
+    "@type": "Question",
+    name: q.s,
+    acceptedAnswer: { "@type": "Answer", text: q.c },
+  })),
+};
+---
+
+<Layout
+  title="BNS Enerji & Doğalgaz — Polatlı Doğalgaz, Klima, Isı Pompası"
+  description="Polatlı/Ankara'da doğalgaz tesisatı, klima, ısı pompası, yangın söndürme ve merkezi ısıtma sistemleri. BNS Enerji & Doğalgaz — Geleceğin Enerjisini Bugün Sunuyoruz."
+  extraSchemas={[faqSchema]}
+>
+  <!-- ─── HERO ─── -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <span class="hero-vlabel" aria-hidden="true">EST. 2020 — POLATLI</span>
+
+      <div class="hero-text">
+        <p class="hero-kicker">
+          <span class="hero-tick" aria-hidden="true"></span>
+          Polatlı · Doğalgaz · Klima · Isı Pompası
+        </p>
+        <h1 class="hero-title">
+          Polatlı'da enerjinin
+          <span class="hero-accent">güvenilir adresi.</span>
+        </h1>
+        <p class="hero-lede">
+          Doğalgaz tesisatından klima ve ısı pompasına — keşiften devreye
+          almaya tek elden, belgeli ve yetkili işçilikle yanınızdayız.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-fill" href="/iletisim/#kesif-formu">Keşif talebi oluştur</a>
+          <a class="btn hero-tel" href="tel:+905324993986">
+            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+              <path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M6.5 3.5h3l1.5 4-2 1.5a12 12 0 0 0 5.5 5.5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.5 5.7 2 2 0 0 1 6.5 3.5Z" />
+            </svg>
+            0 532 499 39 86
+          </a>
+        </div>
+      </div>
+
+      <figure class="hero-media">
+        <span class="hero-frame" aria-hidden="true"></span>
+        <picture>
+          <source
+            type="image/avif"
+            srcset="/images/dukkan-vitrin-480.avif 480w, /images/dukkan-vitrin-540.avif 540w, /images/dukkan-vitrin-720.avif 720w, /images/dukkan-vitrin-960.avif 960w, /images/dukkan-vitrin-1080.avif 1080w"
+            sizes="(max-width: 920px) 100vw, 44vw"
+          />
+          <source
+            type="image/webp"
+            srcset="/images/dukkan-vitrin-480.webp 480w, /images/dukkan-vitrin-540.webp 540w, /images/dukkan-vitrin-720.webp 720w, /images/dukkan-vitrin-960.webp 960w, /images/dukkan-vitrin-1080.webp 1080w"
+            sizes="(max-width: 920px) 100vw, 44vw"
+          />
+          <img
+            src="/images/dukkan-vitrin.jpg"
+            alt="BNS Enerji & Doğalgaz'ın Polatlı Fatih Mahallesi'ndeki mağaza ve showroom girişi"
+            width="1080"
+            height="1306"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </picture>
+        <figcaption class="hero-namecard">
+          <span class="hero-namecard-bar" aria-hidden="true"></span>
+          <span class="hero-namecard-text">
+            <strong>BNS Enerji &amp; Doğalgaz</strong>
+            <em>Polatlı · Fatih Mahallesi mağaza</em>
+          </span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ─── İSTATİSTİK ŞERİDİ ─── -->
+  <section class="stat-serit">
+    <div class="container stat-grid">
+      {istatistik.map((s, i) => (
+        <div class={`stat ${i === 0 ? "stat-accent" : ""}`}>
+          <span class="stat-num">{s.num}</span>
+          <span class="stat-label">{s.label}</span>
+        </div>
+      ))}
+      <p class="stat-not">{istatistikNot}</p>
+    </div>
+  </section>
+
+  <!-- ─── 01 · HİZMET ALANLARI ─── -->
+  <section class="bolum bolum-beyaz">
+    <div class="container">
+      <header class="bolum-head bolum-head-split">
+        <div>
+          <p class="bolum-kicker"><span class="kicker-tick" aria-hidden="true"></span>Hizmet Alanlarımız</p>
+          <h2 class="bolum-title">Enerjiyi güvenle taşıyan çözümler</h2>
+        </div>
+        <p class="bolum-aciklama">
+          Doğalgaz tesisatından yangın güvenliğine — konut, ticari ve sanayi
+          yapılarında uçtan uca uygulama.
+        </p>
+      </header>
+      <div class="kart-grid g-3">
+        {hizmetler.map((h, i) => (
+          <a class="kart kart-link" href={h.href}>
+            <div class="kart-ust">
+              <span class="kart-ikon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="26" height="26" set:html={h.icon} />
+              </span>
+              <span class="kart-sira" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+            </div>
+            <h3 class="kart-baslik">{h.baslik}</h3>
+            <p class="kart-metin">{h.metin}</p>
+            <span class="kart-ok">Detaylar →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 02 · KESİT — Görünür Tesisat ─── -->
+  <section class="bolum bolum-soft kesit">
+    <div class="container">
+      <header class="bolum-head">
+        <p class="bolum-kicker"><span class="kicker-tick" aria-hidden="true"></span>Görünür Tesisat</p>
+        <h2 class="bolum-title">Duvarın içini biz biliriz</h2>
+        <p class="kesit-intro">
+          Bir evi ısıtan, serinleten ve güvene alan sistemlerin çoğu sıvanın
+          altında, gözden uzakta çalışır. BNS Enerji o görünmeyen işçiliği
+          planlar, kurar ve teker teker test eder.
+        </p>
+      </header>
+
+      <div class="kesit-sahne">
+        <ol class="kesit-liste">
+          {sistemler.map((s) => (
+            <li>
+              <a class="kesit-madde" href={s.href}>
+                <span class="kesit-madde-no" aria-hidden="true">{s.no}</span>
+                <span class="kesit-madde-govde">
+                  <span class="kesit-madde-ad">{s.ad}</span>
+                  <span class="kesit-madde-metin">{s.metin}</span>
+                </span>
+                <span class="kesit-madde-ok" aria-hidden="true">→</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+
+        <figure class="kesit-cizim">
+          <svg class="kesit-svg" viewBox="0 0 700 510" role="img"
+            aria-label="Bir evin kesit görünümü: BNS Enerji'nin kurduğu doğalgaz hattı, kombi, yerden ısıtma, klima, ısı pompası ve yangın algılama sistemleri evin içinde işaretlenmiş."
+            xmlns="http://www.w3.org/2000/svg">
+            <!-- zemin + toprak -->
+            <line class="k-zemin" x1="16" y1="446" x2="684" y2="446" />
+            <path class="k-toprak" d="M70 460l-9 12M150 458l-9 12M250 460l-9 12M360 458l-9 12M470 460l-9 12M560 458l-9 12" />
+
+            <!-- ev yapısı: çatı + duvarlar + döşeme (kesit poşesi) -->
+            <polygon class="k-yapi" points="96,168 276,72 470,168" />
+            <polyline class="k-cizgi-ince" points="124,166 276,98 442,166" />
+            <rect class="k-oda" x="108" y="168" width="350" height="132" />
+            <rect class="k-oda" x="108" y="311" width="350" height="123" />
+            <rect class="k-yapi" x="96" y="168" width="12" height="278" />
+            <rect class="k-yapi" x="458" y="168" width="12" height="278" />
+            <rect class="k-yapi" x="108" y="300" width="350" height="11" />
+            <rect class="k-yapi" x="108" y="434" width="350" height="12" />
+
+            <!-- pencereler + kapı -->
+            <rect class="k-pencere" x="140" y="206" width="56" height="46" />
+            <path class="k-bolme" d="M168 206v46M140 229h56" />
+            <rect class="k-pencere" x="330" y="330" width="68" height="58" />
+            <path class="k-bolme" d="M364 330v58M330 359h68" />
+            <rect class="k-kapi" x="230" y="372" width="54" height="62" />
+            <circle class="k-yesil-dolu" cx="274" cy="404" r="3" />
+
+            <!-- 1 · doğalgaz hattı -->
+            <path class="k-gaz" d="M24 468H120V356H150" />
+            <path class="k-gaz-akis" d="M24 468H120V356H150" />
+
+            <!-- 2 · kombi -->
+            <path class="k-detay" d="M164 330v-20M184 330v-20" />
+            <rect class="k-kasa" x="150" y="330" width="48" height="56" rx="3" />
+            <line class="k-detay" x1="158" y1="344" x2="190" y2="344" />
+            <circle class="k-detay" cx="174" cy="364" r="11" />
+            <path class="k-yesil-dolu" d="M174 357c-4 4-4 8 0 11 4-3 4-7 0-11Z" />
+
+            <!-- 3 · yerden ısıtma -->
+            <path class="k-yesil" d="M292 432H432a4 4 0 0 0 0-8H296a4 4 0 0 1 0-8H438" />
+
+            <!-- 4 · klima iç ünite -->
+            <rect class="k-kasa" x="356" y="196" width="84" height="22" rx="4" />
+            <path class="k-detay" d="M364 203h66M364 208h66M364 213h52" />
+            <path class="k-yesil" d="M372 230l4 5 4-5M396 234l4 5 4-5" />
+
+            <!-- 5 · ısı pompası dış ünite -->
+            <path class="k-yesil" d="M470 406H548" />
+            <rect class="k-pompa-kasa" x="548" y="388" width="86" height="58" rx="3" />
+            <circle class="k-yesil" cx="582" cy="414" r="17" />
+            <path class="k-yesil" d="M582 414v-17M582 414l15 9M582 414l-15 9" />
+            <path class="k-detay" d="M610 402h16M610 410h16M610 418h16" />
+
+            <!-- 6 · yangın algılama -->
+            <path class="k-detay" d="M240 168v4" />
+            <circle class="k-kasa" cx="240" cy="183" r="11" />
+            <circle class="k-yesil-dolu" cx="240" cy="183" r="3.4" />
+            <path class="k-yesil-koyu" d="M223 197a24 24 0 0 0 34 0" opacity="0.5" />
+
+            <!-- işaret noktaları -->
+            <g class="hs hs-1"><circle class="hs-dot" cx="66" cy="468" r="15" /><text class="hs-no" x="66" y="473">1</text></g>
+            <g class="hs hs-2"><circle class="hs-dot" cx="198" cy="330" r="15" /><text class="hs-no" x="198" y="335">2</text></g>
+            <g class="hs hs-3"><circle class="hs-dot" cx="420" cy="406" r="15" /><text class="hs-no" x="420" y="411">3</text></g>
+            <g class="hs hs-4"><circle class="hs-dot" cx="397" cy="188" r="15" /><text class="hs-no" x="397" y="193">4</text></g>
+            <g class="hs hs-5"><circle class="hs-dot" cx="591" cy="374" r="15" /><text class="hs-no" x="591" y="379">5</text></g>
+            <g class="hs hs-6"><circle class="hs-dot" cx="276" cy="183" r="15" /><text class="hs-no" x="276" y="188">6</text></g>
+
+            <!-- pafta amblemi -->
+            <text class="k-amblem" x="672" y="496" text-anchor="end">KESİT — BNS ENERJİ</text>
+          </svg>
+          <figcaption class="kesit-altyazi">Bir konutta BNS'in dokunduğu sistemler — kesit görünümü.</figcaption>
+        </figure>
+      </div>
+
+      <div class="kesit-surec">
+        <p class="kesit-surec-kicker"><span class="kicker-tick" aria-hidden="true"></span>Her sistemde aynı yol</p>
+        <ol class="kesit-surec-akis">
+          {surec.map((s) => (
+            <li class="kesit-adim">
+              <span class="kesit-adim-no">{s.no}</span>
+              <h3 class="kesit-adim-baslik">{s.baslik}</h3>
+              <p class="kesit-adim-metin">{s.metin}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 03 · BOSCH ─── -->
+  <section class="bolum bolum-beyaz">
+    <div class="container bosch-split">
+      <div class="bosch-metin">
+        <p class="bolum-kicker"><span class="kicker-tick" aria-hidden="true"></span>Bosch Partner</p>
+        <h2 class="bolum-title">Bosch klima ve kombi sistemleri</h2>
+        <p class="bolum-aciklama">
+          Bosch Partner Program üyesi olarak Climate serisi klima ve yoğuşmalı
+          kombide orijinal ürün sunuyoruz.
+        </p>
+        <a class="bolum-link" href="/urunler/">Tüm ürünleri gör →</a>
+      </div>
+      <div class="bosch-urunler">
+        {bosch.map((b) => (
+          <article class="bosch-urun">
+            <div class="bosch-urun-foto">
+              <img src={b.gorsel} alt={b.baslik} loading="lazy" decoding="async" />
+            </div>
+            <div class="bosch-urun-govde">
+              <h3 class="kart-baslik">{b.baslik}</h3>
+              <p class="kart-metin">{b.metin}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 04 · REFERANSLAR ─── -->
+  <section class="bolum bolum-soft">
+    <div class="container">
+      <header class="bolum-head bolum-head-split">
+        <div>
+          <p class="bolum-kicker"><span class="kicker-tick" aria-hidden="true"></span>Referanslarımız</p>
+          <h2 class="bolum-title">Polatlı'nın kurumlarına hizmet verdik</h2>
+        </div>
+        <a class="bolum-link" href="/referanslar/">Tüm referanslar →</a>
+      </header>
+      <div class="kart-grid g-4">
+        {referanslar.map((r) => (
+          <article class="kart kart-gorselli">
+            {r.vurgu ? (
+              <div class="kart-sayi" aria-hidden="true">
+                <span class="kart-sayi-num">{r.vurgu}</span>
+                <span class="kart-sayi-etiket">ünite kurulum</span>
+              </div>
+            ) : (
+              <div class="kart-ikon-blok" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" set:html={r.icon} />
+              </div>
+            )}
+            <div class="kart-govde">
+              <h3 class="kart-baslik kart-baslik-sm">{r.ad}</h3>
+              <p class="kart-etiket">{r.is}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 05 · YETKİ & GÜVEN ─── -->
+  <section class="bolum bolum-beyaz">
+    <div class="container yetki-split">
+      <div class="yetki-metin">
+        <p class="bolum-kicker"><span class="kicker-tick" aria-hidden="true"></span>Yetki &amp; Güven</p>
+        <h2 class="bolum-title">Yetkili ve güvenilir iş ortağınız</h2>
+        <p class="bolum-aciklama">
+          Polatlı Belediyesi, Ticaret Odası ve Şehir Stadı dahil
+          <strong>14 kurumsal projede</strong> imzamız var.
+        </p>
+        <a class="bolum-link" href="/referanslar/">Referansları gör →</a>
+      </div>
+      <div class="yetki-kartlar">
+        {yetkiler.map((y) => (
+          <article class="kart">
+            <span class="kart-ikon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="26" height="26" set:html={y.icon} />
+            </span>
+            <h3 class="kart-baslik">{y.baslik}</h3>
+            <p class="kart-metin">{y.metin}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 06 · SIK SORULAN SORULAR ─── -->
+  <section class="bolum bolum-soft">
+    <div class="container">
+      <header class="bolum-head">
+        <p class="bolum-kicker"><span class="kicker-tick" aria-hidden="true"></span>Sık Sorulan Sorular</p>
+        <h2 class="bolum-title">Aklınızdaki sorular</h2>
+      </header>
+      <div class="sss-list">
+        {sss.map((q) => (
+          <details class="sss-item">
+            <summary>{q.s}</summary>
+            <p>{q.c}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── KAPANIŞ / İLETİŞİM ─── -->
+  <section class="kapanis">
+    <div class="container kapanis-grid">
+      <div class="kapanis-metin">
+        <p class="bolum-kicker kapanis-kicker"><span class="kicker-tick" aria-hidden="true"></span>İletişim</p>
+        <h2 class="kapanis-baslik">Polatlı'da güvenilir enerji çözümü bir telefon kadar yakın</h2>
+        <p class="kapanis-adres">
+          Fatih Mah. Bıyıktay Cd. 37/A, Polatlı / Ankara · Pzt–Cmt 08:00–20:00
+        </p>
+      </div>
+      <div class="kapanis-cta">
+        <a class="btn btn-light" href="tel:+905324993986">0 532 499 39 86</a>
+        <a class="btn btn-wa" href="https://wa.me/905324993986?text=Merhaba%20BNS%20Enerji%2C%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">WhatsApp'tan yazın</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style is:global>
+  /* ═══ HERO — split editorial ═══ */
+  .hero {
+    background: var(--color-bg-soft);
+    padding-block: 0;
+  }
+  .hero-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.06fr 0.94fr;
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+    padding-block: clamp(3.5rem, 7vw, 6rem);
+  }
+
+  .hero-vlabel {
+    position: absolute;
+    left: -2.1rem;
+    top: 50%;
+    transform: rotate(180deg) translateX(50%);
+    transform-origin: center;
+    writing-mode: vertical-rl;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: var(--weight-medium);
+    letter-spacing: 0.3em;
+    color: var(--color-text-muted);
+    opacity: 0.6;
+  }
+
+  .hero-kicker {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-6);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--color-primary-deep);
+  }
+  .hero-tick {
+    width: 1.9rem;
+    height: 2px;
+    background: var(--color-primary);
+    flex-shrink: 0;
+  }
+
+  .hero-title {
+    font-size: clamp(2.6rem, 5.2vw, 4.6rem);
+    font-weight: var(--weight-extrabold);
+    line-height: 1.04;
+    letter-spacing: var(--tracking-display);
+    color: var(--color-text);
+  }
+  .hero-accent {
+    display: block;
+    color: var(--color-primary-deep);
+  }
+
+  .hero-lede {
+    margin-top: var(--space-6);
+    max-width: 32rem;
+    font-size: var(--text-lg);
+    line-height: var(--leading-body);
+    color: var(--color-text-muted);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-top: var(--space-8);
+  }
+  .hero-tel {
+    gap: var(--space-2);
+    background: transparent;
+    color: var(--color-text);
+    border: 1.5px solid var(--color-border-strong);
+  }
+  .hero-tel:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary-deep);
+  }
+  .hero-tel svg { flex-shrink: 0; }
+
+  /* ── hero görsel ── */
+  .hero-media {
+    position: relative;
+    margin: 0;
+  }
+  .hero-media picture { display: block; }
+  .hero-media img {
+    display: block;
+    width: 100%;
+    height: clamp(420px, 56vw, 600px);
+    object-fit: cover;
+    object-position: center 40%;
+    position: relative;
+    z-index: 1;
+    border-radius: var(--radius-sm);
+  }
+  .hero-frame {
+    position: absolute;
+    inset: 1.4rem -1.4rem -1.4rem 1.4rem;
+    border: 1.5px solid var(--color-primary);
+    border-radius: var(--radius-sm);
+    z-index: 0;
+  }
+  .hero-namecard {
+    position: absolute;
+    left: -1.4rem;
+    bottom: 2.2rem;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    background: var(--color-bg-dark);
+    color: #ffffff;
+    padding: var(--space-4) var(--space-5);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-lg);
+  }
+  .hero-namecard-bar {
+    width: 3px;
+    height: 2.6rem;
+    background: var(--color-primary);
+    flex-shrink: 0;
+  }
+  .hero-namecard-text { display: flex; flex-direction: column; line-height: 1.3; }
+  .hero-namecard-text strong { font-size: var(--text-base); font-weight: var(--weight-bold); }
+  .hero-namecard-text em {
+    font-style: normal;
+    font-size: var(--text-xs);
+    color: rgba(255, 255, 255, 0.66);
+    margin-top: 2px;
+  }
+
+  /* ── hero giriş animasyonu — saf CSS, JS yok; reduced-motion'da iptal ── */
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-kicker,
+    .hero-title,
+    .hero-lede,
+    .hero-actions,
+    .hero-media {
+      animation: hero-rise 0.7s var(--ease-out) both;
+    }
+    .hero-kicker { animation-delay: 0.05s; }
+    .hero-title { animation-delay: 0.13s; }
+    .hero-media { animation-delay: 0.18s; }
+    .hero-lede { animation-delay: 0.24s; }
+    .hero-actions { animation-delay: 0.32s; }
+  }
+  @keyframes hero-rise {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ═══ İSTATİSTİK ŞERİDİ ═══ */
+  .stat-serit {
+    background: var(--color-bg);
+    border-top: 1px solid var(--color-border);
+    padding-block: 0;
+  }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, auto) 1fr;
+    align-items: center;
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+    padding-block: clamp(2.5rem, 4vw, 3.5rem);
+  }
+  .stat { display: flex; flex-direction: column; gap: var(--space-2); }
+  .stat-num {
+    font-size: clamp(2.6rem, 4.5vw, 3.8rem);
+    font-weight: var(--weight-extrabold);
+    line-height: 0.95;
+    letter-spacing: var(--tracking-tighter);
+    color: var(--color-text);
+  }
+  .stat-accent .stat-num { color: var(--color-primary); }
+  .stat-label {
+    font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    max-width: 14ch;
+  }
+  .stat-not {
+    padding-left: clamp(1.5rem, 3vw, 3rem);
+    border-left: 1px solid var(--color-border);
+    font-size: var(--text-sm);
+    line-height: var(--leading-body);
+    color: var(--color-text-muted);
+    max-width: 30ch;
+  }
+
+  /* ── hero + stat responsive ── */
+  @media (max-width: 920px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .hero-vlabel { display: none; }
+    .stat-grid { grid-template-columns: repeat(3, 1fr); }
+    .stat-not {
+      grid-column: 1 / -1;
+      padding-left: 0;
+      border-left: none;
+      border-top: 1px solid var(--color-border);
+      padding-top: var(--space-5);
+      max-width: none;
+    }
+  }
+  @media (max-width: 560px) {
+    .hero-namecard { left: 0; }
+    .hero-frame { inset: 1rem -1rem -1rem 1rem; }
+    .stat-grid { grid-template-columns: 1fr 1fr; }
+    .hero-actions .btn { flex: 1 1 auto; }
+  }
+
+  /* ═══ EDITORIAL BÖLÜM SİSTEMİ — tüm gövde aynı dil ═══ */
+  .bolum-beyaz { background: var(--color-bg); }
+  .bolum-soft { background: var(--color-bg-soft); }
+
+  .bolum-head { margin-bottom: var(--space-12); }
+  .bolum-kicker {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--color-primary-deep);
+  }
+  .kicker-tick {
+    width: 1.9rem;
+    height: 2px;
+    background: var(--color-primary);
+    flex-shrink: 0;
+  }
+  .bolum-title {
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-extrabold);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-display);
+    color: var(--color-text);
+    max-width: 20ch;
+  }
+  .bolum-head-split {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: var(--space-10);
+    flex-wrap: wrap;
+  }
+  .bolum-aciklama {
+    max-width: 34ch;
+    font-size: var(--text-base);
+    line-height: var(--leading-body);
+    color: var(--color-text-muted);
+  }
+  .bolum-aciklama strong { color: var(--color-text); font-weight: var(--weight-semibold); }
+  .bolum-link {
+    display: inline-flex;
+    align-items: center;
+    margin-top: var(--space-6);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    letter-spacing: -0.005em;
+    color: var(--color-primary-deep);
+    border-bottom: 1.5px solid var(--color-primary);
+    padding-bottom: 2px;
+  }
+  .bolum-link:hover { color: var(--color-primary); }
+  .bolum-head-split .bolum-link { margin-top: 0; }
+
+  /* ═══ KART IZGARASI — global.css .kart sistemini kullanır ═══ */
+  .kart-grid {
+    display: grid;
+    gap: var(--space-6);
+    margin-top: 0;
+  }
+  .g-2 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+  .g-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .g-4 { grid-template-columns: repeat(auto-fit, minmax(244px, 1fr)); }
+
+  /* hizmet kartı editorial üst sıra: ikon + sıra numarası */
+  .kart-ust {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-5);
+  }
+  .kart-ust .kart-ikon { margin-bottom: 0; }
+  .kart-sira {
+    font-family: var(--font-mono);
+    font-size: var(--text-xl);
+    font-weight: var(--weight-bold);
+    color: var(--color-border-strong);
+    letter-spacing: var(--tracking-tight);
+  }
+
+  /* referans sayı kartı — fotoğraf yerine vurgu rakamı */
+  .kart-sayi {
+    aspect-ratio: 16 / 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-1);
+    background:
+      radial-gradient(circle at 70% 20%, var(--color-primary-hover), transparent 60%),
+      var(--color-primary);
+  }
+  .kart-sayi-num {
+    font-size: clamp(3rem, 6vw, 4.4rem);
+    font-weight: var(--weight-extrabold);
+    line-height: 1;
+    letter-spacing: var(--tracking-tighter);
+    color: #ffffff;
+  }
+  .kart-sayi-etiket {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  /* referans ikon kartı — fotoğraf yerine yeşil + proje ikonu */
+  .kart-ikon-blok {
+    aspect-ratio: 16 / 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+      radial-gradient(circle at 70% 20%, var(--color-primary-hover), transparent 60%),
+      var(--color-primary);
+  }
+  .kart-ikon-blok svg {
+    width: 58px;
+    height: 58px;
+    color: #ffffff;
+  }
+
+  /* ═══ KESİT — "Görünür Tesisat" ev kesiti konsepti ═══ */
+  .kesit-intro {
+    margin-top: var(--space-5);
+    max-width: 54ch;
+    font-size: var(--text-base);
+    line-height: var(--leading-body);
+    color: var(--color-text-muted);
+  }
+  .kesit-sahne {
+    display: grid;
+    grid-template-columns: 0.82fr 1.18fr;
+    gap: clamp(2rem, 4vw, 3.5rem);
+    align-items: center;
+  }
+
+  /* sol — işaret noktası listesi (hizmet sayfalarına link) */
+  .kesit-liste {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .kesit-madde {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-5);
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-border-strong);
+    border-radius: var(--radius-sm);
+    transition:
+      border-color var(--duration-base) var(--ease-bns),
+      box-shadow var(--duration-base) var(--ease-bns),
+      transform var(--duration-base) var(--ease-bns);
+  }
+  .kesit-madde:hover,
+  .kesit-madde:focus-visible {
+    border-left-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+    transform: translateX(4px);
+  }
+  .kesit-madde-no {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    color: var(--color-primary);
+    padding-top: 2px;
+    flex-shrink: 0;
+  }
+  .kesit-madde-govde {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1;
+  }
+  .kesit-madde-ad {
+    font-size: var(--text-base);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text);
+  }
+  .kesit-madde-metin {
+    font-size: var(--text-sm);
+    line-height: var(--leading-snug);
+    color: var(--color-text-muted);
+  }
+  .kesit-madde-ok {
+    color: var(--color-primary);
+    font-weight: var(--weight-bold);
+    opacity: 0;
+    transform: translateX(-4px);
+    transition:
+      opacity var(--duration-base) var(--ease-bns),
+      transform var(--duration-base) var(--ease-bns);
+    flex-shrink: 0;
+  }
+  .kesit-madde:hover .kesit-madde-ok,
+  .kesit-madde:focus-visible .kesit-madde-ok {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* sağ — teknik pafta yaprağı */
+  .kesit-cizim {
+    margin: 0;
+    min-width: 0;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: clamp(1rem, 2.5vw, 2rem);
+    box-shadow: var(--shadow-lg);
+  }
+  .kesit-svg {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    overflow: visible;
+  }
+  .kesit-altyazi {
+    margin-top: var(--space-4);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--color-border);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.02em;
+    color: var(--color-text-muted);
+  }
+
+  /* SVG katman renkleri — çelik gri yapı + yeşil sistem + bakır gaz hattı */
+  .k-yapi { fill: #ebebeb; stroke: #1f1f1f; stroke-width: 1.7; stroke-linejoin: round; }
+  .k-oda { fill: #ffffff; }
+  .k-cizgi-ince { fill: none; stroke: #1f1f1f; stroke-width: 1.2; opacity: 0.45; }
+  .k-pencere { fill: #faf1df; stroke: #1f1f1f; stroke-width: 1.5; }
+  .k-bolme { fill: none; stroke: #1f1f1f; stroke-width: 1; opacity: 0.5; }
+  .k-kapi { fill: #e0e0e0; stroke: #1f1f1f; stroke-width: 1.5; }
+  .k-zemin { fill: none; stroke: #1f1f1f; stroke-width: 2; stroke-linecap: round; }
+  .k-toprak { fill: none; stroke: #bdbdbd; stroke-width: 1.6; stroke-linecap: round; }
+  .k-gaz { fill: none; stroke: #cf9528; stroke-width: 3.6; stroke-linecap: round; stroke-linejoin: round; }
+  .k-gaz-akis { fill: none; stroke: #f4d28c; stroke-width: 3.6; stroke-linecap: round; stroke-dasharray: 1.5 27; }
+  .k-kasa { fill: #ffffff; stroke: #5b8e2d; stroke-width: 2.3; stroke-linejoin: round; }
+  .k-pompa-kasa { fill: #ffffff; stroke: #1f1f1f; stroke-width: 2.1; stroke-linejoin: round; }
+  .k-yesil { fill: none; stroke: #7fc241; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+  .k-yesil-koyu { fill: none; stroke: #5b8e2d; stroke-width: 2; stroke-linecap: round; }
+  .k-yesil-dolu { fill: #7fc241; stroke: none; }
+  .k-detay { fill: none; stroke: #5b8e2d; stroke-width: 1.5; stroke-linecap: round; }
+  .k-amblem {
+    fill: #a6a6a6;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+  }
+
+  /* işaret noktaları */
+  .hs {
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: transform var(--duration-base) var(--ease-bounce);
+  }
+  .hs-dot { fill: var(--color-primary); stroke: #ffffff; stroke-width: 3; }
+  .hs-no {
+    fill: #ffffff;
+    font-family: var(--font-mono);
+    font-size: 15px;
+    font-weight: 600;
+    text-anchor: middle;
+  }
+
+  /* liste ↔ çizim çapraz vurgu — ilerlemeli zenginleştirme */
+  .kesit-liste:has(li:nth-child(1) .kesit-madde:is(:hover, :focus-visible)) ~ .kesit-cizim .hs-1,
+  .kesit-liste:has(li:nth-child(2) .kesit-madde:is(:hover, :focus-visible)) ~ .kesit-cizim .hs-2,
+  .kesit-liste:has(li:nth-child(3) .kesit-madde:is(:hover, :focus-visible)) ~ .kesit-cizim .hs-3,
+  .kesit-liste:has(li:nth-child(4) .kesit-madde:is(:hover, :focus-visible)) ~ .kesit-cizim .hs-4,
+  .kesit-liste:has(li:nth-child(5) .kesit-madde:is(:hover, :focus-visible)) ~ .kesit-cizim .hs-5,
+  .kesit-liste:has(li:nth-child(6) .kesit-madde:is(:hover, :focus-visible)) ~ .kesit-cizim .hs-6 {
+    transform: scale(1.32);
+  }
+
+  /* gaz akış animasyonu — "motion as storytelling", reduced-motion'da durur */
+  @media (prefers-reduced-motion: no-preference) {
+    .k-gaz-akis { animation: k-gaz-ak 1.7s linear infinite; }
+  }
+  @keyframes k-gaz-ak { to { stroke-dashoffset: -28.5; } }
+
+  /* süreç şeridi — akış hattı motifi YOK, sade numaralı */
+  .kesit-surec {
+    margin-top: clamp(3rem, 6vw, 5rem);
+    padding-top: var(--space-12);
+    border-top: 1px solid var(--color-border);
+  }
+  .kesit-surec-kicker {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-8);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--color-primary-deep);
+  }
+  .kesit-surec-akis {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-8);
+  }
+  .kesit-adim {
+    position: relative;
+    padding-top: var(--space-5);
+  }
+  .kesit-adim::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 28px;
+    height: 3px;
+    background: var(--color-primary);
+  }
+  .kesit-adim-no {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-lg);
+    font-weight: var(--weight-bold);
+    color: var(--color-primary);
+    margin-bottom: var(--space-2);
+  }
+  .kesit-adim-baslik {
+    font-size: var(--text-base);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text);
+    margin-bottom: var(--space-1);
+  }
+  .kesit-adim-metin {
+    font-size: var(--text-sm);
+    line-height: var(--leading-body);
+    color: var(--color-text-body);
+  }
+
+  /* ═══ BOSCH — split: sol metin / sağ ürünler ═══ */
+  .bosch-split {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+  .bosch-urunler {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+  .bosch-urun {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    transition:
+      border-color var(--duration-base) var(--ease-bns),
+      box-shadow var(--duration-base) var(--ease-bns);
+  }
+  .bosch-urun:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+  }
+  .bosch-urun-foto {
+    flex-shrink: 0;
+    width: 132px;
+    height: 132px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg-soft);
+    border-radius: var(--radius-md);
+    padding: var(--space-3);
+  }
+  .bosch-urun-foto img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  /* ═══ YETKİ — split: sol metin / sağ kartlar ═══ */
+  .yetki-split {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+  .yetki-kartlar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-5);
+  }
+
+  /* ═══ SSS — sola yaslı akordeon ═══ */
+  .sss-list {
+    max-width: 760px;
+    margin-top: var(--space-12);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .sss-item {
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-5) var(--space-6);
+  }
+  .sss-item summary {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text);
+    cursor: pointer;
+    list-style: none;
+  }
+  .sss-item summary::-webkit-details-marker { display: none; }
+  .sss-item summary::after {
+    content: "+";
+    color: var(--color-primary);
+    font-size: 1.4em;
+    line-height: 1;
+  }
+  .sss-item[open] summary::after { content: "−"; }
+  .sss-item p {
+    margin-top: var(--space-4);
+    font-size: var(--text-sm);
+    line-height: var(--leading-body);
+    color: var(--color-text-body);
+  }
+
+  /* ═══ KAPANIŞ — editorial split ═══ */
+  .kapanis { background: var(--color-primary-deep); }
+  .kapanis-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: clamp(2rem, 5vw, 4rem);
+    flex-wrap: wrap;
+  }
+  .kapanis-kicker { color: var(--color-primary-soft); }
+  .kapanis-kicker .kicker-tick { background: rgba(255, 255, 255, 0.5); }
+  .kapanis-baslik {
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-extrabold);
+    letter-spacing: var(--tracking-display);
+    line-height: var(--leading-tight);
+    color: #ffffff;
+    max-width: 22ch;
+  }
+  .kapanis-adres {
+    margin-top: var(--space-4);
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.72);
+  }
+  .kapanis-cta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    flex-shrink: 0;
+  }
+  .btn-light { background: #ffffff; color: var(--color-primary-deep); }
+  .btn-light:hover { background: var(--color-primary-soft); }
+  .btn-wa { background: #25d366; color: #ffffff; }
+  .btn-wa:hover { background: #1da851; }
+
+  /* ═══ GÖVDE RESPONSIVE ═══ */
+  @media (max-width: 860px) {
+    .bolum-head { margin-bottom: var(--space-10); }
+    .bolum-head-split { gap: var(--space-6); }
+    .kesit-sahne {
+      grid-template-columns: 1fr;
+      gap: var(--space-10);
+    }
+    .kesit-cizim { order: -1; }
+    .kesit-surec-akis {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-10) var(--space-8);
+    }
+    .bosch-split,
+    .yetki-split { grid-template-columns: 1fr; }
+    .kapanis-grid { gap: var(--space-8); }
+  }
+  @media (max-width: 560px) {
+    .kesit-surec-akis { grid-template-columns: 1fr; }
+    .yetki-kartlar { grid-template-columns: 1fr; }
+    .bosch-urun { flex-direction: column; align-items: flex-start; }
+    .bosch-urun-foto { width: 100%; height: 168px; }
+    .kapanis-cta { width: 100%; }
+    .kapanis-cta .btn { width: 100%; justify-content: center; }
+  }
+</style>

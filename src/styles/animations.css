@@ -1,0 +1,115 @@
+/* ─────────────────────────────────────────────
+   _shared/styles/animations.css
+   Keyframe library — modern entrance, hover, scroll patterns
+   Tüm motion prefers-reduced-motion ile devre dışı kalır (tokens.css)
+   ───────────────────────────────────────────── */
+
+/* ── ENTRANCE (fade + slide variants) ── */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-down {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-left {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fade-right {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ── ATTENTION (loop) ── */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklch, var(--color-primary), transparent 70%); }
+  50% { box-shadow: 0 0 0 12px color-mix(in oklch, var(--color-primary), transparent 100%); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ── LOAD (skeleton) ── */
+@keyframes skeleton-wave {
+  0% { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
+}
+
+/* ── HOVER prep (transform origin) ── */
+@keyframes scale-hover {
+  from { transform: scale(1); }
+  to { transform: scale(1.03); }
+}
+
+/* ── TEXT (split letter/word reveal) ── */
+@keyframes letter-rise {
+  from { opacity: 0; transform: translateY(0.5em); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── 3D ── */
+@keyframes spin-slow {
+  from { transform: rotate(0); }
+  to { transform: rotate(360deg); }
+}
+
+/* ── UTILITY classes (kullanım) ── */
+.anim-fade-in    { animation: fade-in var(--duration-slower) var(--ease-out) both; }
+.anim-fade-up    { animation: fade-up var(--duration-slower) var(--ease-out) both; }
+.anim-fade-down  { animation: fade-down var(--duration-slower) var(--ease-out) both; }
+.anim-fade-left  { animation: fade-left var(--duration-slower) var(--ease-out) both; }
+.anim-fade-right { animation: fade-right var(--duration-slower) var(--ease-out) both; }
+.anim-scale-in   { animation: scale-in var(--duration-slow) var(--ease-out) both; }
+.anim-pulse      { animation: pulse 2s var(--ease-in-out) infinite; }
+.anim-float      { animation: float 4s var(--ease-in-out) infinite; }
+.anim-shimmer    {
+  background: linear-gradient(90deg, transparent, oklch(100% 0 0 / 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s linear infinite;
+}
+
+/* ── Scroll-driven (CSS native, modern!) ── */
+@supports (animation-timeline: scroll()) {
+  .scroll-fade-in {
+    animation: fade-up linear;
+    animation-timeline: view();
+    animation-range: entry 20% cover 50%;
+  }
+  .scroll-parallax {
+    animation: float linear;
+    animation-timeline: view();
+    animation-range: entry cover;
+  }
+}
+
+/* ── Stagger helper (data-stagger attribute) ── */
+[data-stagger] > * {
+  animation: fade-up var(--duration-slower) var(--ease-out) both;
+}
+[data-stagger] > *:nth-child(1) { animation-delay: 0ms; }
+[data-stagger] > *:nth-child(2) { animation-delay: 80ms; }
+[data-stagger] > *:nth-child(3) { animation-delay: 160ms; }
+[data-stagger] > *:nth-child(4) { animation-delay: 240ms; }
+[data-stagger] > *:nth-child(5) { animation-delay: 320ms; }
+[data-stagger] > *:nth-child(6) { animation-delay: 400ms; }
+[data-stagger] > *:nth-child(7) { animation-delay: 480ms; }
+[data-stagger] > *:nth-child(8) { animation-delay: 560ms; }

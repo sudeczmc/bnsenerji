@@ -1,0 +1,80 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Hakkımızda — Polatlı'nın Enerji ve Tesisat Firması | BNS"
+  description="BNS Enerji, Polatlı'da doğalgaz, yangın tesisatı, ısı pompası, klima ve kombi sistemleri alanında güvenli, ekonomik ve çevre dostu çözümler sunar."
+>
+  <section class="bolum bolum-beyaz">
+    <div class="container">
+      <header class="section-head">
+        <p class="eyebrow">Hakkımızda</p>
+        <h1 class="page-title">Enerjiyi güvenle taşıyoruz</h1>
+        <p class="page-intro">
+          BNS Enerji olarak doğalgaz, yangın tesisatı, ısı pompası, klima ve
+          kombi sistemlerinde profesyonel çözümler sunuyoruz.
+        </p>
+      </header>
+
+      <div class="metin-blok">
+        <p>
+          Amacımız; bireysel ve kurumsal müşterilerimize
+          <strong>güvenli, ekonomik ve çevre dostu enerji çözümleri</strong>
+          sağlayarak yaşam alanlarını konforlu hale getirmektir. Kurulduğumuz
+          günden bu yana <strong>teknik bilgi, kalite ve müşteri
+          memnuniyetini</strong> ön planda tutarak sektörün güvenilir
+          firmalarından biri olmayı başardık.
+        </p>
+        <p>
+          Alanında <strong>deneyimli ekibimiz</strong>, her projede ulusal
+          standartlara uygun, uzun ömürlü sistemler kurar.
+        </p>
+      </div>
+
+      <div class="kart-grid g-2">
+        <article class="kart">
+          <span class="kart-etiket">Misyonumuz</span>
+          <p class="kart-metin">
+            Her müşterimize enerji verimliliğini artıran, çevreye duyarlı ve
+            ekonomik çözümler sunmak; güvenli tesisatlar, kaliteli malzeme ve
+            satış sonrası destekle tam müşteri memnuniyeti sağlamak.
+          </p>
+        </article>
+        <article class="kart">
+          <span class="kart-etiket">Vizyonumuz</span>
+          <p class="kart-metin">
+            Polatlı ve çevresinde doğalgaz ve tesisat alanında ilk akla gelen,
+            güvenilir firma olmak; sürdürülebilir çözümleri yaygınlaştırmak.
+          </p>
+        </article>
+      </div>
+
+      <div class="bolum-cta cta-ikili">
+        <a class="btn btn-fill" href="/iletisim/">İletişim</a>
+        <a class="btn btn-soft" href="/referanslar/">Referanslar</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style is:global>
+  .metin-blok {
+    max-width: 760px;
+    margin-top: var(--space-12);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+  .metin-blok p {
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-body);
+  }
+  .metin-blok strong { color: var(--color-text); font-weight: var(--weight-semibold); }
+  .cta-ikili {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+</style>

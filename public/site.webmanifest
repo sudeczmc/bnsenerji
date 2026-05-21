@@ -1,0 +1,61 @@
+{
+  "name": "BNS Enerji & Doğalgaz",
+  "short_name": "BNS Enerji",
+  "description": "Polatlı / Ankara merkezli doğalgaz tesisatı, ısı pompası, klima ve yangın söndürme sistemleri. Bosch yetkili satış noktası.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#FFFFFF",
+  "theme_color": "#5B8E2D",
+  "lang": "tr",
+  "dir": "ltr",
+  "categories": ["business", "services", "utilities"],
+  "icons": [
+    {
+      "src": "/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Teklif Al",
+      "short_name": "Teklif",
+      "description": "Hızlı teklif formu",
+      "url": "/teklif-al",
+      "icons": [{ "src": "/favicon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Hizmetler",
+      "short_name": "Hizmetler",
+      "description": "Doğalgaz, ısı pompası, yangın, klima",
+      "url": "/hizmetler",
+      "icons": [{ "src": "/favicon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Bosch Klima",
+      "short_name": "Klima",
+      "description": "Bosch Climate 2000 — stoktan teslim",
+      "url": "/urunler/bosch-klima",
+      "icons": [{ "src": "/favicon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const gorseller = [
+  "/images/wp/image4.jpeg",
+  "/images/wp/image3.jpeg",
+  "/images/wp/image0-3.jpeg",
+  "/images/wp/image1.jpeg",
+];
+---
+
+<Layout
+  title="Polatlı Ticaret Odası OSB — Isı Pompası Montajı | BNS Enerji"
+  description="Polatlı Ticaret Odası OSB ısı pompası montajı ve devreye alma işlemleri BNS Enerji ekipleri tarafından eksiksiz tamamlanmıştır."
+  breadcrumbs={[
+    { name: "Anasayfa", href: "/" },
+    { name: "Referanslar", href: "/referanslar/" },
+    { name: "Polatlı Ticaret Odası OSB", href: "/osb-referans-gorsel/" },
+  ]}
+>
+  <section class="bolum bolum-beyaz">
+    <div class="container">
+      <header class="section-head">
+        <p class="eyebrow">Referans Projesi</p>
+        <h1 class="page-title">Polatlı Ticaret Odası OSB — Isı Pompası Montajı</h1>
+        <p class="page-intro">
+          Isı pompası montajı ve devreye alma işlemleri profesyonel
+          ekiplerimiz tarafından eksiksiz tamamlanmış, yüksek verimli ısıtma
+          çözümü kullanıma hazır hale getirilmiştir.
+        </p>
+      </header>
+
+      <div class="kart-grid g-4">
+        {gorseller.map((g) => (
+          <figure class="kart kart-gorselli">
+            <div class="kart-foto kart-foto-portre">
+              <img src={g} alt="Polatlı Ticaret Odası OSB ısı pompası montajı" loading="lazy" decoding="async" />
+            </div>
+          </figure>
+        ))}
+      </div>
+
+      <div class="bolum-cta">
+        <a class="btn btn-soft" href="/referanslar/">← Tüm Referanslar</a>
+      </div>
+    </div>
+  </section>
+</Layout>

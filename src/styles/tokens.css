@@ -1,0 +1,181 @@
+/* ─────────────────────────────────────────────
+   bns-site/src/styles/tokens.css
+   BNS Enerji & Doğalgaz — "Görünür Tesisat" brand override
+   Yeşil #7FC241 + çelik gri + sıcak bakır aksan
+   ───────────────────────────────────────────── */
+
+:root {
+  /* ── COLOR — BNS canlı sitenin tam paleti (#7FC241 + beyaz + siyah, pure) ── */
+
+  /* Primary — BNS yeşil #7FC241 brand sabit */
+  --color-primary: #7FC241;
+  --color-primary-hover: #71AD3A;
+  --color-primary-deep: #5B8E2D;
+  --color-primary-soft: #DCEFC8;
+  --color-primary-bg: #F2F9EA;                          /* en açık tint, section bg için */
+
+  /* Yardımcı yeşil tonları (sadece dekoratif) */
+  --color-primary-50: #F2F9EA;
+  --color-primary-100: #DCEFC8;
+  --color-primary-500: #7FC241;
+  --color-primary-700: #5B8E2D;
+  --color-primary-900: #3A5E1E;
+
+  /* Aksan (minimal) — siyah + grayscale */
+  --color-accent: #7FC241;                              /* aksent = primary, ekstra renk yok */
+
+  /* Neutral — PURE beyaz/siyah/gri (BNS canlı DNA) */
+  --color-bg: #FFFFFF;                                  /* beyaz dominant */
+  --color-bg-soft: #F5F5F5;                             /* açık gri section bg (canlı'dan) */
+  --color-bg-mid: #EEEEEE;                              /* orta gri (kontrast) */
+  --color-bg-dark: #1A1A1A;                             /* siyah slab (canlı'dan) */
+  --color-bg-darker: #000000;
+  --color-bg-elevated: #FFFFFF;
+  --color-card-bg: #FFFFFF;
+  --color-text: #1A1A1A;                                /* siyah metin (canlı) */
+  --color-text-body: #333333;
+  --color-text-muted: #757575;
+  --color-border: #E5E5E5;
+  --color-border-strong: #CCCCCC;
+  --color-border-dashed: #B3B3B3;
+  --color-rule: #1A1A1A;
+
+  /* Semantic */
+  --color-success: oklch(68% 0.15 145);
+  --color-warning: oklch(75% 0.16 80);
+  --color-danger: oklch(60% 0.22 25);
+  --color-info: oklch(60% 0.12 230);
+
+  /* ── TYPOGRAPHY — BNS: Poppins tek aile, ağırlık kontrastıyla hiyerarşi ── */
+  --font-display: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;  /* başlıklar — 700/800 */
+  --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;     /* gövde — 400/500 */
+  --font-mono: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;   /* eyebrow / etiket */
+
+  /* Fluid type scale */
+  --text-xs:    clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --text-sm:    clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+  --text-base:  clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-lg:    clamp(1.125rem, 1rem + 0.625vw, 1.375rem);
+  --text-xl:    clamp(1.5rem, 1.25rem + 1.25vw, 2rem);
+  --text-2xl:   clamp(2rem, 1.75rem + 1.25vw, 2.75rem);
+  --text-3xl:   clamp(2.5rem, 2rem + 2.5vw, 4rem);
+  --text-4xl:   clamp(3rem, 2.25rem + 3.75vw, 5.5rem);
+  --text-hero:  clamp(3.25rem, 2.25rem + 5vw, 6.5rem);
+
+  /* Letter spacing */
+  --tracking-tighter: -0.04em;
+  --tracking-tight: -0.025em;
+  --tracking-display: -0.035em;
+  --tracking-body: -0.005em;
+  --tracking-wide: 0.05em;
+  --tracking-eyebrow: 0.18em;            /* BNS: daha geniş eyebrow — teknik tabela hissi */
+  --tracking-mono: 0;
+
+  /* Line height */
+  --leading-display: 0.95;
+  --leading-tight: 1.1;
+  --leading-snug: 1.3;
+  --leading-body: 1.6;
+  --leading-loose: 1.75;
+
+  /* Font weight */
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-extrabold: 800;
+  --weight-black: 900;
+
+  /* ── SPACE (8px base) ── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-7: 1.75rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  --section-y: clamp(4rem, 6vw, 8rem);
+  --section-x: clamp(1.5rem, 4vw, 5rem);
+  --container-max: 1280px;
+
+  /* ── RADIUS — BNS: hafif keskin (mühendislik) ── */
+  --radius-xs: 2px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* ── SHADOW — BNS: yeşil/çelik renk tonlu ── */
+  --shadow-xs: 0 1px 2px oklch(15% 0.015 240 / 0.05);
+  --shadow-sm: 0 2px 4px oklch(15% 0.015 240 / 0.06);
+  --shadow-md: 0 4px 12px oklch(15% 0.015 240 / 0.08);
+  --shadow-lg: 0 12px 32px oklch(15% 0.015 240 / 0.12);
+  --shadow-xl: 0 24px 64px oklch(15% 0.015 240 / 0.16);
+  --shadow-soft: 0 8px 24px -8px color-mix(in oklch, var(--color-primary), transparent 80%);
+  --shadow-glow: 0 0 32px color-mix(in oklch, var(--color-primary), transparent 70%);
+  --shadow-copper: 0 12px 32px -8px color-mix(in oklch, var(--color-accent), transparent 75%);
+
+  /* ── MOTION — BNS brand easing curve (akışkan, mühendislik) ── */
+  --duration-fast: 150ms;
+  --duration-base: 280ms;
+  --duration-slow: 450ms;
+  --duration-slower: 700ms;
+
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-spring: cubic-bezier(0.5, 0, 0.5, 2);
+  --ease-bns: cubic-bezier(0.22, 0.61, 0.36, 1);       /* BNS özel — boru akış metaforu, doğal akış */
+}
+
+/* ── DARK MODE — çelik+yeşil korunur, daha derin ── */
+[data-theme="dark"] {
+  --color-bg: oklch(10% 0.012 240);
+  --color-bg-soft: oklch(14% 0.015 240);
+  --color-bg-elevated: oklch(17% 0.018 240);
+  --color-card-bg: oklch(15% 0.015 240);
+  --color-text: oklch(95% 0.008 240);
+  --color-text-body: oklch(78% 0.012 240);
+  --color-text-muted: oklch(55% 0.012 240);
+  --color-border: oklch(22% 0.015 240);
+  --color-border-strong: oklch(32% 0.018 240);
+
+  --color-primary: oklch(80% 0.16 130);                /* dark mode'da hafif aydınlık */
+  --color-primary-soft: oklch(25% 0.06 130);
+  --color-accent: oklch(72% 0.13 50);
+
+  --shadow-xs: 0 1px 2px oklch(0% 0 0 / 0.3);
+  --shadow-sm: 0 2px 4px oklch(0% 0 0 / 0.4);
+  --shadow-md: 0 4px 12px oklch(0% 0 0 / 0.5);
+  --shadow-lg: 0 12px 32px oklch(0% 0 0 / 0.6);
+  --shadow-xl: 0 24px 64px oklch(0% 0 0 / 0.7);
+  --shadow-glow: 0 0 48px color-mix(in oklch, var(--color-primary), transparent 60%);
+}
+
+/* ── reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+    --duration-slower: 0ms;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --color-text-body: var(--color-text);
+    --color-border: var(--color-text);
+  }
+}
