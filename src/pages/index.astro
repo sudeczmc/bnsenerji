@@ -1013,13 +1013,13 @@ const faqSchema = {
     align-items: center;
   }
   .bosch-urunler {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: var(--space-5);
   }
   .bosch-urun {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: var(--space-5);
     background: var(--color-card-bg);
     border: 1px solid var(--color-border);
@@ -1034,15 +1034,14 @@ const faqSchema = {
     box-shadow: var(--shadow-md);
   }
   .bosch-urun-foto {
-    flex-shrink: 0;
-    width: 132px;
-    height: 132px;
+    width: 100%;
+    height: 168px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: var(--color-bg-soft);
     border-radius: var(--radius-md);
-    padding: var(--space-3);
+    padding: var(--space-4);
   }
   .bosch-urun-foto img {
     max-width: 100%;
@@ -1156,8 +1155,7 @@ const faqSchema = {
   @media (max-width: 560px) {
     .kesit-surec-akis { grid-template-columns: 1fr; }
     .yetki-kartlar { grid-template-columns: 1fr; }
-    .bosch-urun { flex-direction: column; align-items: flex-start; }
-    .bosch-urun-foto { width: 100%; height: 168px; }
+    .bosch-urunler { grid-template-columns: 1fr; }
     .kapanis-cta { width: 100%; }
     .kapanis-cta .btn { width: 100%; justify-content: center; }
   }
