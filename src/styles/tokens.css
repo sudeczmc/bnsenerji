@@ -24,6 +24,10 @@
   /* Aksan (minimal) — siyah + grayscale */
   --color-accent: #7FC241;                              /* aksent = primary, ekstra renk yok */
 
+  /* Sıcak bakır aksan — tesisat malzemesi (bakır boru), çok az kullanılır:
+     eyebrow çizgileri gibi mikro dokunuşlar. Buton/zemin DEĞİL. */
+  --color-copper: #B87333;
+
   /* Neutral — PURE beyaz/siyah/gri (BNS canlı DNA) */
   --color-bg: #FFFFFF;                                  /* beyaz dominant */
   --color-bg-soft: #F5F5F5;                             /* açık gri section bg (canlı'dan) */
