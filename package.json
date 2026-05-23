@@ -10,7 +10,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "indexnow": "node scripts/indexnow.mjs"
+    "indexnow": "node scripts/indexnow.mjs",
+    "exif": "node scripts/exif-tag.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^5.0.5",
@@ -35,6 +36,7 @@
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.2",
     "@tailwindcss/vite": "^4.3.0",
+    "exiftool-vendored": "^35.20.0",
     "sharp": "^0.34.5",
     "tailwindcss": "^4.3.0",
     "wrangler": "^4.92.0"
