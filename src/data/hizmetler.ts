@@ -185,4 +185,85 @@ export const hizmetler: Hizmet[] = [
       { s: "Kazan bakımı ne sıklıkta yapılmalı?", c: "Yılda bir kez baca temizliği, brülör ayarı, emniyet ekipmanı kontrolü ve sistem basınç testi önerilir. Düzenli bakım hem verimi hem güvenliği korur." },
     ],
   },
+  {
+    slug: "kombi",
+    ad: "Kombi Satışı ve Montajı",
+    kisaAd: "Kombi",
+    ozet:
+      "Bosch Condens yoğuşmalı kombi satışı, Bosch yetkili servisi montajı ve doğalgaz tesisat bağlantısı tek elden.",
+    gorsel: "/images/bosch-kombi-hd.webp",
+    tldr:
+      "Polatlı'da Bosch Condens yoğuşmalı kombi BNS Enerji'den satılır, montaj Bosch yetkili servisi tarafından yapılır — tek muhatap BNS, üretici garantisi tam.",
+    giris:
+      "Kombi (combi-boiler), tek bir cihazda hem mahal ısıtması hem sıcak kullanım suyu üreten cihazdır. Yoğuşmalı (condensing) kombi, atık baca gazından su buharını yoğunlaştırarak ek ısı geri kazanır ve klasik kombiye göre belirgin yakıt verimi sağlar. Bosch Condens serisi, Polatlı doğalgaz tesisatına uyumlu, A enerji sınıfı yoğuşmalı sistemdir.",
+    adimlar: [
+      { baslik: "İhtiyaç Hesabı", metin: "Yapının ısı yükü ve kullanım suyu talebi hesaplanır, uygun kapasitede Bosch kombi seçilir." },
+      { baslik: "Tedarik ve Tesisat Uyarlaması", metin: "Bosch Partner Program üyesi olarak orijinal cihaz tedarik edilir; baca ve doğalgaz hattı kontrolden geçirilir." },
+      { baslik: "Montaj", metin: "Cihaz Bosch yetkili servisi tarafından monte edilir, hidrolik ve gaz bağlantıları tamamlanır." },
+      { baslik: "Devreye Alma ve Test", metin: "Sızdırmazlık testi, yanma analizi, ısıtma ve kullanım suyu devresi testleri yapılır." },
+    ],
+    alanlar: ["Konut ve daireler", "Villalar", "Küçük ticari mekânlar"],
+    sss: [
+      { s: "Yoğuşmalı kombi klasik kombiden ne kadar verimli?", c: "Yoğuşmalı kombiler, atık baca gazından geri kazanılan ısı sayesinde klasik kombiye göre belirgin yakıt verimi sağlar (üreticiye ve kullanım profiline bağlı %15-30 aralığı yaygın bir değerdir)." },
+      { s: "Polatlı'da hangi kombi kapasitesi gerekir?", c: "Daire metrekaresi, izolasyon kalitesi, pencere yönü ve daireye ait sıcak su talebine göre değişir. Genel kabul: 100 m²'ye kadar 24 kW, 100-150 m² için 28 kW, üzeri için 30+ kW. Doğru hesap keşifte yapılır." },
+      { s: "Bosch kombi garantisi nasıl işliyor?", c: "Bosch Condens serisinde standart üretici garantisi geçerlidir. BNS Enerji satış, Bosch yetkili servisi montaj — ikisi birlikte garanti sürecini koordine eder." },
+      { s: "Yoğuşmalı kombide baca özel mi olmalı?", c: "Evet. Yoğuşmalı kombi düşük sıcaklıkta atık gaz üretir, klasik baca yerine üreticinin önerdiği yoğuşma-uyumlu (genelde plastik veya alüminyum) baca kiti kullanılır." },
+      { s: "Kondens (yoğuşma suyu) gideri zorunlu mu?", c: "Yoğuşmalı kombi çalışırken hafif asidik nitelikte yoğuşma suyu üretir; bu su nötralizör veya doğrudan gider hattına bağlanır. Drenaj çözümü montaj sırasında planlanır." },
+      { s: "Kombi yıllık bakım gerekli mi?", c: "Evet. Yılda bir kez Bosch yetkili servisi tarafından bakım önerilir: brülör ayarı, baca gazı analizi, emniyet ventili testi, sistem basıncı ve filtre kontrolü." },
+    ],
+  },
+  {
+    slug: "kombi-degisimi",
+    ad: "Kombi Değişimi",
+    kisaAd: "Kombi Değişimi",
+    ozet:
+      "Eski kombilerin Bosch yoğuşmalı kombi ile değişimi — mevcut sistem teşhisi, sökme, baca uyarlaması ve montaj tek elden.",
+    gorsel: "/images/bosch-kombi-hd.webp",
+    tldr:
+      "Eski kombiyi Bosch yoğuşmalı kombi ile değiştirmek yakıt verimini belirgin şekilde artırır. Tüm süreç — teşhis, sökme, baca uyarlaması, montaj, devreye alma — BNS koordinasyonunda yürür.",
+    giris:
+      "Klasik kombiyi yoğuşmalı kombiyle değiştirmek, hem yakıt tasarrufu hem de modern güvenlik standartlarına uyum sağlar. Mevcut tesisatın yoğuşmalı sisteme uygunluğu (baca tipi, kondens drenajı, radyatör hattı, doğalgaz vana ölçüsü) kontrol edilir; gerekli uyarlamalar yapıldıktan sonra yeni cihaz monte edilir.",
+    adimlar: [
+      { baslik: "Mevcut Sistem Teşhisi", metin: "Eski kombinin tipi, kapasitesi, baca durumu ve tesisat altyapısı yerinde incelenir." },
+      { baslik: "Yeni Kombi + Baca Uygunluk Kontrolü", metin: "Bosch Condens serisinden uygun model seçilir; baca, kondens drenajı ve doğalgaz hattı uyumu doğrulanır." },
+      { baslik: "Sökme ve Uyarlama", metin: "Eski kombi güvenli şekilde sökülür, gerekiyorsa baca borusu ve drenaj hattı revize edilir." },
+      { baslik: "Montaj ve Devreye Alma", metin: "Bosch yetkili servisi yeni cihazı monte eder; sızdırmazlık testi, yanma analizi ve test ısıtması yapılır." },
+    ],
+    alanlar: ["Konut ve daireler", "Apartman ve site daireleri", "Küçük ticari mekânlar"],
+    sss: [
+      { s: "Eski kombimi yoğuşmalıyla değiştirmek mantıklı mı?", c: "Klasik kombilerin servis ömrü genellikle 12-15 yıldır. Cihaz 10+ yaşındaysa veya sık arıza veriyorsa yoğuşmalıyla değişim hem verim hem güvenlik açısından mantıklıdır." },
+      { s: "Mevcut bacam yoğuşmalıya uygun mu?", c: "Yoğuşmalı kombi düşük sıcaklıkta atık gaz üretir, klasik baca asitlenebilir. Çoğu durumda üreticinin önerdiği plastik/alüminyum baca kiti ile değişim gerekir; keşif sırasında doğrulanır." },
+      { s: "Kondens (yoğuşma suyu) gideri için ek iş gerekiyor mu?", c: "Yoğuşmalı kombi hafif asidik yoğuşma suyu üretir. Mevcut gider hattına bağlanabilir; bağlanamıyorsa nötralizör veya yeni drenaj hattı planlanır." },
+      { s: "Radyatörlerimi değiştirmem gerekecek mi?", c: "Genelde hayır. Yoğuşmalı kombi düşük sıcaklıkta çalışıp daha verimlidir ama mevcut radyatörlerle de uyumludur. Verim için termostatik radyatör vanası eklemek tavsiye edilir." },
+      { s: "Eski kombimin garantisi yeniyle devrediliyor mu?", c: "Hayır — yeni Bosch kombi kendi üretici garantisiyle gelir. Sürecin tamamı (sökme, kurulum, garanti aktivasyonu) BNS koordinasyonundadır." },
+      { s: "Kombi değişimi ne kadar sürer?", c: "Standart bir daire değişiminde sökme, yeni montaj ve devreye alma genellikle aynı gün tamamlanır. Baca ve drenaj revizyonu gerekirse süre 1 gün uzayabilir." },
+    ],
+  },
+  {
+    slug: "vrf-kurulum",
+    ad: "VRF Sistemi Kurulumu",
+    kisaAd: "VRF Kurulum",
+    ozet:
+      "Çok bölümlü ticari binalarda Bosch Climate 5000 L VRF sistemi tasarımı, kurulumu ve devreye alma — tek dış üniteyle çoklu iç ünite.",
+    gorsel: "/images/bosch-vrf-hd.webp",
+    tldr:
+      "VRF (Variable Refrigerant Flow), tek dış üniteyle 8-64 iç üniteye kadar bağlanan, her zonun bağımsız iklimlendirilebildiği ticari klima sistemidir. Polatlı'da Bosch Climate 5000 L VRF kurulumu BNS Enerji + Bosch yetkili servisi koordinasyonunda.",
+    giris:
+      "Variable Refrigerant Flow (VRF) sistemleri, soğutucu akışkanı değişken debiyle iç ünitelere aktararak her zonun bağımsız sıcaklık kontrolünü sağlar. Tek dış üniteden 8 ila 64 iç üniteye kadar bağlanabilir; ısı geri kazanımı yapan modeller aynı anda bazı zonları soğutup bazılarını ısıtabilir. Çok bölümlü ticari yapılarda klasik split veya merkezi sisteme göre belirgin enerji ve esneklik avantajı sağlar.",
+    adimlar: [
+      { baslik: "Yük Hesabı ve Zon Planı", metin: "Binanın ısı/soğutma yükü hesaplanır, zonlar belirlenir ve uygun kapasiteli dış ünite + iç ünite kombinasyonu projelendirilir." },
+      { baslik: "Boru Altyapısı", metin: "Soğutucu akışkan bakır boru hattı, drenaj ve haberleşme kabloları döşenir; bağlantı standartlarına uygun izolasyon yapılır." },
+      { baslik: "İç ve Dış Ünite Montajı", metin: "Bosch yetkili servisi üniteleri monte eder, hidrolik ve elektrik bağlantıları tamamlanır." },
+      { baslik: "Devreye Alma ve Test", metin: "Sızdırmazlık + vakum işlemi, gaz şarjı, sistem testleri ve zon konfigürasyonu yapılır; kullanıcı eğitimi verilir." },
+    ],
+    alanlar: ["Ofis kompleksleri", "Oteller ve butik konaklama", "Alışveriş merkezleri ve mağazalar", "Restoran ve cafe zincirleri"],
+    sss: [
+      { s: "VRF ile multisplit arasındaki fark nedir?", c: "Multisplit tek dış üniteyle 2-5 iç üniteye kadar destekler ve her zon aynı modda (hep soğutma veya hep ısıtma) çalışır. VRF çok daha fazla iç ünite destekler ve zonlar bağımsız kontrol edilebilir; ısı geri kazanım modelleri farklı zonlarda aynı anda farklı mod çalıştırabilir." },
+      { s: "VRF kapasite hesabı nasıl yapılır?", c: "Toplam iç ünite kapasitesi dış ünitenin nominal kapasitesinin yaklaşık %50-130 aralığında olabilir. Kullanım profili (aynı anda kaç zon aktif), bina yüksekliği ve boru uzunluğu da hesaba katılır." },
+      { s: "VRF Polatlı iklimine uygun mu?", c: "Bosch VRF sistemleri geniş çalışma sıcaklık aralığında verimli çalışır. Modern modeller düşük dış sıcaklıklarda da ısıtma performansını koruyan inverter teknolojisiyle gelir." },
+      { s: "Montajı kim yapıyor?", c: "Satış ve proje koordinasyonu BNS Enerji tarafından, montaj Bosch yetkili servisi tarafından yapılır. Bu yapı üretici garantisinin sürmesi açısından önemlidir." },
+      { s: "VRF bakım sıklığı nedir?", c: "Yılda en az 1 kez profesyonel bakım önerilir: filtre temizliği, soğutucu basınç ölçümü, elektrik bağlantı kontrolü, iç ünite drenaj testi." },
+      { s: "VRF mevcut binaya sonradan kurulabilir mi?", c: "Evet, mevcut binalarda da kurulabilir. Soğutucu boru ve drenaj rotaları için tavan/duvar şaftı planlaması gerekir; bina müsaitse 1-2 hafta içinde devreye alınabilir." },
+    ],
+  },
 ];
