@@ -165,12 +165,19 @@ const faqSchema = {
   <!-- ─── İSTATİSTİK ŞERİDİ ─── -->
   <section class="stat-serit">
     <div class="container stat-grid">
-      {istatistik.map((s, i) => (
-        <div class={`stat ${i === 0 ? "stat-accent" : ""}`}>
-          <span class="stat-num">{s.num}</span>
-          <span class="stat-label">{s.label}</span>
-        </div>
-      ))}
+      {istatistik.map((s, i) => {
+        const sayi = Number(s.num);
+        const sayilabilir = !Number.isNaN(sayi) && sayi < 200;
+        return (
+          <div class={`stat ${i === 0 ? "stat-accent" : ""}`}>
+            <span
+              class={`stat-num ${sayilabilir ? "stat-num-count" : ""}`}
+              style={sayilabilir ? `--target: ${sayi}` : undefined}
+            >{s.num}</span>
+            <span class="stat-label">{s.label}</span>
+          </div>
+        );
+      })}
       <p class="stat-not">{istatistikNot}</p>
     </div>
   </section>
@@ -644,6 +651,39 @@ const faqSchema = {
     max-width: 30ch;
   }
 
+  /* ── scroll-driven counter: viewport'a girince 0'dan hedefe sayar.
+        Chrome 115+, Safari 18+, Firefox 128+ — desteklemeyen tarayıcıda
+        text görünür kalır (graceful fallback). ── */
+  @property --stat-count {
+    syntax: '<integer>';
+    initial-value: 0;
+    inherits: false;
+  }
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      /* compound .stat-num.stat-num-count (0,2,0) → .stat-accent .stat-num override eder */
+      .stat-num.stat-num-count {
+        position: relative;
+        color: transparent;
+      }
+      .stat-num.stat-num-count::after {
+        content: counter(c);
+        counter-reset: c var(--stat-count);
+        position: absolute;
+        inset: 0;
+        color: var(--color-text);
+        animation: stat-countup linear both;
+        animation-timeline: view();
+        animation-range: entry 20% cover 55%;
+      }
+      .stat-accent .stat-num.stat-num-count::after { color: var(--color-primary); }
+    }
+  }
+  @keyframes stat-countup {
+    from { --stat-count: 0; }
+    to { --stat-count: var(--target); }
+  }
+
   /* ── hero + stat responsive ── */
   @media (max-width: 920px) {
     .hero-grid {
@@ -904,9 +944,9 @@ const faqSchema = {
   .k-gaz-akis { fill: none; stroke: #f4d28c; stroke-width: 3.6; stroke-linecap: round; stroke-dasharray: 1.5 27; }
   .k-kasa { fill: #ffffff; stroke: #5b8e2d; stroke-width: 2.3; stroke-linejoin: round; }
   .k-pompa-kasa { fill: #ffffff; stroke: #1f1f1f; stroke-width: 2.1; stroke-linejoin: round; }
-  .k-yesil { fill: none; stroke: #7fc241; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+  .k-yesil { fill: none; stroke: #6B9F35; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
   .k-yesil-koyu { fill: none; stroke: #5b8e2d; stroke-width: 2; stroke-linecap: round; }
-  .k-yesil-dolu { fill: #7fc241; stroke: none; }
+  .k-yesil-dolu { fill: #6B9F35; stroke: none; }
   .k-detay { fill: none; stroke: #5b8e2d; stroke-width: 1.5; stroke-linecap: round; }
   .k-amblem {
     fill: #a6a6a6;
@@ -1100,8 +1140,12 @@ const faqSchema = {
     color: var(--color-text-body);
   }
 
-  /* ═══ KAPANIŞ — editorial split ═══ */
-  .kapanis { background: var(--color-primary-deep); }
+  /* ═══ KAPANIŞ — editorial split, kiremit turuncu (canlı doğalgaz alev tonu) ═══ */
+  .kapanis {
+    --color-primary-deep: #D9682E;
+    --color-primary-soft: #F3D8C7;
+    background: var(--color-primary-deep);
+  }
   .kapanis-grid {
     display: flex;
     justify-content: space-between;

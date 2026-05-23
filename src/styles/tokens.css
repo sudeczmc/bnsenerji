@@ -1,28 +1,28 @@
 /* ─────────────────────────────────────────────
    bns-site/src/styles/tokens.css
    BNS Enerji & Doğalgaz — "Görünür Tesisat" brand override
-   Yeşil #7FC241 + çelik gri + sıcak bakır aksan
+   Yeşil #6B9F35 (mat-canlı zeytin) + çelik gri + sıcak bakır aksan
    ───────────────────────────────────────────── */
 
 :root {
-  /* ── COLOR — BNS canlı sitenin tam paleti (#7FC241 + beyaz + siyah, pure) ── */
+  /* ── COLOR — BNS mat zeytin paleti (lime → olive shift, 2026-05-23) ── */
 
-  /* Primary — BNS yeşil #7FC241 brand sabit */
-  --color-primary: #7FC241;
-  --color-primary-hover: #71AD3A;
-  --color-primary-deep: #5B8E2D;
+  /* Primary — BNS yeşil #6B9F35 mat ama biraz canlı (Sude: "çok az aç") */
+  --color-primary: #6B9F35;
+  --color-primary-hover: #5A8525;                       /* hover state — hafif daha koyu */
+  --color-primary-deep: #6B9F35;                        /* kapanış bg tonu, primary ile aynı (Sude kararı) */
   --color-primary-soft: #DCEFC8;
   --color-primary-bg: #F2F9EA;                          /* en açık tint, section bg için */
 
   /* Yardımcı yeşil tonları (sadece dekoratif) */
   --color-primary-50: #F2F9EA;
   --color-primary-100: #DCEFC8;
-  --color-primary-500: #7FC241;
-  --color-primary-700: #5B8E2D;
+  --color-primary-500: #6B9F35;
+  --color-primary-700: #5A8525;
   --color-primary-900: #3A5E1E;
 
   /* Aksan (minimal) — siyah + grayscale */
-  --color-accent: #7FC241;                              /* aksent = primary, ekstra renk yok */
+  --color-accent: #6B9F35;                              /* aksent = primary, ekstra renk yok */
 
   /* Sıcak bakır aksan — tesisat malzemesi (bakır boru), çok az kullanılır:
      eyebrow çizgileri gibi mikro dokunuşlar. Buton/zemin DEĞİL. */

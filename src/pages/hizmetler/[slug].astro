@@ -280,8 +280,12 @@ const howToSchema = {
     color: var(--color-primary-deep);
   }
 
-  /* kapanış — editorial split */
-  .kapanis { background: var(--color-primary-deep); }
+  /* kapanış — editorial split, kiremit turuncu (canlı doğalgaz alev tonu) */
+  .kapanis {
+    --color-primary-deep: #D9682E;
+    --color-primary-soft: #F3D8C7;
+    background: var(--color-primary-deep);
+  }
   .kapanis-grid {
     display: flex;
     justify-content: space-between;

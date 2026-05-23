@@ -11,43 +11,48 @@ import Layout from "../layouts/Layout.astro";
       <header class="section-head">
         <p class="eyebrow">Hakkımızda</p>
         <h1 class="page-title">Enerjiyi güvenle taşıyoruz</h1>
-        <p class="page-intro">
-          BNS Enerji olarak doğalgaz, yangın tesisatı, ısı pompası, klima ve
-          kombi sistemlerinde profesyonel çözümler sunuyoruz.
-        </p>
       </header>
 
-      <div class="metin-blok">
-        <p>
-          Amacımız; bireysel ve kurumsal müşterilerimize
-          <strong>güvenli, ekonomik ve çevre dostu enerji çözümleri</strong>
-          sağlayarak yaşam alanlarını konforlu hale getirmektir. Kurulduğumuz
-          günden bu yana <strong>teknik bilgi, kalite ve müşteri
-          memnuniyetini</strong> ön planda tutarak sektörün güvenilir
-          firmalarından biri olmayı başardık.
-        </p>
-        <p>
-          Alanında <strong>deneyimli ekibimiz</strong>, her projede ulusal
-          standartlara uygun, uzun ömürlü sistemler kurar.
-        </p>
-      </div>
+      <div class="hakkimizda-split">
+        <div class="hakkimizda-metin">
+          <p class="page-intro">
+            BNS Enerji olarak doğalgaz, yangın tesisatı, ısı pompası, klima ve
+            kombi sistemlerinde profesyonel çözümler sunuyoruz.
+          </p>
+          <div class="metin-blok">
+            <p>
+              Amacımız; bireysel ve kurumsal müşterilerimize
+              <strong>güvenli, ekonomik ve çevre dostu enerji çözümleri</strong>
+              sağlayarak yaşam alanlarını konforlu hale getirmektir. Kurulduğumuz
+              günden bu yana <strong>teknik bilgi, kalite ve müşteri
+              memnuniyetini</strong> ön planda tutarak sektörün güvenilir
+              firmalarından biri olmayı başardık.
+            </p>
+            <p>
+              Alanında <strong>deneyimli ekibimiz</strong>, her projede ulusal
+              standartlara uygun, uzun ömürlü sistemler kurar.
+            </p>
+          </div>
+        </div>
 
-      <div class="kart-grid g-2">
-        <article class="kart">
-          <span class="kart-etiket">Misyonumuz</span>
-          <p class="kart-metin">
-            Her müşterimize enerji verimliliğini artıran, çevreye duyarlı ve
-            ekonomik çözümler sunmak; güvenli tesisatlar, kaliteli malzeme ve
-            satış sonrası destekle tam müşteri memnuniyeti sağlamak.
-          </p>
-        </article>
-        <article class="kart">
-          <span class="kart-etiket">Vizyonumuz</span>
-          <p class="kart-metin">
-            Polatlı ve çevresinde doğalgaz ve tesisat alanında ilk akla gelen,
-            güvenilir firma olmak; sürdürülebilir çözümleri yaygınlaştırmak.
-          </p>
-        </article>
+        <div class="kart-grid g-2 hakkimizda-yan-kartlar">
+          <article class="kart">
+            <span class="kart-etiket">Misyonumuz</span>
+            <p class="kart-metin">
+              Her müşterimize enerji verimliliğini artıran, çevreye duyarlı ve
+              ekonomik çözümler sunmak; güvenli tesisatlar, kaliteli malzeme ve
+              satış sonrası destekle tam müşteri memnuniyeti sağlamak.
+            </p>
+          </article>
+          <article class="kart">
+            <span class="kart-etiket">Vizyonumuz</span>
+            <p class="kart-metin">
+              Her tesisatın bir öncekinden daha az enerji tüketmesi, daha az
+              emisyon üretmesi, daha uzun çalışması — yüksek verimli
+              sistemlerin yaygınlaşmasında öncü olmak.
+            </p>
+          </article>
+        </div>
       </div>
 
       <div class="bolum-cta cta-ikili">
@@ -76,5 +81,35 @@ import Layout from "../layouts/Layout.astro";
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-4);
+  }
+
+  /* ═══ Hakkımızda — split: sol page-intro+gövde metni / sağ misyon-vizyon kartları ═══ */
+  .hakkimizda-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: clamp(2.5rem, 5vw, 4.5rem);
+    align-items: start;
+    margin-top: var(--space-10);
+  }
+  .hakkimizda-metin {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+  .hakkimizda-metin .page-intro { margin: 0; }
+  .hakkimizda-split .metin-blok {
+    max-width: none;
+    margin-top: 0;
+  }
+  .hakkimizda-yan-kartlar {
+    grid-template-columns: 1fr;
+    margin-top: 0;
+    gap: var(--space-5);
+  }
+  @media (max-width: 860px) {
+    .hakkimizda-split {
+      grid-template-columns: 1fr;
+      gap: var(--space-10);
+    }
   }
 </style>
