@@ -54,9 +54,9 @@
 /date/*              /                   301
 /archive/*           /                   301
 
-# WP yönetim/içerik prefix'leri → 410 Gone (hızlı index dışı bırakma)
-/wp-admin/*          /404                410
-/wp-content/*        /404                410
-/wp-includes/*       /404                410
-/wp-json/*           /404                410
-/xmlrpc.php          /404                410
+# WP yönetim/içerik prefix'leri (/wp-admin/*, /wp-content/*, /wp-includes/*,
+# /wp-json/*, /xmlrpc.php) için redirect TANIMLANMADI — Cloudflare Workers
+# Static Assets convention sadece 200/301/302/303/307/308 kabul ediyor (410
+# yok). Bu path'ler default Worker 404 davranışıyla Astro custom 404.astro'ya
+# düşer (noindex meta + hizmet liste linkleri). Google "kaldırıldı" sinyalini
+# 404'ten alır — 410'la aynı sonuç, sadece biraz daha yavaş düşürme.
