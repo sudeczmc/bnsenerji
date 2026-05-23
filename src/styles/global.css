@@ -1,14 +1,25 @@
 @import "tailwindcss";
 @import "./tokens.css";
 @import "./animations.css";
-@import "@fontsource/poppins/300.css";
-@import "@fontsource/poppins/400.css";
-@import "@fontsource/poppins/500.css";
-@import "@fontsource/poppins/600.css";
-@import "@fontsource/poppins/700.css";
-@import "@fontsource/poppins/800.css";
-@import "@fontsource/ibm-plex-mono/400.css";
-@import "@fontsource/ibm-plex-mono/500.css";
+/* Self-host font subset — sadece Latin + Latin-ext (Türkçe karakter desteği).
+   Devanagari + Cyrillic atlanır (~400 KB tasarruf). 7 ağırlık × 2 subset = 14
+   woff2, browser unicode-range'e göre pratikte ~20-30 KB initial load. */
+@import "@fontsource/poppins/latin-300.css";
+@import "@fontsource/poppins/latin-ext-300.css";
+@import "@fontsource/poppins/latin-400.css";
+@import "@fontsource/poppins/latin-ext-400.css";
+@import "@fontsource/poppins/latin-500.css";
+@import "@fontsource/poppins/latin-ext-500.css";
+@import "@fontsource/poppins/latin-600.css";
+@import "@fontsource/poppins/latin-ext-600.css";
+@import "@fontsource/poppins/latin-700.css";
+@import "@fontsource/poppins/latin-ext-700.css";
+@import "@fontsource/poppins/latin-800.css";
+@import "@fontsource/poppins/latin-ext-800.css";
+@import "@fontsource/ibm-plex-mono/latin-400.css";
+@import "@fontsource/ibm-plex-mono/latin-ext-400.css";
+@import "@fontsource/ibm-plex-mono/latin-500.css";
+@import "@fontsource/ibm-plex-mono/latin-ext-500.css";
 
 /* ─────────────────────────────────────────────
    BNS Enerji & Doğalgaz — global base
