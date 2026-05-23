@@ -58,20 +58,55 @@ const urunler = [
   },
 ];
 
-/* ── SCHEMA: ItemList — ürün vitrini ── */
+/* ── SCHEMA: ItemList + Product (enriched) — Offer + Availability + Image
+   Fiyat range yok (BNS onayı gerekene kadar), ama availability + areaServed
+   + manufacturer (Bosch Organization) + ek alanlar Knowledge Graph derinliği. ── */
 const urunSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
+  "@id": "https://bnsenerjidogalgaz.com/urunler/#products",
   name: "BNS Enerji & Doğalgaz — Bosch Ürünleri",
+  numberOfItems: urunler.length,
   itemListElement: urunler.map((u, i) => ({
     "@type": "ListItem",
     position: i + 1,
     item: {
       "@type": "Product",
+      "@id": `https://bnsenerjidogalgaz.com/urunler/#product-${i + 1}`,
       name: u.baslik,
       description: u.aciklama,
-      brand: { "@type": "Brand", name: "Bosch" },
-      category: "İklimlendirme, Isıtma ve Soğutma Sistemleri",
+      image: `https://bnsenerjidogalgaz.com${u.gorsel}`,
+      brand: {
+        "@type": "Brand",
+        name: "Bosch",
+        url: "https://www.bosch.com.tr/",
+      },
+      manufacturer: {
+        "@type": "Organization",
+        name: "Bosch Thermotechnik",
+        url: "https://www.bosch-thermotechnology.com/",
+      },
+      category: "HVAC / İklimlendirme, Isıtma ve Soğutma Sistemleri",
+      additionalProperty: u.ozellikler.map((o) => ({
+        "@type": "PropertyValue",
+        value: o,
+      })),
+      offers: {
+        "@type": "Offer",
+        availability: "https://schema.org/InStock",
+        priceCurrency: "TRY",
+        priceSpecification: {
+          "@type": "PriceSpecification",
+          priceCurrency: "TRY",
+          valueAddedTaxIncluded: true,
+        },
+        seller: { "@id": "https://bnsenerjidogalgaz.com/#business" },
+        areaServed: [
+          { "@type": "City", name: "Polatlı" },
+          { "@type": "AdministrativeArea", name: "Ankara" },
+        ],
+        url: "https://bnsenerjidogalgaz.com/iletisim/",
+      },
     },
   })),
 };

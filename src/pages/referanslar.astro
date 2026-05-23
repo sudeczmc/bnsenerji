@@ -1,27 +1,76 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-const referanslar = [
-  { ad: "Polatlı Belediye Binası", metin: "Doğalgaz tesisatı borulama, test ve devreye alma işlemleri tamamlanmıştır.", gorsel: "/images/wp/1716460733.jpg" },
-  { ad: "Polatlı Ticaret Odası", metin: "Yerden ısıtma ve doğalgaz tesisatı uygulamalarıyla yüksek verimlilik sağlanmıştır.", gorsel: "/images/wp/yeni-bina_1.jpg" },
-  { ad: "Polatlı Ticaret Odası OSB", metin: "Isı pompası montajı ve devreye alma işlemleri profesyonel şekilde tamamlanmıştır.", gorsel: "/images/wp/1-18-jpg.webp", link: "/osb-referans-gorsel/" },
-  { ad: "Polatlı Yenimahalle Camii", metin: "Yerden ısıtma, doğalgaz ve kazan sistemleri kurulumu gerçekleştirilmiştir.", gorsel: "/images/wp/indir.jpg" },
-  { ad: "Polatlı Öğretmenevi", metin: "Konaklama odaları için 27 adet Bosch klima tedarik edilmiş; montaj Bosch yetkili servisi tarafından gerçekleştirilmiştir.", gorsel: null },
-  { ad: "Arzum Dinlenme Tesisleri", metin: "Elektrikli kombi ve yerden ısıtma uygulaması tamamlanmıştır.", gorsel: "/images/wp/image0-2.jpeg" },
-  { ad: "Polatlı Zirvekent Plus", metin: "Merkezi sistem, yerden ısıtma ve doğalgaz tesisatı kurulumu yapılmıştır.", gorsel: "/images/wp/images.jpg" },
-  { ad: "Polatlı ESA İş Merkezi", metin: "Yangın sprink hattı, mekanik tesisat ve hidrofor pompa montajları yapılmıştır.", gorsel: null },
-  { ad: "Polatlı Boztepe İş Merkezi", metin: "Yerden ısıtma sistemi ve doğalgaz tesisatı modern standartlarda uygulanmıştır.", gorsel: null },
-  { ad: "Polatlı Şehir Stadı", metin: "Isıtma, sıcak su tesisatı ve kazan sistemleri kurulumu tamamlanmıştır.", gorsel: "/images/wp/hlyldwgg40gkkswg4s.png" },
-  { ad: "Provet Veteriner Ürünleri A.Ş.", metin: "LPG ısıtma sistemi ve kombi montajı gerçekleştirilmiştir.", gorsel: "/images/wp/indir-3-300x134.jpg" },
-  { ad: "Polatlı Recep Usta", metin: "Üretim alanı doğalgaz tesisatı, ısıtma ve soğutma sistemleri kurulmuştur.", gorsel: "/images/wp/image0-1.jpeg" },
-  { ad: "Nergis Cafe", metin: "Üretim amaçlı doğalgaz tesisatı modern standartlarda uygulanmıştır.", gorsel: null },
-  { ad: "Hanımlar Konağı", metin: "Isıtma ve doğalgaz tesisatı çalışmaları güvenli şekilde tamamlanmıştır.", gorsel: "/images/wp/4qx0wdw8c80s0c080008o.jpeg" },
+interface Referans {
+  ad: string;
+  metin: string;
+  gorsel: string | null;
+  link?: string;
+  hizmet: string;
+  kategori: "Kamu" | "Sivil Toplum" | "Ticari" | "Konut" | "Sanayi";
+}
+
+const referanslar: Referans[] = [
+  { ad: "Polatlı Belediye Binası", metin: "Doğalgaz tesisatı borulama, test ve devreye alma işlemleri tamamlanmıştır.", gorsel: "/images/wp/1716460733.jpg", hizmet: "Doğalgaz Tesisatı", kategori: "Kamu" },
+  { ad: "Polatlı Ticaret Odası", metin: "Yerden ısıtma ve doğalgaz tesisatı uygulamalarıyla yüksek verimlilik sağlanmıştır.", gorsel: "/images/wp/yeni-bina_1.jpg", hizmet: "Yerden Isıtma + Doğalgaz", kategori: "Kamu" },
+  { ad: "Polatlı Ticaret Odası OSB", metin: "Isı pompası montajı ve devreye alma işlemleri profesyonel şekilde tamamlanmıştır.", gorsel: "/images/wp/1-18-jpg.webp", link: "/osb-referans-gorsel/", hizmet: "Isı Pompası", kategori: "Kamu" },
+  { ad: "Polatlı Yenimahalle Camii", metin: "Yerden ısıtma, doğalgaz ve kazan sistemleri kurulumu gerçekleştirilmiştir.", gorsel: "/images/wp/indir.jpg", hizmet: "Yerden Isıtma + Doğalgaz + Kazan", kategori: "Sivil Toplum" },
+  { ad: "Polatlı Öğretmenevi", metin: "Konaklama odaları için 27 adet Bosch klima tedarik edilmiş; montaj Bosch yetkili servisi tarafından gerçekleştirilmiştir.", gorsel: null, hizmet: "Bosch Klima (27 ünite)", kategori: "Kamu" },
+  { ad: "Arzum Dinlenme Tesisleri", metin: "Elektrikli kombi ve yerden ısıtma uygulaması tamamlanmıştır.", gorsel: "/images/wp/image0-2.jpeg", hizmet: "Elektrikli Kombi + Yerden Isıtma", kategori: "Ticari" },
+  { ad: "Polatlı Zirvekent Plus", metin: "Merkezi sistem, yerden ısıtma ve doğalgaz tesisatı kurulumu yapılmıştır.", gorsel: "/images/wp/images.jpg", hizmet: "Merkezi Isıtma + Yerden Isıtma + Doğalgaz", kategori: "Konut" },
+  { ad: "Polatlı ESA İş Merkezi", metin: "Yangın sprink hattı, mekanik tesisat ve hidrofor pompa montajları yapılmıştır.", gorsel: null, hizmet: "Yangın Sprink + Mekanik Tesisat + Hidrofor", kategori: "Ticari" },
+  { ad: "Polatlı Boztepe İş Merkezi", metin: "Yerden ısıtma sistemi ve doğalgaz tesisatı modern standartlarda uygulanmıştır.", gorsel: null, hizmet: "Yerden Isıtma + Doğalgaz", kategori: "Ticari" },
+  { ad: "Polatlı Şehir Stadı", metin: "Isıtma, sıcak su tesisatı ve kazan sistemleri kurulumu tamamlanmıştır.", gorsel: "/images/wp/hlyldwgg40gkkswg4s.png", hizmet: "Isıtma + Sıcak Su + Kazan", kategori: "Kamu" },
+  { ad: "Provet Veteriner Ürünleri A.Ş.", metin: "LPG ısıtma sistemi ve kombi montajı gerçekleştirilmiştir.", gorsel: "/images/wp/indir-3-300x134.jpg", hizmet: "LPG Isıtma + Kombi", kategori: "Sanayi" },
+  { ad: "Polatlı Recep Usta", metin: "Üretim alanı doğalgaz tesisatı, ısıtma ve soğutma sistemleri kurulmuştur.", gorsel: "/images/wp/image0-1.jpeg", hizmet: "Doğalgaz + Isıtma + Soğutma", kategori: "Ticari" },
+  { ad: "Nergis Cafe", metin: "Üretim amaçlı doğalgaz tesisatı modern standartlarda uygulanmıştır.", gorsel: null, hizmet: "Doğalgaz Tesisatı (üretim)", kategori: "Ticari" },
+  { ad: "Hanımlar Konağı", metin: "Isıtma ve doğalgaz tesisatı çalışmaları güvenli şekilde tamamlanmıştır.", gorsel: "/images/wp/4qx0wdw8c80s0c080008o.jpeg", hizmet: "Isıtma + Doğalgaz", kategori: "Sivil Toplum" },
 ];
+
+const sayfaURL = "https://bnsenerjidogalgaz.com/referanslar/";
+
+/* ── SCHEMA: ItemList + Project (her referans için CreativeWork-türevi)
+   Project schema yerine CreativeWork + about + provider — Google bunu
+   knowledge graph'a "tamamlanmış iş" olarak ekler, E-E-A-T proof. ── */
+const referansSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": sayfaURL + "#references",
+  name: "BNS Enerji & Doğalgaz — Kurumsal Referans Projeleri",
+  description: "Polatlı ve çevresinde tamamlanmış 14 kurumsal doğalgaz, ısıtma, klima ve tesisat projesi.",
+  numberOfItems: referanslar.length,
+  itemListElement: referanslar.map((r, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    item: {
+      "@type": "CreativeWork",
+      "@id": sayfaURL + `#project-${i + 1}`,
+      name: r.ad,
+      description: r.metin,
+      about: r.hizmet,
+      creator: { "@id": "https://bnsenerjidogalgaz.com/#organization" },
+      provider: { "@id": "https://bnsenerjidogalgaz.com/#business" },
+      locationCreated: {
+        "@type": "Place",
+        name: r.ad,
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Polatlı",
+          addressRegion: "Ankara",
+          addressCountry: "TR",
+        },
+      },
+      ...(r.gorsel && { image: `https://bnsenerjidogalgaz.com${r.gorsel}` }),
+      ...(r.link && { url: `https://bnsenerjidogalgaz.com${r.link}` }),
+    },
+  })),
+};
 ---
 
 <Layout
   title="Polatlı Referans Projelerimiz | BNS Enerji & Doğalgaz"
   description="Polatlı Belediyesi, Ticaret Odası, Şehir Stadı dahil Polatlı ve çevresinde tamamladığımız 14 doğalgaz, ısıtma, klima ve tesisat projesi."
+  extraSchemas={[referansSchema]}
 >
   <section class="bolum bolum-beyaz">
     <div class="container">

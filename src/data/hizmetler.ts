@@ -13,6 +13,19 @@ export interface HizmetSSS {
   c: string;
 }
 
+export interface HizmetKarsilastirmaSatir {
+  ozellik: string;
+  a: string;
+  b: string;
+}
+
+export interface HizmetKarsilastirma {
+  baslik: string;
+  aBaslik: string;
+  bBaslik: string;
+  satirlar: HizmetKarsilastirmaSatir[];
+}
+
 export interface Hizmet {
   slug: string;
   ad: string;
@@ -24,6 +37,7 @@ export interface Hizmet {
   adimlar: HizmetAdim[];
   alanlar: string[];
   sss: HizmetSSS[];
+  karsilastirma?: HizmetKarsilastirma;
 }
 
 export const hizmetler: Hizmet[] = [
@@ -158,6 +172,21 @@ export const hizmetler: Hizmet[] = [
       { s: "Kaçak olursa nasıl tespit edilir?", c: "Sistem basınç düşüşü gösterirse termal kamera ile zemin taraması yapılır, sıcaklık dağılımındaki anomaliyle kaçak yeri lokal olarak tespit edilir." },
       { s: "Yerden ısıtma hangi yapılarda mantıklı?", c: "Yeni inşaat konutlar, villalar ve modernize edilen ticari mekânlar için uygundur. Zemin yüksekliği yeterli olduğu durumda mevcut yapılarda da uygulanabilir." },
     ],
+    karsilastirma: {
+      baslik: "Yerden ısıtma vs Radyatör sistemi",
+      aBaslik: "Yerden Isıtma",
+      bBaslik: "Radyatör",
+      satirlar: [
+        { ozellik: "Su sıcaklığı", a: "35-45°C (düşük)", b: "60-80°C (yüksek)" },
+        { ozellik: "Isı dağılımı", a: "Tüm zeminden eşit", b: "Noktasal — radyatör çevresi sıcak" },
+        { ozellik: "Konfor (ayaktan baş hizasına)", a: "Daha homojen", b: "Tabanda soğuk, tavanda sıcak" },
+        { ozellik: "Isı pompası uyumu", a: "Mükemmel (düşük su sıcaklığı)", b: "Kısmen — yüksek sıcaklık ısı pompası verimini düşürür" },
+        { ozellik: "Tepki süresi", a: "Yavaş (kütle ısınması)", b: "Hızlı" },
+        { ozellik: "Görsel/mekân", a: "Görünmez, mobilya esnek", b: "Görünür, mobilya kısıtlı" },
+        { ozellik: "İlk yatırım", a: "Yüksek (boru + şap)", b: "Düşük" },
+        { ozellik: "Mevcut binaya uyum", a: "Zor (zemin yüksekliği gerek)", b: "Kolay" },
+      ],
+    },
   },
   {
     slug: "merkezi-isitma",
@@ -211,6 +240,21 @@ export const hizmetler: Hizmet[] = [
       { s: "Kondens (yoğuşma suyu) gideri zorunlu mu?", c: "Yoğuşmalı kombi çalışırken hafif asidik nitelikte yoğuşma suyu üretir; bu su nötralizör veya doğrudan gider hattına bağlanır. Drenaj çözümü montaj sırasında planlanır." },
       { s: "Kombi yıllık bakım gerekli mi?", c: "Evet. Yılda bir kez Bosch yetkili servisi tarafından bakım önerilir: brülör ayarı, baca gazı analizi, emniyet ventili testi, sistem basıncı ve filtre kontrolü." },
     ],
+    karsilastirma: {
+      baslik: "Yoğuşmalı kombi vs Konvansiyonel kombi",
+      aBaslik: "Yoğuşmalı (Bosch Condens)",
+      bBaslik: "Konvansiyonel",
+      satirlar: [
+        { ozellik: "Isıl verim", a: "%95-108 (Hi)", b: "%85-90" },
+        { ozellik: "Atık baca gazı", a: "Düşük sıcaklık (60-80°C)", b: "Yüksek sıcaklık (150-200°C)" },
+        { ozellik: "Yakıt tüketimi", a: "Belirgin daha az", b: "Standart" },
+        { ozellik: "Baca tipi", a: "Yoğuşma-uyumlu plastik/Al", b: "Klasik paslanmaz çelik" },
+        { ozellik: "Kondens (yoğuşma suyu)", a: "Var — drenaj gerek", b: "Yok" },
+        { ozellik: "Enerji etiketi", a: "A sınıfı (ErP)", b: "B veya C" },
+        { ozellik: "İlk yatırım maliyeti", a: "Daha yüksek", b: "Daha düşük" },
+        { ozellik: "Geri ödeme süresi", a: "Yakıt tasarrufuyla 2-5 yıl", b: "—" },
+      ],
+    },
   },
   {
     slug: "kombi-degisimi",
@@ -265,5 +309,20 @@ export const hizmetler: Hizmet[] = [
       { s: "VRF bakım sıklığı nedir?", c: "Yılda en az 1 kez profesyonel bakım önerilir: filtre temizliği, soğutucu basınç ölçümü, elektrik bağlantı kontrolü, iç ünite drenaj testi." },
       { s: "VRF mevcut binaya sonradan kurulabilir mi?", c: "Evet, mevcut binalarda da kurulabilir. Soğutucu boru ve drenaj rotaları için tavan/duvar şaftı planlaması gerekir; bina müsaitse 1-2 hafta içinde devreye alınabilir." },
     ],
+    karsilastirma: {
+      baslik: "VRF vs Multisplit klima sistemi",
+      aBaslik: "VRF (Bosch Climate 5000 L)",
+      bBaslik: "Multisplit",
+      satirlar: [
+        { ozellik: "Dış ünite başına iç ünite", a: "8-64", b: "2-5" },
+        { ozellik: "Her zon bağımsız mod", a: "✓ (ısı geri kazanım: aynı anda farklı mod)", b: "Hayır — hepsi soğutma veya hepsi ısıtma" },
+        { ozellik: "Tipik kullanım", a: "Ofis, otel, AVM, hastane", b: "Konut, küçük ofis" },
+        { ozellik: "Soğutucu boru uzunluğu", a: "150+ metre", b: "20-30 metre" },
+        { ozellik: "Enerji verimliliği (yüksek yük)", a: "Üstün (inverter modülasyon)", b: "Orta" },
+        { ozellik: "Bina yönetim sistemi entegrasyonu", a: "✓", b: "Sınırlı" },
+        { ozellik: "İlk yatırım", a: "Yüksek", b: "Orta" },
+        { ozellik: "Birim soğutma maliyeti (uzun vade)", a: "Düşük", b: "Yüksek" },
+      ],
+    },
   },
 ];

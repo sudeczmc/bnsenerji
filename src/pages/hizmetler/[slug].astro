@@ -112,6 +112,32 @@ const faqSchema = {
         </ul>
       </div>
 
+      {hizmet.karsilastirma && (
+        <div class="hd-blok hd-karsilastirma-blok">
+          <h2 class="hd-h2">{hizmet.karsilastirma.baslik}</h2>
+          <div class="hd-karsilastirma-wrap" role="region" aria-label={hizmet.karsilastirma.baslik}>
+            <table class="hd-karsilastirma">
+              <thead>
+                <tr>
+                  <th scope="col">Özellik</th>
+                  <th scope="col">{hizmet.karsilastirma.aBaslik}</th>
+                  <th scope="col">{hizmet.karsilastirma.bBaslik}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {hizmet.karsilastirma.satirlar.map((s) => (
+                  <tr>
+                    <th scope="row">{s.ozellik}</th>
+                    <td class="hd-k-a">{s.a}</td>
+                    <td class="hd-k-b">{s.b}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+
       <div class="hd-blok hd-sss-blok">
         <h2 class="hd-h2">Sık sorulan sorular</h2>
         <div class="hd-sss-list">
@@ -303,6 +329,65 @@ const faqSchema = {
     border-radius: var(--radius-full);
     font-size: var(--text-sm);
     font-weight: var(--weight-medium);
+  }
+
+  /* Karşılaştırma tablosu — AI Overview + Featured snippet calculator slot */
+  .hd-karsilastirma-blok { max-width: 880px; }
+  .hd-karsilastirma-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+  }
+  .hd-karsilastirma {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-sm);
+  }
+  .hd-karsilastirma thead th {
+    text-align: left;
+    padding: var(--space-4) var(--space-5);
+    background: var(--color-bg-soft);
+    border-bottom: 2px solid var(--color-primary);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text);
+    font-size: var(--text-sm);
+  }
+  .hd-karsilastirma thead th:first-child {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-eyebrow);
+    color: var(--color-text-muted);
+    font-weight: var(--weight-medium);
+  }
+  .hd-karsilastirma thead th:nth-child(2) { color: var(--color-primary-deep); }
+  .hd-karsilastirma tbody tr {
+    border-bottom: 1px solid var(--color-border);
+  }
+  .hd-karsilastirma tbody tr:last-child { border-bottom: none; }
+  .hd-karsilastirma th[scope="row"] {
+    text-align: left;
+    padding: var(--space-4) var(--space-5);
+    font-weight: var(--weight-medium);
+    color: var(--color-text-body);
+    background: var(--color-bg);
+    white-space: nowrap;
+  }
+  .hd-karsilastirma td {
+    padding: var(--space-4) var(--space-5);
+    color: var(--color-text);
+    vertical-align: top;
+  }
+  .hd-karsilastirma .hd-k-a {
+    background: color-mix(in oklch, var(--color-primary) 6%, transparent);
+    font-weight: var(--weight-semibold);
+  }
+  .hd-karsilastirma .hd-k-b {
+    color: var(--color-text-muted);
+  }
+  @media (max-width: 560px) {
+    .hd-karsilastirma th[scope="row"] { white-space: normal; }
+    .hd-karsilastirma { font-size: var(--text-xs); }
   }
 
   /* SSS — service detay accordion */
