@@ -19,6 +19,7 @@ export interface Hizmet {
   kisaAd: string;
   ozet: string;
   gorsel: string;
+  tldr: string;
   giris: string;
   adimlar: HizmetAdim[];
   alanlar: string[];
@@ -33,6 +34,8 @@ export const hizmetler: Hizmet[] = [
     ozet:
       "Konut ve ticari yapılarda doğalgaz tesisat projelendirme, borulama, vana montajı ve sızdırmazlık testleriyle güvenli sistem kurulumu.",
     gorsel: "/images/wp/Electrical-power-food-or-even-water-have-risen-so.jpg",
+    tldr:
+      "Doğalgaz iç tesisatı, sayaç sonrasındaki boru hattının TS 7363 standardına ve dağıtım şirketi (Polatlı'da Polgaz) onayına uygun döşenmesidir.",
     giris:
       "Doğalgaz iç tesisatı, sayaç sonrasında binanın ve dairelerin içindeki boru hattının kurulmasıdır. Kombi, kat kaloriferi, ocak ve şofben gibi cihazların güvenle çalışması, bu tesisatın standartlara uygun döşenmesine bağlıdır. Projelendirmeden gaz açımına kadar tüm aşamalar yetkili firma tarafından yürütülür.",
     adimlar: [
@@ -58,6 +61,8 @@ export const hizmetler: Hizmet[] = [
     ozet:
       "Enerji tasarrufu sağlayan ısı pompalarının montajı, devreye alma ve test süreçlerinde yüksek performanslı çözümler sunulur.",
     gorsel: "/images/wp/De-plus-en-plus-populaires-les-pompes-a-chaleur.jpg",
+    tldr:
+      "Isı pompası, dış ortamdan ısı çekerek tükettiği elektriğin 3-4 katı kadar ısı üreten yüksek verimli sistemdir (tipik COP 3-4).",
     giris:
       "Isı pompası; havadan, sudan veya topraktan ısı enerjisi çekerek ısıtma ve soğutma yapan yüksek verimli bir sistemdir. Tükettiği elektriğin birkaç katı kadar ısı sağladığı için işletme maliyeti düşüktür. Yerden ısıtma, radyatör veya fan-coil sistemleriyle birlikte çalışır.",
     adimlar: [
@@ -83,6 +88,8 @@ export const hizmetler: Hizmet[] = [
     ozet:
       "Sprinkler, gazlı ve köpüklü sistemlerde borulama, bağlantı ve test uygulamalarıyla standartlara uygun güvenli sistemler kurulur.",
     gorsel: "/images/wp/2e7f649b4d88f4d1e1d9f958532c1d15.jpg",
+    tldr:
+      "Yangın söndürme sistemleri sanayi, otel, AVM, hastane ve okul gibi yapılarda Binaların Yangından Korunması Hakkında Yönetmelik (2007/12937) gereği zorunludur.",
     giris:
       "Yangın söndürme sistemleri, bir yangın anında erken müdahaleyle can ve mal güvenliğini korur. Sprinkler sistemleri otomatik su püskürtmesiyle, gazlı sistemler elektronik ve hassas ortamlarda, köpüklü sistemler yanıcı sıvı risklerinde kullanılır. Tasarım ve kurulum, yürürlükteki yangın yönetmeliğine uygun yapılır.",
     adimlar: [
@@ -107,6 +114,8 @@ export const hizmetler: Hizmet[] = [
     ozet:
       "Split, multisplit ve VRF sistemlerinin montajı, bağlantı ve devreye alma işlemleriyle konforlu ortamlar oluşturulur.",
     gorsel: "/images/wp/9f404e1487a6bb753e9bb83ca3e4937f.jpg",
+    tldr:
+      "Bosch klima BNS Enerji'den satılır, montaj Bosch yetkili servisi tarafından yapılır — tek muhatap BNS, Bosch garantisi sürer.",
     giris:
       "Klima sistemleri mekânın büyüklüğüne ve kullanımına göre seçilir. Split sistemler tek bir oda veya konut için, multisplit sistemler tek dış üniteyle birden fazla iç ünite için, VRF sistemleri ise çok bölümlü büyük binalar için uygundur. Doğru kapasite ve montaj; hem konfor hem enerji verimliliği için belirleyicidir.",
     adimlar: [
@@ -131,6 +140,8 @@ export const hizmetler: Hizmet[] = [
     ozet:
       "Enerji verimliliği ve konforu bir araya getiren yerden ısıtma sistemlerinde profesyonel montaj ve devreye alma hizmetleri.",
     gorsel: "/images/wp/16d30f517f4f43909ddb6cfd60e76480.jpg",
+    tldr:
+      "Yerden ısıtma, düşük su sıcaklığında (35-45°C) tüm zeminden eşit ısı yayan, ısı pompası ve yoğuşmalı kombiyle en verimli çalışan sistemdir.",
     giris:
       "Yerden ısıtma, döşeme altına serilen boru hattıyla ısıyı tüm zemine dengeli biçimde yayan bir sistemdir. Düşük sıcaklıkta çalıştığı için konforlu ve enerji açısından verimlidir; özellikle ısı pompası ve yoğuşmalı kombiyle birlikte yüksek tasarruf sağlar.",
     adimlar: [
@@ -155,6 +166,8 @@ export const hizmetler: Hizmet[] = [
     ozet:
       "Apartman, site ve ticari yapılarda merkezi ısıtma sistemlerinin kurulum ve devreye alma işlemlerinde eksiksiz uygulama sağlanır.",
     gorsel: "/images/wp/indir-4.jpg",
+    tldr:
+      "Merkezi ısıtma, tek kazan dairesinden tüm binaya ısı dağıtan; kalorimetre (ısı pay ölçer) ile her dairenin kendi tüketimi kadar ödediği sistemdir.",
     giris:
       "Merkezi ısıtma sistemleri, tek bir kazan dairesinden tüm binaya ısı dağıtır. Apartman, site ve ticari yapılarda kazan, sirkülasyon pompası ve dağıtım hattıyla kurulur; kalorimetre uygulamasıyla her bağımsız bölüm kendi tüketimi kadar öder.",
     adimlar: [
