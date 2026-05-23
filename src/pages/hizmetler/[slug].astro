@@ -42,12 +42,24 @@ const howToSchema = {
     text: a.metin,
   })),
 };
+
+/* ── SCHEMA: FAQPage ── */
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": sayfaURL + "#faq",
+  mainEntity: hizmet.sss.map((q) => ({
+    "@type": "Question",
+    name: q.s,
+    acceptedAnswer: { "@type": "Answer", text: q.c },
+  })),
+};
 ---
 
 <Layout
   title={`Polatlı ${hizmet.kisaAd} — BNS Enerji & Doğalgaz`}
   description={`Polatlı'da ${hizmet.kisaAd.toLowerCase()} hizmeti — ${hizmet.ozet}`}
-  extraSchemas={[serviceSchema, howToSchema]}
+  extraSchemas={[serviceSchema, howToSchema, faqSchema]}
   breadcrumbs={[
     { name: "Anasayfa", href: "/" },
     { name: "Hizmetler", href: "/hizmetler/" },
@@ -74,7 +86,7 @@ const howToSchema = {
       </div>
 
       <div class="hd-blok">
-        <h2 class="hd-h2">Nasıl yapılır</h2>
+        <h2 class="hd-h2">{hizmet.kisaAd} nasıl yapılır?</h2>
         <ol class="hd-adimlar">
           {hizmet.adimlar.map((a, i) => (
             <li>
@@ -89,10 +101,22 @@ const howToSchema = {
       </div>
 
       <div class="hd-blok">
-        <h2 class="hd-h2">Kullanım alanları</h2>
+        <h2 class="hd-h2">{hizmet.kisaAd} hangi yapılarda uygulanır?</h2>
         <ul class="hd-alanlar">
           {hizmet.alanlar.map((al) => <li>{al}</li>)}
         </ul>
+      </div>
+
+      <div class="hd-blok hd-sss-blok">
+        <h2 class="hd-h2">Sık sorulan sorular</h2>
+        <div class="hd-sss-list">
+          {hizmet.sss.map((q) => (
+            <details class="hd-sss-item">
+              <summary>{q.s}</summary>
+              <p>{q.c}</p>
+            </details>
+          ))}
+        </div>
       </div>
 
       <nav class="hd-diger" aria-label="Diğer hizmetler">
@@ -244,6 +268,43 @@ const howToSchema = {
     border-radius: var(--radius-full);
     font-size: var(--text-sm);
     font-weight: var(--weight-medium);
+  }
+
+  /* SSS — service detay accordion */
+  .hd-sss-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .hd-sss-item {
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-5) var(--space-6);
+  }
+  .hd-sss-item summary {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text);
+    cursor: pointer;
+    list-style: none;
+  }
+  .hd-sss-item summary::-webkit-details-marker { display: none; }
+  .hd-sss-item summary::after {
+    content: "+";
+    color: var(--color-primary);
+    font-size: 1.4em;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .hd-sss-item[open] summary::after { content: "−"; }
+  .hd-sss-item p {
+    margin-top: var(--space-4);
+    font-size: var(--text-sm);
+    line-height: var(--leading-body);
+    color: var(--color-text-body);
   }
 
   .hd-diger {
