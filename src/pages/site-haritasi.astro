@@ -1,0 +1,161 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { hizmetler } from "../data/hizmetler";
+
+const sayfaURL = "https://bnsenerjidogalgaz.com/site-haritasi/";
+
+const kategoriler = [
+  {
+    baslik: "Ana Sayfalar",
+    sayfalar: [
+      { href: "/", baslik: "Anasayfa", aciklama: "Polatlı doğalgaz, klima, ısı pompası — özet." },
+      { href: "/hakkimizda/", baslik: "Hakkımızda", aciklama: "BNS Enerji & Doğalgaz misyon, vizyon ve ekip." },
+      { href: "/iletisim/", baslik: "İletişim", aciklama: "Telefon, adres, çalışma saatleri ve keşif talebi formu." },
+      { href: "/referanslar/", baslik: "Referanslar", aciklama: "Polatlı'da tamamlanmış 14 kurumsal proje." },
+      { href: "/urunler/", baslik: "Ürünler", aciklama: "Bosch Climate, Condens, Compress ve VRF ürün serileri." },
+    ],
+  },
+  {
+    baslik: "Hizmet Sayfaları",
+    sayfalar: [
+      { href: "/hizmetler/", baslik: "Tüm Hizmetler", aciklama: "9 hizmet alanı genel bakış + standart çalışma yöntemi + global SSS." },
+      ...hizmetler.map((h) => ({
+        href: `/hizmetler/${h.slug}/`,
+        baslik: `Polatlı ${h.kisaAd}`,
+        aciklama: h.ozet,
+      })),
+    ],
+  },
+  {
+    baslik: "Kurumsal",
+    sayfalar: [
+      { href: "/kalite-politikasi/", baslik: "Kalite Politikası", aciklama: "Çalışma disiplini ve standartlar." },
+      { href: "/yayin-politikamiz/", baslik: "Yayın Politikası", aciklama: "İçerik kaynakları ve doğrulama yöntemi." },
+      { href: "/bns-enerji-dogalgaz-polatli/", baslik: "BNS Enerji Polatlı", aciklama: "Polatlı'da BNS Enerji firması — kurumsal bilgi." },
+      { href: "/osb-referans-gorsel/", baslik: "Polatlı Ticaret Odası OSB", aciklama: "OSB ısı pompası montajı — referans projesi." },
+    ],
+  },
+];
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": sayfaURL + "#breadcrumb",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Anasayfa", item: "https://bnsenerjidogalgaz.com/" },
+    { "@type": "ListItem", position: 2, name: "Site Haritası", item: sayfaURL },
+  ],
+};
+---
+
+<Layout
+  title="Site Haritası — BNS Enerji & Doğalgaz"
+  description="BNS Enerji & Doğalgaz sitesinin tüm sayfalarının dizini — hizmet sayfaları, kurumsal sayfalar ve ana sayfa erişimi."
+  breadcrumbs={[
+    { name: "Anasayfa", href: "/" },
+    { name: "Site Haritası", href: "/site-haritasi/" },
+  ]}
+  extraSchemas={[breadcrumbSchema]}
+>
+  <section class="bolum bolum-beyaz">
+    <div class="container">
+      <header class="section-head">
+        <p class="eyebrow">Site Haritası</p>
+        <h1 class="page-title">Tüm sayfalar tek listede</h1>
+        <p class="page-intro">
+          BNS Enerji & Doğalgaz sitesindeki tüm sayfaların kategoriye göre
+          dizini. Aradığınız hizmet veya kurumsal bilgi için doğrudan
+          tıklayabilirsiniz.
+        </p>
+      </header>
+
+      <div class="sh-katmanlar">
+        {kategoriler.map((kat) => (
+          <section class="sh-kategori">
+            <h2 class="sh-kategori-baslik">{kat.baslik}</h2>
+            <ul class="sh-liste">
+              {kat.sayfalar.map((s) => (
+                <li>
+                  <a class="sh-link" href={s.href}>
+                    <span class="sh-link-baslik">{s.baslik}</span>
+                    <span class="sh-link-aciklama">{s.aciklama}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </div>
+
+      <div class="bolum-cta">
+        <p class="sh-not">
+          Makine okunabilir sürüm:
+          <a href="/sitemap-index.xml">sitemap-index.xml</a> ·
+          <a href="/llms.txt">llms.txt</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style is:global>
+  .sh-katmanlar {
+    margin-top: var(--space-12);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2.5rem, 5vw, 4rem);
+  }
+  .sh-kategori-baslik {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-eyebrow);
+    color: var(--color-primary-deep);
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .sh-liste {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--space-4);
+  }
+  .sh-link {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: var(--space-4) var(--space-5);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-border-strong);
+    border-radius: var(--radius-sm);
+    transition:
+      border-left-color var(--duration-base) var(--ease-bns),
+      transform var(--duration-base) var(--ease-bns);
+  }
+  .sh-link:hover {
+    border-left-color: var(--color-primary);
+    transform: translateX(4px);
+  }
+  .sh-link-baslik {
+    font-size: var(--text-base);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text);
+  }
+  .sh-link-aciklama {
+    font-size: var(--text-sm);
+    line-height: var(--leading-snug);
+    color: var(--color-text-muted);
+  }
+  .sh-not {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+  .sh-not a {
+    color: var(--color-primary-deep);
+    border-bottom: 1px solid currentColor;
+  }
+</style>
