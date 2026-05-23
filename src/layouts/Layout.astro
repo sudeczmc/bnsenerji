@@ -148,8 +148,20 @@ const localBusinessSchema = {
   },
   geo: { "@type": "GeoCoordinates", latitude: 39.5840, longitude: 32.1469 },
   areaServed: [
-    { "@type": "City", name: "Polatlı" },
+    { "@type": "City", name: "Polatlı", containedInPlace: { "@type": "AdministrativeArea", name: "Ankara" } },
     { "@type": "AdministrativeArea", name: "Ankara" },
+    // Polatlı yoğun mahalleler — hyperlocal SEO (mahalle bazlı arama için)
+    { "@type": "Place", name: "Fatih Mahallesi, Polatlı" },
+    { "@type": "Place", name: "Yenimahalle, Polatlı" },
+    { "@type": "Place", name: "Karşıyaka Mahallesi, Polatlı" },
+    { "@type": "Place", name: "Cumhuriyet Mahallesi, Polatlı" },
+    { "@type": "Place", name: "Şentepe Mahallesi, Polatlı" },
+    { "@type": "Place", name: "Yıldız Mahallesi, Polatlı" },
+    { "@type": "Place", name: "Atatürk Mahallesi, Polatlı" },
+    // Ankara batı koridoru — llms.txt'te belirtilen genişleme bölgesi
+    { "@type": "City", name: "Sincan", containedInPlace: { "@type": "AdministrativeArea", name: "Ankara" } },
+    { "@type": "City", name: "Etimesgut", containedInPlace: { "@type": "AdministrativeArea", name: "Ankara" } },
+    { "@type": "City", name: "Yenimahalle", containedInPlace: { "@type": "AdministrativeArea", name: "Ankara" } },
   ],
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
@@ -383,6 +395,7 @@ const nav = [
               <li><a href="/referanslar/">Referanslar</a></li>
               <li><a href="/urunler/">Ürünler</a></li>
               <li><a href="/kalite-politikasi/">Kalite Politikası</a></li>
+              <li><a href="/yayin-politikamiz/">Yayın Politikası</a></li>
               <li><a href="/iletisim/">İletişim</a></li>
             </ul>
           </div>

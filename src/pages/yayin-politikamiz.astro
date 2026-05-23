@@ -1,0 +1,157 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const sayfaURL = "https://bnsenerjidogalgaz.com/yayin-politikamiz/";
+
+/* AboutPage schema — E-E-A-T proof (Google YMYL benzeri trust signal) */
+const aboutPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": sayfaURL + "#aboutpage",
+  url: sayfaURL,
+  name: "Yayın Politikamız ve Çalışma Yöntemi — BNS Enerji & Doğalgaz",
+  description:
+    "BNS Enerji & Doğalgaz web sitesindeki içeriklerin nasıl üretildiği, hangi kaynaklarla doğrulandığı ve hangi standartlara dayandığı.",
+  about: { "@id": "https://bnsenerjidogalgaz.com/#business" },
+  publisher: { "@id": "https://bnsenerjidogalgaz.com/#organization" },
+  dateModified: new Date().toISOString(),
+};
+---
+
+<Layout
+  title="Yayın Politikamız ve Çalışma Yöntemi | BNS Enerji & Doğalgaz"
+  description="BNS Enerji içeriklerinin nasıl üretildiği, hangi sektörel standartlara (TS 7363, Yangın Yönetmeliği 2007/12937) dayandığı ve nasıl doğrulandığı."
+  extraSchemas={[aboutPageSchema]}
+>
+  <section class="bolum bolum-beyaz">
+    <div class="container">
+      <header class="section-head">
+        <p class="eyebrow">Yayın Politikası</p>
+        <h1 class="page-title">Yayın politikamız ve çalışma yöntemi</h1>
+        <p class="page-intro">
+          <strong>BNS Enerji & Doğalgaz web sitesindeki içerikler — hizmet
+          tanımları, sektörel açıklamalar, sıkça sorulan sorular — şu disipline
+          göre yazılır:</strong>
+          gerçek mevzuata ve standartlara dayanır, müşteriye verilmemiş söz
+          yazılmaz, doğrulanmamış sayı kullanılmaz.
+        </p>
+      </header>
+
+      <div class="metin-blok">
+        <h2 class="hd-h2">İçerik kaynakları</h2>
+        <p>
+          Sitedeki teknik bilgiler aşağıdaki kaynaklara dayandırılır:
+        </p>
+        <dl class="yp-dl">
+          <dt>Türk Standartları Enstitüsü (TSE)</dt>
+          <dd>Doğalgaz iç tesisat için TS 7363, TS EN 1775 ve ilgili standartlar.</dd>
+
+          <dt>Binaların Yangından Korunması Hakkında Yönetmelik</dt>
+          <dd>Resmî Gazete 19/12/2007 tarih, 2007/12937 sayılı yönetmelik — yangın söndürme sistemi içerikleri buna göre yazılır.</dd>
+
+          <dt>Cihaz üretici teknik bilgileri</dt>
+          <dd>Bosch Thermotechnology resmî ürün kataloğu — Bosch Climate, Condens, Compress serileri için teknik veri (BTU, COP, enerji etiketi vb).</dd>
+
+          <dt>Polatlı doğalgaz dağıtım şirketi (Polgaz)</dt>
+          <dd>Polatlı'da iç tesisat onay süreci, abonelik ve sayaç bağlantısı için Polgaz teknik şartnamesi.</dd>
+
+          <dt>Saha deneyimi</dt>
+          <dd>BNS Enerji'nin 2020'den bu yana Polatlı ve çevresinde tamamladığı 14 kurumsal projede edindiği uygulama deneyimi.</dd>
+        </dl>
+      </div>
+
+      <div class="metin-blok">
+        <h2 class="hd-h2">Yazılmayanlar</h2>
+        <p>
+          Aşağıdaki içerik türleri, sahibinin onayı olmadan ya da gerçek kaynak
+          gösterilemediği için <strong>web sitemizde yer almaz</strong>:
+        </p>
+        <ul class="yp-list">
+          <li>Doğrulanamayan müşteri yorumu ve referans</li>
+          <li>Bilinmeyen fiyat aralığı veya kampanya iddiası</li>
+          <li>Sahip olmadığımız sertifika veya yetki iddiası</li>
+          <li>"Türkiye'nin en iyisi", "ilk", "tek yetkili" gibi doğrulanamayan üstünlük iddiaları</li>
+          <li>Genel sektör bilgisi dışında kişisel/ticari sır</li>
+        </ul>
+      </div>
+
+      <div class="metin-blok">
+        <h2 class="hd-h2">Doğrulanmış firma bilgileri</h2>
+        <dl class="yp-dl">
+          <dt>Yetkiler</dt>
+          <dd>
+            <strong>Polgaz yetkili iç tesisat firması</strong> (Polatlı doğalgaz dağıtıcısı). <strong>Bosch Partner Program üyesi</strong> (Bosch klima, kombi, ısı pompası, VRF için orijinal ürün tedarik).
+          </dd>
+
+          <dt>Kuruluş</dt>
+          <dd>2020 — Polatlı / Ankara merkezli.</dd>
+
+          <dt>Faaliyet alanı (ISIC v4)</dt>
+          <dd>4322 — Sıhhi tesisat, ısıtma ve klima kurulumu.</dd>
+
+          <dt>Klima montajı</dt>
+          <dd>BNS Enerji Bosch klima satışı yapar; montaj <strong>Bosch yetkili servisi</strong> tarafından gerçekleştirilir.</dd>
+        </dl>
+      </div>
+
+      <div class="metin-blok">
+        <h2 class="hd-h2">İçerik güncelleme</h2>
+        <p>
+          İçerikler düzenli aralıklarla (üretici ürün serisi değiştiğinde,
+          mevzuat güncellendiğinde, yeni proje teslim edildiğinde) gözden
+          geçirilir. Her sayfanın <code>dateModified</code> değeri sitemap ve
+          schema graph içinde yer alır.
+        </p>
+        <p>
+          Hatalı bilgi gördüğünüzde
+          <a href="/iletisim/">iletişim sayfası</a> üzerinden bildirebilirsiniz.
+        </p>
+      </div>
+
+      <div class="bolum-cta cta-ikili">
+        <a class="btn btn-fill" href="/hakkimizda/">Hakkımızda</a>
+        <a class="btn btn-soft" href="/iletisim/">İletişim</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style is:global>
+  .yp-dl {
+    margin: var(--space-6) 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+  .yp-dl dt {
+    font-weight: var(--weight-semibold);
+    color: var(--color-text);
+    font-size: var(--text-base);
+  }
+  .yp-dl dd {
+    margin: var(--space-1) 0 0;
+    padding-left: var(--space-5);
+    border-left: 2px solid var(--color-primary);
+    font-size: var(--text-sm);
+    line-height: var(--leading-body);
+    color: var(--color-text-body);
+  }
+  .yp-list {
+    margin: var(--space-4) 0 0;
+    padding-left: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    font-size: var(--text-base);
+    line-height: var(--leading-body);
+    color: var(--color-text-body);
+  }
+  .metin-blok h2.hd-h2 {
+    font-size: var(--text-xl);
+    font-weight: var(--weight-extrabold);
+    letter-spacing: var(--tracking-display);
+    color: var(--color-text);
+    margin-top: var(--space-12);
+    margin-bottom: var(--space-4);
+  }
+</style>
