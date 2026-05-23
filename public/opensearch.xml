@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+                       xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+  <ShortName>BNS Enerji</ShortName>
+  <LongName>BNS Enerji &amp; Doğalgaz — Polatlı doğalgaz, klima, ısı pompası</LongName>
+  <Description>Polatlı/Ankara doğalgaz, kombi, ısı pompası, klima, VRF, yerden ısıtma ve yangın söndürme hizmetleri.</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Image height="16" width="16" type="image/x-icon">https://bnsenerjidogalgaz.com/favicon-32.png</Image>
+  <Image height="192" width="192" type="image/png">https://bnsenerjidogalgaz.com/favicon-192.png</Image>
+  <Url type="text/html"
+       method="get"
+       template="https://www.google.com/search?q={searchTerms}+site%3Abnsenerjidogalgaz.com"/>
+  <moz:SearchForm>https://bnsenerjidogalgaz.com/</moz:SearchForm>
+  <Tags>doğalgaz polatlı klima ısı pompası kombi yangın söndürme yerden ısıtma</Tags>
+  <Contact>bnsenerji@gmail.com</Contact>
+  <Developer>BNS Enerji &amp; Doğalgaz</Developer>
+</OpenSearchDescription>
