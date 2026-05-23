@@ -1,0 +1,62 @@
+# BNS Enerji & Doğalgaz — WordPress geçiş redirect'leri
+# Domain 6 ay WP'deydi, Mayıs 2026'da Astro'ya geçti.
+# 301: kalıcı taşınma — Google SEO equity yeni URL'e aktarır.
+# 410: gone — eski WP teknik URL'leri için, 404'ten hızlı index dışı.
+
+# Hizmet sayfası varyantları → /hizmetler/
+/services            /hizmetler/         301
+/services/           /hizmetler/         301
+/service             /hizmetler/         301
+/service/            /hizmetler/         301
+/hizmetlerimiz       /hizmetler/         301
+/hizmetlerimiz/      /hizmetler/         301
+/servisler           /hizmetler/         301
+/servisler/          /hizmetler/         301
+
+# Hakkımızda varyantları → /hakkimizda/
+/about               /hakkimizda/        301
+/about/              /hakkimizda/        301
+/about-us            /hakkimizda/        301
+/about-us/           /hakkimizda/        301
+/hakkinda            /hakkimizda/        301
+/hakkinda/           /hakkimizda/        301
+
+# İletişim varyantları → /iletisim/
+/contact             /iletisim/          301
+/contact/            /iletisim/          301
+/contact-us          /iletisim/          301
+/contact-us/         /iletisim/          301
+/bize-ulasin         /iletisim/          301
+/bize-ulasin/        /iletisim/          301
+
+# Referanslar varyantları → /referanslar/
+/references          /referanslar/       301
+/references/         /referanslar/       301
+/portfolio           /referanslar/       301
+/portfolio/          /referanslar/       301
+
+# Ürünler varyantları → /urunler/
+/products            /urunler/           301
+/products/           /urunler/           301
+/urunlerimiz         /urunler/           301
+/urunlerimiz/        /urunler/           301
+
+# WP varsayılan demo sayfalar → /
+/sample-page         /                   301
+/sample-page/        /                   301
+/hello-world         /                   301
+/hello-world/        /                   301
+
+# Category / tag / author / date arşivleri → /
+/category/*          /                   301
+/tag/*               /                   301
+/author/*            /                   301
+/date/*              /                   301
+/archive/*           /                   301
+
+# WP yönetim/içerik prefix'leri → 410 Gone (hızlı index dışı bırakma)
+/wp-admin/*          /404                410
+/wp-content/*        /404                410
+/wp-includes/*       /404                410
+/wp-json/*           /404                410
+/xmlrpc.php          /404                410

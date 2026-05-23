@@ -256,6 +256,24 @@ const nav = [
     ))}
 
     <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+
+    <!-- Speculation Rules API (Chrome 121+) — sonraki sayfayı arka planda prerender
+         hover/touch'da, 0ms perceived navigation. NavBoost dwell + return visit boost. -->
+    <script type="speculationrules" is:inline set:html={JSON.stringify({
+      prerender: [{
+        where: { and: [
+          { href_matches: "/*" },
+          { not: { href_matches: "/iletisim/*" } },
+          { not: { selector_matches: "[rel~=nofollow]" } },
+          { not: { selector_matches: ".no-prerender" } }
+        ]},
+        eagerness: "moderate"
+      }],
+      prefetch: [{
+        where: { href_matches: "/*" },
+        eagerness: "moderate"
+      }]
+    })} />
   </head>
 
   <body>
