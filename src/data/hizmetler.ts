@@ -235,26 +235,28 @@ export const hizmetler: Hizmet[] = [
     ad: "Kombi Satışı ve Montajı",
     kisaAd: "Kombi",
     ozet:
-      "Yoğuşmalı kombi satışı, yetkili servis montajı ve doğalgaz tesisat bağlantısı tek elden.",
+      "Kombi seçimi, projelendirme, doğalgaz tesisatı, montaj, sızdırmazlık testi ve gaz açma süreci tek elden BNS Enerji'de.",
     gorsel: "/images/bosch-kombi-hd.webp",
     tldr:
-      "Polatlı'da yoğuşmalı kombi BNS Enerji'den satılır; isteğinize uygun markada cihaz tedarik edilir, montaj üreticinin yetkili servisi tarafından yapılır — üretici garantisi tam.",
+      "Polatlı'da kombi satışı + projelendirme + doğalgaz tesisatı + montaj + sızdırmazlık testi + gaz açma süreci BNS Enerji koordinasyonunda tek elden tamamlanır. Kombi müşterinin isteğine ve bütçesine göre seçilir; sonraki dönem kombi arıza ve periyodik bakım üreticinin yetkili servisi tarafından yürütülür.",
     giris:
-      "Kombi (combi-boiler), tek bir cihazda hem mahal ısıtması hem sıcak kullanım suyu üreten cihazdır. Yoğuşmalı (condensing) kombi, atık baca gazından su buharını yoğunlaştırarak ek ısı geri kazanır ve klasik kombiye göre belirgin yakıt verimi sağlar. Polatlı doğalgaz tesisatına uyumlu, A enerji sınıfı yoğuşmalı kombi modelleri tercih ettiğiniz markadan tedarik edilir.",
+      "Kombi (combi-boiler), tek bir cihazda hem mahal ısıtması hem sıcak kullanım suyu üreten cihazdır. Yoğuşmalı (condensing) kombi, atık baca gazından su buharını yoğunlaştırarak ek ısı geri kazanır ve klasik kombiye göre belirgin yakıt verimi sağlar. BNS Enerji kombi seçimi, projelendirme, doğalgaz tesisatı, montaj, sızdırmazlık testi ve dağıtım şirketi (Polatlı'da Polgaz) gaz açma sürecini tek elden yürütür; kombi taktıktan sonraki dönemde arıza, periyodik bakım ve garanti işlemleri kombinin marka yetkili servisinde devam eder.",
     adimlar: [
-      { baslik: "İhtiyaç Hesabı", metin: "Yapının ısı yükü ve kullanım suyu talebi hesaplanır, uygun kapasitede kombi seçilir." },
-      { baslik: "Tedarik ve Tesisat Uyarlaması", metin: "İsteğinize uygun markada kombi tedarik edilir; baca ve doğalgaz hattı kontrolden geçirilir." },
-      { baslik: "Montaj", metin: "Cihaz üreticinin yetkili servisi tarafından monte edilir, hidrolik ve gaz bağlantıları tamamlanır." },
-      { baslik: "Devreye Alma ve Test", metin: "Sızdırmazlık testi, yanma analizi, ısıtma ve kullanım suyu devresi testleri yapılır." },
+      { baslik: "Keşif ve Kombi Seçimi", metin: "Yerinde keşif yapılır, ısı yükü ve kullanım suyu talebi hesaplanır; müşterinin isteğine ve bütçesine göre marka ve kapasite birlikte belirlenir." },
+      { baslik: "Projelendirme ve Tadilat", metin: "Kombi ve doğalgaz tesisatı projesi hazırlanır; gerekirse mevcut tesisatta tadilat planlanır ve dağıtım şirketinin onayına sunulur." },
+      { baslik: "Doğalgaz Tesisatı ve Kombi Montajı", metin: "Boru hattı, vana montajı ve kombinin hidrolik + gaz bağlantıları BNS Enerji tarafından tamamlanır." },
+      { baslik: "Sızdırmazlık Testi ve Gaz Açma", metin: "BNS Enerji sızdırmazlık testi yapar; ardından dağıtım şirketi (Polatlı'da Polgaz) teyit testiyle gaz açma belgesi düzenler." },
+      { baslik: "Teslim ve Devreye Alma", metin: "Sistem devreye alınır, kullanım ve güvenlik rehberi paylaşılır. Sonraki dönem kombi arıza ve bakım üreticinin yetkili servisinde; tesisat tarafıyla ilgili her durumda BNS Enerji tek muhatap." },
     ],
     alanlar: ["Konut ve daireler", "Villalar", "Küçük ticari mekânlar"],
     sss: [
       { s: "Yoğuşmalı kombi klasik kombiden ne kadar verimli?", c: "Yoğuşmalı kombiler, atık baca gazından geri kazanılan ısı sayesinde klasik kombiye göre belirgin yakıt verimi sağlar (üreticiye ve kullanım profiline bağlı %15-30 aralığı yaygın bir değerdir)." },
       { s: "Polatlı'da hangi kombi kapasitesi gerekir?", c: "Daire metrekaresi, izolasyon kalitesi, pencere yönü ve daireye ait sıcak su talebine göre değişir. Genel kabul: 100 m²'ye kadar 24 kW, 100-150 m² için 28 kW, üzeri için 30+ kW. Doğru hesap keşifte yapılır." },
-      { s: "Kombi garantisi nasıl işliyor?", c: "Yeni kombi standart üretici garantisiyle gelir. BNS Enerji satış, üreticinin yetkili servisi montaj — ikisi birlikte garanti sürecini koordine eder." },
+      { s: "Kombi garantisi ve arıza durumunda kime başvurulur?", c: "Kombi garantisi üretici tarafından verilir; kombi arıza, periyodik bakım ve garanti işlemleri kombinin marka yetkili servisi tarafından yürütülür. BNS Enerji'nin yaptığı tesisat işlerinde (doğalgaz hattı, kombi hidrolik/gaz bağlantısı, sızdırmazlık) bir sorun olursa tek muhatap BNS Enerji'dir." },
       { s: "Yoğuşmalı kombide baca özel mi olmalı?", c: "Evet. Yoğuşmalı kombi düşük sıcaklıkta atık gaz üretir, klasik baca yerine üreticinin önerdiği yoğuşma-uyumlu (genelde plastik veya alüminyum) baca kiti kullanılır." },
       { s: "Kondens (yoğuşma suyu) gideri zorunlu mu?", c: "Yoğuşmalı kombi çalışırken hafif asidik nitelikte yoğuşma suyu üretir; bu su nötralizör veya doğrudan gider hattına bağlanır. Drenaj çözümü montaj sırasında planlanır." },
-      { s: "Kombi yıllık bakım gerekli mi?", c: "Evet — yoğuşmalı kombiler için yılda bir bakım önerilir: brülör ayarı, baca gazı analizi, emniyet ventili testi, sistem basıncı ve filtre kontrolü. Bakım üreticinin yetkili servisi tarafından yapılır. BNS Enerji satış, yeni montaj ve kombi değişimi yapar — periyodik bakım hizmeti vermez." },
+      { s: "Gaz açma belgesi nasıl alınır?", c: "BNS Enerji sızdırmazlık testlerini tamamladıktan sonra dağıtım şirketi (Polatlı'da Polgaz) ayrı bir teyit testi yapar; uygunsa gaz açma belgesi düzenlenip kullanıcıya verilir, sistem devreye alınır." },
+      { s: "Kombi yıllık bakım gerekli mi?", c: "Evet — yoğuşmalı kombiler için yılda bir bakım önerilir: brülör ayarı, baca gazı analizi, emniyet ventili testi, sistem basıncı ve filtre kontrolü. Bakım kombinin marka yetkili servisi tarafından yapılır. BNS Enerji kombi taktıktan sonraki dönemde arıza ve periyodik bakım sorumluluğu üreticinin yetkili servisindedir." },
     ],
     karsilastirma: {
       baslik: "Yoğuşmalı kombi vs Konvansiyonel kombi",
@@ -279,17 +281,17 @@ export const hizmetler: Hizmet[] = [
     ad: "Kombi Değişimi",
     kisaAd: "Kombi Değişimi",
     ozet:
-      "Eski kombilerin yoğuşmalı kombi ile değişimi — mevcut sistem teşhisi, sökme, baca uyarlaması ve montaj tek elden.",
+      "Eski kombilerin yoğuşmalı kombi ile değişimi — teşhis, sökme, baca uyarlaması, montaj, sızdırmazlık testi ve gaz açma süreci tek elden.",
     gorsel: "/images/bosch-kombi-hd.webp",
     tldr:
-      "Eski kombiyi yoğuşmalı kombi ile değiştirmek yakıt verimini belirgin şekilde artırır. İsteğinize uygun markada yeni kombi tedarik edilir; teşhis, sökme, baca uyarlaması, montaj ve devreye alma BNS koordinasyonunda yürür.",
+      "Eski kombiyi yoğuşmalı kombi ile değiştirmek yakıt verimini belirgin şekilde artırır. BNS Enerji teşhis, müşteri isteğine göre yeni kombi seçimi, sökme, baca/tesisat uyarlaması, montaj, sızdırmazlık testi ve dağıtım şirketi (Polgaz) gaz açma sürecini tek elden yürütür. Sonraki dönem kombi arıza ve bakım üreticinin yetkili servisinde.",
     giris:
-      "Klasik kombiyi yoğuşmalı kombiyle değiştirmek, hem yakıt tasarrufu hem de modern güvenlik standartlarına uyum sağlar. Mevcut tesisatın yoğuşmalı sisteme uygunluğu (baca tipi, kondens drenajı, radyatör hattı, doğalgaz vana ölçüsü) kontrol edilir; gerekli uyarlamalar yapıldıktan sonra yeni cihaz monte edilir.",
+      "Klasik kombiyi yoğuşmalı kombiyle değiştirmek hem yakıt tasarrufu hem de modern güvenlik standartlarına uyum sağlar. Mevcut tesisatın yoğuşmalı sisteme uygunluğu (baca tipi, kondens drenajı, radyatör hattı, doğalgaz vana ölçüsü) kontrol edilir; gerekli uyarlamalar yapıldıktan sonra yeni cihaz BNS Enerji tarafından monte edilir, sızdırmazlık testi ve dağıtım şirketi gaz açma süreciyle teslim edilir.",
     adimlar: [
       { baslik: "Mevcut Sistem Teşhisi", metin: "Eski kombinin tipi, kapasitesi, baca durumu ve tesisat altyapısı yerinde incelenir." },
-      { baslik: "Yeni Kombi + Baca Uygunluk Kontrolü", metin: "İsteğinize uygun markada yoğuşmalı kombi seçilir; baca, kondens drenajı ve doğalgaz hattı uyumu doğrulanır." },
-      { baslik: "Sökme ve Uyarlama", metin: "Eski kombi güvenli şekilde sökülür, gerekiyorsa baca borusu ve drenaj hattı revize edilir." },
-      { baslik: "Montaj ve Devreye Alma", metin: "Üreticinin yetkili servisi yeni cihazı monte eder; sızdırmazlık testi, yanma analizi ve test ısıtması yapılır." },
+      { baslik: "Yeni Kombi Seçimi ve Uygunluk Kontrolü", metin: "Müşterinin isteğine ve bütçesine göre yoğuşmalı kombi markası ve modeli birlikte seçilir; baca, kondens drenajı ve doğalgaz hattı uyumu doğrulanır." },
+      { baslik: "Sökme, Tadilat ve Montaj", metin: "Eski kombi güvenli sökülür, gerekiyorsa baca borusu ve drenaj hattı revize edilir, yeni kombi BNS Enerji tarafından monte edilir." },
+      { baslik: "Sızdırmazlık Testi ve Gaz Açma", metin: "BNS Enerji sızdırmazlık testi yapar; dağıtım şirketi (Polatlı'da Polgaz) teyit testiyle gaz açma belgesi düzenler ve sistem devreye alınır. Sonraki dönem kombi arıza ve bakım üreticinin yetkili servisinde." },
     ],
     alanlar: ["Konut ve daireler", "Apartman ve site daireleri", "Küçük ticari mekânlar"],
     sss: [
@@ -297,8 +299,8 @@ export const hizmetler: Hizmet[] = [
       { s: "Mevcut bacam yoğuşmalıya uygun mu?", c: "Yoğuşmalı kombi düşük sıcaklıkta atık gaz üretir, klasik baca asitlenebilir. Çoğu durumda üreticinin önerdiği plastik/alüminyum baca kiti ile değişim gerekir; keşif sırasında doğrulanır." },
       { s: "Kondens (yoğuşma suyu) gideri için ek iş gerekiyor mu?", c: "Yoğuşmalı kombi hafif asidik yoğuşma suyu üretir. Mevcut gider hattına bağlanabilir; bağlanamıyorsa nötralizör veya yeni drenaj hattı planlanır." },
       { s: "Radyatörlerimi değiştirmem gerekecek mi?", c: "Genelde hayır. Yoğuşmalı kombi düşük sıcaklıkta çalışıp daha verimlidir ama mevcut radyatörlerle de uyumludur. Verim için termostatik radyatör vanası eklemek tavsiye edilir." },
-      { s: "Eski kombimin garantisi yeniyle devrediliyor mu?", c: "Hayır — yeni kombi kendi üretici garantisiyle gelir. Sürecin tamamı (sökme, kurulum, garanti aktivasyonu) BNS koordinasyonundadır." },
-      { s: "Kombi değişimi ne kadar sürer?", c: "Standart bir daire değişiminde sökme, yeni montaj ve devreye alma genellikle aynı gün tamamlanır. Baca ve drenaj revizyonu gerekirse süre 1 gün uzayabilir." },
+      { s: "Yeni kombinin garantisi ve arızası kime bağlı?", c: "Yeni kombi kendi üretici garantisiyle gelir; arıza, periyodik bakım ve garanti işlemleri kombinin marka yetkili servisi tarafından yürütülür. BNS Enerji'nin yaptığı tesisat işlerinde bir sorun olursa (kombi bağlantısı, sızdırmazlık, doğalgaz hattı) tek muhatap BNS Enerji'dir." },
+      { s: "Kombi değişimi ne kadar sürer?", c: "Standart bir daire değişiminde sökme, yeni montaj ve sızdırmazlık testi genellikle aynı gün tamamlanır. Dağıtım şirketi (Polgaz) gaz açma süreci ve baca/drenaj revizyonu gerekirse süre 1-2 gün uzayabilir." },
     ],
   },
   {
