@@ -34,7 +34,9 @@ export interface Hizmet {
   gorsel: string;
   tldr: string;
   giris: string;
+  surecBaslik?: string;
   adimlar: HizmetAdim[];
+  alanBaslik?: string;
   alanlar: string[];
   sss: HizmetSSS[];
   karsilastirma?: HizmetKarsilastirma;
@@ -43,6 +45,8 @@ export interface Hizmet {
 export const hizmetler: Hizmet[] = [
   {
     slug: "dogalgaz-tesisati",
+    surecBaslik: "Doğalgaz tesisatı nasıl yapılır?",
+    alanBaslik: "Doğalgaz tesisatı hangi yapılarda uygulanır?",
     ad: "Doğalgaz Tesisatı & Projelendirme",
     kisaAd: "Doğalgaz Tesisatı",
     ozet:
@@ -70,6 +74,8 @@ export const hizmetler: Hizmet[] = [
   },
   {
     slug: "isi-pompasi",
+    surecBaslik: "Isı pompası nasıl monte edilir?",
+    alanBaslik: "Isı pompası hangi yapılarda kullanılır?",
     ad: "Isı Pompası Montajı",
     kisaAd: "Isı Pompası",
     ozet:
@@ -97,6 +103,8 @@ export const hizmetler: Hizmet[] = [
   },
   {
     slug: "yangin-sondurme",
+    surecBaslik: "Yangın söndürme sistemi nasıl kurulur?",
+    alanBaslik: "Yangın söndürme hangi yapılarda zorunludur?",
     ad: "Yangın Söndürme Sistemleri",
     kisaAd: "Yangın Söndürme",
     ozet:
@@ -123,6 +131,8 @@ export const hizmetler: Hizmet[] = [
   },
   {
     slug: "klima",
+    surecBaslik: "Klima nasıl seçilir ve monte edilir?",
+    alanBaslik: "Klima hangi yapılarda kullanılır?",
     ad: "Klima Sistemleri",
     kisaAd: "Klima",
     ozet:
@@ -149,6 +159,8 @@ export const hizmetler: Hizmet[] = [
   },
   {
     slug: "yerden-isitma",
+    surecBaslik: "Yerden ısıtma nasıl uygulanır?",
+    alanBaslik: "Yerden ısıtma hangi yapılarda kullanılır?",
     ad: "Yerden Isıtma Sistemleri",
     kisaAd: "Yerden Isıtma",
     ozet:
@@ -190,6 +202,8 @@ export const hizmetler: Hizmet[] = [
   },
   {
     slug: "merkezi-isitma",
+    surecBaslik: "Merkezi ısıtma nasıl kurulur?",
+    alanBaslik: "Merkezi sistem hangi yapılarda tercih edilir?",
     ad: "Merkezi Isıtma & Kazan Sistemleri",
     kisaAd: "Merkezi Isıtma",
     ozet:
@@ -216,6 +230,8 @@ export const hizmetler: Hizmet[] = [
   },
   {
     slug: "kombi",
+    surecBaslik: "Kombi nasıl seçilir ve monte edilir?",
+    alanBaslik: "Kombi hangi yapılarda kullanılır?",
     ad: "Kombi Satışı ve Montajı",
     kisaAd: "Kombi",
     ozet:
@@ -258,6 +274,8 @@ export const hizmetler: Hizmet[] = [
   },
   {
     slug: "kombi-degisimi",
+    surecBaslik: "Kombi değişimi nasıl yapılır?",
+    alanBaslik: "Hangi durumlarda kombi değişimi gerek olur?",
     ad: "Kombi Değişimi",
     kisaAd: "Kombi Değişimi",
     ozet:
@@ -285,6 +303,8 @@ export const hizmetler: Hizmet[] = [
   },
   {
     slug: "vrf-kurulum",
+    surecBaslik: "VRF sistemi nasıl kurulur?",
+    alanBaslik: "VRF hangi yapılarda tercih edilir?",
     ad: "VRF Sistemi Kurulumu",
     kisaAd: "VRF Kurulum",
     ozet:
