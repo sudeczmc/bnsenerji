@@ -1,0 +1,129 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { mahalleler } from "../../data/mahalleler";
+
+const sayfaURL = "https://bnsenerjidogalgaz.com/polatli/";
+
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": sayfaURL + "#mahalleler",
+  name: "Polatlı Mahalle Bazlı Hizmet Sayfaları — BNS Enerji & Doğalgaz",
+  description: "BNS Enerji & Doğalgaz'ın hizmet verdiği Polatlı mahalleleri — doğalgaz, kombi, klima, ısı pompası ve yangın söndürme sistemleri.",
+  numberOfItems: mahalleler.length,
+  itemListElement: mahalleler.map((m, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    item: {
+      "@type": "Place",
+      "@id": `${sayfaURL}${m.slug}/#place`,
+      name: `${m.ad}, Polatlı`,
+      url: `https://bnsenerjidogalgaz.com/polatli/${m.slug}/`,
+    },
+  })),
+};
+---
+
+<Layout
+  title="Polatlı Mahalle Mahalle Doğalgaz, Kombi ve Klima — BNS Enerji"
+  description="Polatlı Fatih, Yenimahalle, Karşıyaka, Cumhuriyet, Şentepe, Yıldız ve Atatürk mahallelerinde doğalgaz tesisatı, kombi, klima ve ısı pompası — Polgaz Sertifikalı (PG-1065)."
+  extraSchemas={[itemListSchema]}
+  breadcrumbs={[
+    { name: "Anasayfa", href: "/" },
+    { name: "Polatlı", href: "/polatli/" },
+  ]}
+>
+  <section class="bolum bolum-beyaz">
+    <div class="container">
+      <header class="section-head">
+        <p class="eyebrow">Mahalle Bazlı Hizmet</p>
+        <h1 class="page-title">Polatlı — mahalle mahalle hizmet</h1>
+        <p class="page-intro">
+          BNS Enerji & Doğalgaz, Polatlı merkez mahallelerinde doğalgaz iç
+          tesisatı, kombi, klima, ısı pompası, yerden ısıtma ve yangın söndürme
+          sistemleri kuruyor. Aşağıda mahalleye özel hizmet sayfalarını
+          bulabilirsiniz; tüm mahallelerde keşif <strong>ücretsizdir</strong>.
+        </p>
+      </header>
+
+      <div class="mh-hub-grid">
+        {mahalleler.map((m) => (
+          <a class="mh-hub-kart" href={`/polatli/${m.slug}/`}>
+            <span class="mh-hub-eyebrow">{m.konum}</span>
+            <h2 class="mh-hub-baslik">{m.ad}</h2>
+            <p class="mh-hub-metin">{m.not}</p>
+            {m.referans && (
+              <p class="mh-hub-ref">
+                <span class="mh-hub-ref-tick" aria-hidden="true">★</span>
+                {m.referans}
+              </p>
+            )}
+            <span class="mh-hub-ok">Mahalle hizmetlerini gör →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style is:global>
+  .mh-hub-grid {
+    margin-top: var(--space-12);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-5);
+  }
+  .mh-hub-kart {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-6);
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-border-strong);
+    border-radius: var(--radius-md);
+    transition:
+      border-left-color var(--duration-base) var(--ease-bns),
+      box-shadow var(--duration-base) var(--ease-bns),
+      transform var(--duration-base) var(--ease-bns);
+  }
+  .mh-hub-kart:hover {
+    border-left-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+  .mh-hub-eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--color-primary-deep);
+  }
+  .mh-hub-baslik {
+    font-size: var(--text-lg);
+    font-weight: var(--weight-extrabold);
+    color: var(--color-text);
+    letter-spacing: var(--tracking-tight);
+  }
+  .mh-hub-metin {
+    font-size: var(--text-sm);
+    line-height: var(--leading-snug);
+    color: var(--color-text-muted);
+    margin-top: var(--space-2);
+  }
+  .mh-hub-ref {
+    display: flex;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-primary-deep);
+    margin-top: var(--space-2);
+  }
+  .mh-hub-ref-tick { color: var(--color-copper); }
+  .mh-hub-ok {
+    margin-top: auto;
+    padding-top: var(--space-3);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    color: var(--color-primary);
+  }
+</style>
