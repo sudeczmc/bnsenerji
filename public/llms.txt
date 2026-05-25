@@ -19,8 +19,8 @@ Polatlı ağırlıklı. Hizmet bölgesi projenin türü ve kapsamına göre değ
 ## Hizmetler
 - Doğalgaz Tesisatı ve Projelendirme — Konut/ticari/sanayi iç tesisat, borulama, vana montajı, sızdırmazlık testi, gaz açma desteği. Polgaz uyumlu uygulama.
 - Klima Sistemleri — Split, multisplit ve VRF klima tedariki, A++ inverter, R-32, üreticinin yetkili servisi montajı.
-- Kombi Satışı ve Montajı — Müşterinin isteğine göre kombi seçimi + projelendirme + doğalgaz tesisatı + montaj + sızdırmazlık testi + dağıtım şirketi (Polgaz) gaz açma süreci BNS Enerji'de tek elden. Sonraki dönem kombi arıza ve bakım üreticinin yetkili servisinde.
-- Kombi Değişimi — Eski klasik kombinin yoğuşmalıyla değişimi: teşhis, müşteri isteğine göre yeni kombi seçimi, sökme, baca uyarlaması, montaj, sızdırmazlık testi ve gaz açma süreci tek elden.
+- Kombi Satışı ve Montajı — BNS Enerji keşif yapar, müşteriyle uygun kombiyi seçer, projelendirme + doğalgaz tesisatı + montaj + sızdırmazlık testlerini yapar; Polgaz teyit testinden sonra gaz açma belgesi alınır ve sistem teslim edilir. Kombi arıza ve bakımı sonraki dönemde markanın yetkili servisinde.
+- Kombi Değişimi — BNS Enerji eski kombiyi söker, müşteriyle yeni yoğuşmalı kombiyi seçer, gerekirse baca ve tesisatı uyarlar, yeni kombiyi monte eder ve sızdırmazlık testlerini yapar; Polgaz teyit testinden sonra gaz açma belgesi alınır ve sistem teslim edilir.
 - Isı Pompası Montajı — Hava-su sistemler, devreye alma + test, enerji verimliliği danışmanlığı.
 - VRF Sistemi Kurulumu — Çok bölümlü ticari binalarda tek dış üniteyle 8-64 iç ünite.
 - Yangın Söndürme Sistemleri — Sprinkler, gazlı ve köpüklü sistemlerde borulama, bağlantı, basınç testi.

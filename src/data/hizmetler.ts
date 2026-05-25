@@ -238,7 +238,7 @@ export const hizmetler: Hizmet[] = [
       "Kombi seçimi, projelendirme, doğalgaz tesisatı, montaj, sızdırmazlık testi ve gaz açma süreci tek elden BNS Enerji'de.",
     gorsel: "/images/bosch-kombi-hd.webp",
     tldr:
-      "Polatlı'da kombi satışı + projelendirme + doğalgaz tesisatı + montaj + sızdırmazlık testi + gaz açma süreci BNS Enerji koordinasyonunda tek elden tamamlanır. Kombi müşterinin isteğine ve bütçesine göre seçilir; sonraki dönem kombi arıza ve periyodik bakım üreticinin yetkili servisi tarafından yürütülür.",
+      "BNS Enerji keşif yapar, müşteriyle birlikte uygun kombiyi seçer; projelendirme, doğalgaz tesisatı, kombi montajı ve sızdırmazlık testlerini tek elden yürütür. Polgaz teyit testinden sonra gaz açma belgesi alınır, sistem teslim edilir. Kombi arıza ve bakımı sonraki dönemde markanın yetkili servisindedir.",
     giris:
       "Kombi (combi-boiler), tek bir cihazda hem mahal ısıtması hem sıcak kullanım suyu üreten cihazdır. Yoğuşmalı (condensing) kombi, atık baca gazından su buharını yoğunlaştırarak ek ısı geri kazanır ve klasik kombiye göre belirgin yakıt verimi sağlar. BNS Enerji kombi seçimi, projelendirme, doğalgaz tesisatı, montaj, sızdırmazlık testi ve dağıtım şirketi (Polatlı'da Polgaz) gaz açma sürecini tek elden yürütür; kombi taktıktan sonraki dönemde arıza, periyodik bakım ve garanti işlemleri kombinin marka yetkili servisinde devam eder.",
     adimlar: [
@@ -284,7 +284,7 @@ export const hizmetler: Hizmet[] = [
       "Eski kombilerin yoğuşmalı kombi ile değişimi — teşhis, sökme, baca uyarlaması, montaj, sızdırmazlık testi ve gaz açma süreci tek elden.",
     gorsel: "/images/bosch-kombi-hd.webp",
     tldr:
-      "Eski kombiyi yoğuşmalı kombi ile değiştirmek yakıt verimini belirgin şekilde artırır. BNS Enerji teşhis, müşteri isteğine göre yeni kombi seçimi, sökme, baca/tesisat uyarlaması, montaj, sızdırmazlık testi ve dağıtım şirketi (Polgaz) gaz açma sürecini tek elden yürütür. Sonraki dönem kombi arıza ve bakım üreticinin yetkili servisinde.",
+      "BNS Enerji eski kombiyi söker, müşteriyle birlikte yeni yoğuşmalı kombiyi seçer; gerekirse baca ve tesisatı uyarlar, yeni kombiyi monte eder ve sızdırmazlık testlerini yapar. Polgaz teyit testinden sonra gaz açma belgesi alınır, sistem teslim edilir. Kombi arıza ve bakımı sonraki dönemde markanın yetkili servisindedir.",
     giris:
       "Klasik kombiyi yoğuşmalı kombiyle değiştirmek hem yakıt tasarrufu hem de modern güvenlik standartlarına uyum sağlar. Mevcut tesisatın yoğuşmalı sisteme uygunluğu (baca tipi, kondens drenajı, radyatör hattı, doğalgaz vana ölçüsü) kontrol edilir; gerekli uyarlamalar yapıldıktan sonra yeni cihaz BNS Enerji tarafından monte edilir, sızdırmazlık testi ve dağıtım şirketi gaz açma süreciyle teslim edilir.",
     adimlar: [
