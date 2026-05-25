@@ -139,12 +139,12 @@ export const hizmetler: Hizmet[] = [
       "Split, multisplit ve VRF sistemlerinin montajı, bağlantı ve devreye alma işlemleriyle konforlu ortamlar oluşturulur.",
     gorsel: "/images/wp/9f404e1487a6bb753e9bb83ca3e4937f.jpg",
     tldr:
-      "Klima BNS Enerji'den satılır; ihtiyaca uygun yetkili marka tedarik edilir, montaj üreticinin yetkili servisi tarafından yapılır — üretici garantisi sürer.",
+      "Klima BNS Enerji'den satılır; isteğinize uygun markada cihaz tedarik edilir, montaj üreticinin yetkili servisi tarafından yapılır — üretici garantisi sürer.",
     giris:
       "Klima sistemleri mekânın büyüklüğüne ve kullanımına göre seçilir. Split sistemler tek bir oda veya konut için, multisplit sistemler tek dış üniteyle birden fazla iç ünite için, VRF sistemleri ise çok bölümlü büyük binalar için uygundur. Doğru kapasite ve montaj; hem konfor hem enerji verimliliği için belirleyicidir.",
     adimlar: [
       { baslik: "İhtiyaç ve Kapasite Belirleme", metin: "Mekânın metrekaresine ve kullanımına göre uygun sistem ve kapasite seçilir." },
-      { baslik: "Ürün Tedariki", metin: "BNS Enerji, ihtiyaca uygun yetkili marka klima tedarik eder." },
+      { baslik: "Ürün Tedariki", metin: "BNS Enerji, müşterinin isteğine ve bütçesine uygun markada klima tedarik eder." },
       { baslik: "Montaj ve Devreye Alma", metin: "Montaj üreticinin yetkili servisi tarafından gerçekleştirilir, sistem devreye alınır." },
     ],
     alanlar: ["Konut ve daireler", "Ofis ve iş yerleri", "Çok bölümlü ticari binalar (VRF)"],
@@ -238,12 +238,12 @@ export const hizmetler: Hizmet[] = [
       "Yoğuşmalı kombi satışı, yetkili servis montajı ve doğalgaz tesisat bağlantısı tek elden.",
     gorsel: "/images/bosch-kombi-hd.webp",
     tldr:
-      "Polatlı'da yoğuşmalı kombi BNS Enerji'den satılır; ihtiyaca uygun yetkili marka tedarik edilir, montaj üreticinin yetkili servisi tarafından yapılır — üretici garantisi tam.",
+      "Polatlı'da yoğuşmalı kombi BNS Enerji'den satılır; isteğinize uygun markada cihaz tedarik edilir, montaj üreticinin yetkili servisi tarafından yapılır — üretici garantisi tam.",
     giris:
-      "Kombi (combi-boiler), tek bir cihazda hem mahal ısıtması hem sıcak kullanım suyu üreten cihazdır. Yoğuşmalı (condensing) kombi, atık baca gazından su buharını yoğunlaştırarak ek ısı geri kazanır ve klasik kombiye göre belirgin yakıt verimi sağlar. Polatlı doğalgaz tesisatına uyumlu, A enerji sınıfı yoğuşmalı kombi modelleri ihtiyaca göre yetkili markalardan tedarik edilir.",
+      "Kombi (combi-boiler), tek bir cihazda hem mahal ısıtması hem sıcak kullanım suyu üreten cihazdır. Yoğuşmalı (condensing) kombi, atık baca gazından su buharını yoğunlaştırarak ek ısı geri kazanır ve klasik kombiye göre belirgin yakıt verimi sağlar. Polatlı doğalgaz tesisatına uyumlu, A enerji sınıfı yoğuşmalı kombi modelleri tercih ettiğiniz markadan tedarik edilir.",
     adimlar: [
       { baslik: "İhtiyaç Hesabı", metin: "Yapının ısı yükü ve kullanım suyu talebi hesaplanır, uygun kapasitede kombi seçilir." },
-      { baslik: "Tedarik ve Tesisat Uyarlaması", metin: "İhtiyaca uygun yetkili marka kombi tedarik edilir; baca ve doğalgaz hattı kontrolden geçirilir." },
+      { baslik: "Tedarik ve Tesisat Uyarlaması", metin: "İsteğinize uygun markada kombi tedarik edilir; baca ve doğalgaz hattı kontrolden geçirilir." },
       { baslik: "Montaj", metin: "Cihaz üreticinin yetkili servisi tarafından monte edilir, hidrolik ve gaz bağlantıları tamamlanır." },
       { baslik: "Devreye Alma ve Test", metin: "Sızdırmazlık testi, yanma analizi, ısıtma ve kullanım suyu devresi testleri yapılır." },
     ],
@@ -282,12 +282,12 @@ export const hizmetler: Hizmet[] = [
       "Eski kombilerin yoğuşmalı kombi ile değişimi — mevcut sistem teşhisi, sökme, baca uyarlaması ve montaj tek elden.",
     gorsel: "/images/bosch-kombi-hd.webp",
     tldr:
-      "Eski kombiyi yoğuşmalı kombi ile değiştirmek yakıt verimini belirgin şekilde artırır. İhtiyaca uygun yetkili marka kombi tedarik edilir; teşhis, sökme, baca uyarlaması, montaj ve devreye alma BNS koordinasyonunda yürür.",
+      "Eski kombiyi yoğuşmalı kombi ile değiştirmek yakıt verimini belirgin şekilde artırır. İsteğinize uygun markada yeni kombi tedarik edilir; teşhis, sökme, baca uyarlaması, montaj ve devreye alma BNS koordinasyonunda yürür.",
     giris:
       "Klasik kombiyi yoğuşmalı kombiyle değiştirmek, hem yakıt tasarrufu hem de modern güvenlik standartlarına uyum sağlar. Mevcut tesisatın yoğuşmalı sisteme uygunluğu (baca tipi, kondens drenajı, radyatör hattı, doğalgaz vana ölçüsü) kontrol edilir; gerekli uyarlamalar yapıldıktan sonra yeni cihaz monte edilir.",
     adimlar: [
       { baslik: "Mevcut Sistem Teşhisi", metin: "Eski kombinin tipi, kapasitesi, baca durumu ve tesisat altyapısı yerinde incelenir." },
-      { baslik: "Yeni Kombi + Baca Uygunluk Kontrolü", metin: "İhtiyaca uygun yetkili marka yoğuşmalı kombi seçilir; baca, kondens drenajı ve doğalgaz hattı uyumu doğrulanır." },
+      { baslik: "Yeni Kombi + Baca Uygunluk Kontrolü", metin: "İsteğinize uygun markada yoğuşmalı kombi seçilir; baca, kondens drenajı ve doğalgaz hattı uyumu doğrulanır." },
       { baslik: "Sökme ve Uyarlama", metin: "Eski kombi güvenli şekilde sökülür, gerekiyorsa baca borusu ve drenaj hattı revize edilir." },
       { baslik: "Montaj ve Devreye Alma", metin: "Üreticinin yetkili servisi yeni cihazı monte eder; sızdırmazlık testi, yanma analizi ve test ısıtması yapılır." },
     ],

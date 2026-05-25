@@ -1,7 +1,7 @@
 {
   "name": "BNS Enerji & Doğalgaz",
   "short_name": "BNS Enerji",
-  "description": "Polatlı / Ankara merkezli doğalgaz tesisatı, ısı pompası, klima ve yangın söndürme sistemleri. Polgaz yetkili iç tesisat firması (PG-1065); yetkili marka klima, kombi ve ısı pompası tedariki.",
+  "description": "Polatlı / Ankara merkezli doğalgaz tesisatı, ısı pompası, klima ve yangın söndürme sistemleri. Polgaz yetkili iç tesisat firması (PG-1065); isteğinize uygun markada klima, kombi ve ısı pompası tedariki.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
@@ -53,7 +53,7 @@
     {
       "name": "Klima Ürünleri",
       "short_name": "Klima",
-      "description": "Yetkili marka klima — stoktan teslim",
+      "description": "İstediğiniz markada klima — stoktan teslim",
       "url": "/urunler/",
       "icons": [{ "src": "/favicon-192.png", "sizes": "192x192" }]
     }
