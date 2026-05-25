@@ -7,7 +7,7 @@ import Layout from "../layouts/Layout.astro";
 const urunler = [
   {
     kategori: "Inverter Split Klima",
-    vitrinMarka: "Bosch Climate Serisi",
+    vitrinMarka: "Vitrin örneği · Bosch Climate Serisi",
     aciklama:
       "Konut ve iş yerleri için yüksek verimli inverter split klima — yaz serinliği, kış ısısı tek cihazda.",
     gorsel: "/images/bosch-klima-hd.webp",
@@ -20,7 +20,7 @@ const urunler = [
   },
   {
     kategori: "Yoğuşmalı Kombi",
-    vitrinMarka: "Bosch Condens",
+    vitrinMarka: "Vitrin örneği · Bosch Condens",
     aciklama:
       "Tam yoğuşma teknolojisiyle tasarruflu, dengeli ve sessiz ısınma — konut ve daireler için.",
     gorsel: "/images/bosch-kombi-hd.webp",
@@ -34,7 +34,7 @@ const urunler = [
   },
   {
     kategori: "Hava-Su Isı Pompası",
-    vitrinMarka: "Bosch Compress",
+    vitrinMarka: "Vitrin örneği · Bosch Compress",
     aciklama:
       "Hava kaynaklı ısı pompasıyla tek sistemde ısıtma, soğutma ve sıcak kullanım suyu.",
     gorsel: "/images/bosch-isipompasi-hd.webp",
@@ -48,9 +48,9 @@ const urunler = [
   },
   {
     kategori: "VRF Klima Sistemi",
-    vitrinMarka: "Bosch VRF Climate 5000 L",
+    vitrinMarka: "Çoklu marka tedariki — keşifte birlikte seçim",
     aciklama:
-      "Otel, iş merkezi ve büyük binalar için tek dış üniteyle çok bölgeli iklimlendirme.",
+      "Otel, iş merkezi ve büyük binalar için tek dış üniteyle çok bölgeli iklimlendirme. Polatlı'da gerçekleştirilmiş VRF projeleri var.",
     gorsel: "/images/bosch-vrf-hd.webp",
     urun: true,
     ozellikler: [
@@ -145,7 +145,7 @@ const urunSchema = {
               <img src={u.gorsel} alt={`${u.kategori} — vitrin örneği: ${u.vitrinMarka}`} loading="lazy" decoding="async" />
             </div>
             <div class="kart-govde">
-              <p class="urun-vitrin">Vitrin örneği · {u.vitrinMarka}</p>
+              <p class="urun-vitrin">{u.vitrinMarka}</p>
               <h2 class="kart-baslik">{u.kategori}</h2>
               <p class="kart-metin urun-aciklama">{u.aciklama}</p>
               <ul class="urun-ozellik">
