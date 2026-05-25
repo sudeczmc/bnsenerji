@@ -37,17 +37,17 @@
   ],
   "shortcuts": [
     {
-      "name": "Teklif Al",
-      "short_name": "Teklif",
-      "description": "Hızlı teklif formu",
-      "url": "/teklif-al",
+      "name": "Keşif Talebi",
+      "short_name": "Keşif",
+      "description": "Ücretsiz keşif talebi formu",
+      "url": "/iletisim/#kesif-formu",
       "icons": [{ "src": "/favicon-192.png", "sizes": "192x192" }]
     },
     {
       "name": "Hizmetler",
       "short_name": "Hizmetler",
       "description": "Doğalgaz, ısı pompası, yangın, klima",
-      "url": "/hizmetler",
+      "url": "/hizmetler/",
       "icons": [{ "src": "/favicon-192.png", "sizes": "192x192" }]
     },
     {

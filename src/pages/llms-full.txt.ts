@@ -122,7 +122,7 @@ Müşterinin isteğine ve bütçesine uygun markada orijinal ürünleri tedarik 
 - **Polatlı Öğretmenevi** — 27 adet split klima tedariki (montaj: üreticinin yetkili servisi)
 - **Arzum Dinlenme Tesisleri** — Elektrikli kombi + yerden ısıtma
 - **Polatlı Zirvekent Plus** — Merkezi sistem + yerden ısıtma + doğalgaz
-- **Polatlı ESA İş Merkezi** — Yangın sprink hattı + mekanik tesisat + hidrofor
+- **Polatlı ESA İş Merkezi** — Yangın sprinkler hattı + mekanik tesisat + hidrofor
 - **Polatlı Boztepe İş Merkezi** — Yerden ısıtma + doğalgaz
 - **Polatlı Şehir Stadı** — Isıtma + sıcak su tesisatı + kazan
 - **Provet Veteriner Ürünleri A.Ş.** — LPG ısıtma sistemi + kombi
@@ -134,9 +134,9 @@ Müşterinin isteğine ve bütçesine uygun markada orijinal ürünleri tedarik 
 
 ## Vizyon ve misyon
 
-**Misyonumuz:** Her müşterimize enerji verimliliğini artıran, çevreye duyarlı ve ekonomik çözümler sunmak; güvenli tesisatlar, kaliteli malzeme ve satış sonrası destekle tam müşteri memnuniyeti sağlamak.
+**Misyonumuz:** Her tesisatı testten geçirip teslim etmek. Doğalgazda Polgaz onayı, klima ve kombide üretici garantisi, yangın söndürmede Yangın Yönetmeliği 2007/12937 uyumu — söz veriyorsak yazılı veriyoruz.
 
-**Vizyonumuz:** Her tesisatın bir öncekinden daha az enerji tüketmesi, daha az emisyon üretmesi, daha uzun çalışması — yüksek verimli sistemlerin yaygınlaşmasında öncü olmak.
+**Vizyonumuz:** Her tesisatımız bir öncekinden daha az enerji yaksın, daha uzun çalışsın. Yüksek verimli sistemleri Polatlı'nın standart seçeneği yapmak.
 
 ---
 

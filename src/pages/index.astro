@@ -1,6 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
+// Klima sezonu (Mayıs–Eylül) ribbon kontrolü — build time
+const ay = new Date().getMonth() + 1;
+const klimaSezonuAktif = ay >= 5 && ay <= 9;
+
 const hizmetler = [
   {
     baslik: "Doğalgaz Tesisatı",
@@ -97,7 +101,7 @@ const sss = [
 
 const istatistik = [
   { num: "14", label: "Kurumsal referans projesi" },
-  { num: "6", label: "Uzmanlık ve hizmet alanı" },
+  { num: "9", label: "Hizmet ve uzmanlık alanı" },
   { num: "2020", label: "Polatlı'da hizmet başlangıcı" },
 ];
 const istatistikNot =
@@ -117,7 +121,7 @@ const faqSchema = {
 
 <Layout
   title="BNS Enerji & Doğalgaz — Polatlı Doğalgaz, Klima, Isı Pompası"
-  description="Polatlı/Ankara'da doğalgaz tesisatı, klima, ısı pompası, yangın söndürme ve merkezi ısıtma sistemleri. BNS Enerji & Doğalgaz — Geleceğin Enerjisini Bugün Sunuyoruz."
+  description="Polatlı'da Polgaz Sertifikalı (PG-1065) doğalgaz tesisatı, klima, ısı pompası, kombi ve yangın söndürme sistemleri. Keşif ücretsiz."
   extraSchemas={[faqSchema]}
 >
   <!-- ─── HERO ─── -->
@@ -183,6 +187,19 @@ const faqSchema = {
       </figure>
     </div>
   </section>
+
+  {klimaSezonuAktif && (
+    <aside class="sezon-ribbon" role="note" aria-label="Klima sezonu bilgisi">
+      <div class="container sezon-ribbon-inner">
+        <span class="sezon-ribbon-tag" aria-hidden="true">MAYIS – EYLÜL</span>
+        <p class="sezon-ribbon-metin">
+          <strong>Klima sezonu açık.</strong> Yaz aylarında keşif randevuları sıraya
+          giriyor — bu hafta talep eden hafta içinde montaj.
+        </p>
+        <a class="sezon-ribbon-cta" href="/iletisim/#kesif-formu">Keşif talebi →</a>
+      </div>
+    </aside>
+  )}
 
   <!-- ─── İSTATİSTİK ŞERİDİ ─── -->
   <section class="stat-serit">
@@ -464,12 +481,12 @@ const faqSchema = {
         <p class="bolum-kicker kapanis-kicker"><span class="kicker-tick" aria-hidden="true"></span>İletişim</p>
         <h2 class="kapanis-baslik">Polatlı'da güvenilir enerji çözümü bir telefon kadar yakın</h2>
         <p class="kapanis-adres">
-          Fatih Mah. Bıyıktay Cd. 37/A, Polatlı / Ankara · Pzt–Cmt 08:00–20:00
+          Fatih Mah., Bıyıktay Cd. 37/A, Polatlı / Ankara · Pzt–Cmt 08:00 – 20:00
         </p>
       </div>
       <div class="kapanis-cta">
         <a class="btn btn-light" href="tel:+905324993986">0 532 499 39 86</a>
-        <a class="btn btn-wa" href="https://wa.me/905324993986?text=Merhaba%20BNS%20Enerji%2C%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">WhatsApp'tan yazın</a>
+        <a class="btn btn-wa" href={klimaSezonuAktif ? "https://wa.me/905324993986?text=Merhaba%20BNS%20Enerji%2C%20klima%20ke%C5%9Fif%20randevusu%20almak%20istiyorum." : "https://wa.me/905324993986?text=Merhaba%20BNS%20Enerji%2C%20bilgi%20almak%20istiyorum."} target="_blank" rel="noopener">WhatsApp'tan yazın</a>
       </div>
     </div>
   </section>
@@ -633,6 +650,50 @@ const faqSchema = {
     from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
   }
+
+  /* ═══ SEZON RİBBONU — Mayıs–Eylül klima sezonu ═══ */
+  .sezon-ribbon {
+    background: var(--color-primary);
+    color: #ffffff;
+    border-block: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  .sezon-ribbon-inner {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 3vw, 2rem);
+    padding-block: clamp(0.85rem, 1.8vw, 1.1rem);
+    flex-wrap: wrap;
+  }
+  .sezon-ribbon-tag {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: var(--weight-semibold);
+    letter-spacing: 0.18em;
+    background: rgba(0, 0, 0, 0.18);
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+  }
+  .sezon-ribbon-metin {
+    flex: 1;
+    min-width: 240px;
+    font-size: var(--text-sm);
+    line-height: var(--leading-snug);
+    color: rgba(255, 255, 255, 0.92);
+    margin: 0;
+  }
+  .sezon-ribbon-metin strong { color: #ffffff; font-weight: var(--weight-semibold); }
+  .sezon-ribbon-cta {
+    flex-shrink: 0;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    color: #ffffff;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.7);
+    padding-bottom: 2px;
+    transition: border-color var(--duration-base) var(--ease-bns);
+  }
+  .sezon-ribbon-cta:hover { border-bottom-color: #ffffff; }
 
   /* ═══ İSTATİSTİK ŞERİDİ ═══ */
   .stat-serit {

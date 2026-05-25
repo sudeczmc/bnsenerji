@@ -7,6 +7,9 @@ import react from '@astrojs/react';
 export default defineConfig({
   site: 'https://bnsenerjidogalgaz.com',
   trailingSlash: 'always',
+  redirects: {
+    '/bns-enerji-dogalgaz-polatli/': '/',
+  },
   prefetch: {
     prefetchAll: true,
     defaultStrategy: 'hover',
@@ -45,7 +48,6 @@ export default defineConfig({
           '/osb-referans-gorsel/': `${SITE}/images/wp/1-18-jpg.webp`,
           '/kalite-politikasi/': `${SITE}/og-image.png`,
           '/yayin-politikamiz/': `${SITE}/og-image.png`,
-          '/bns-enerji-dogalgaz-polatli/': `${SITE}/og-image.png`,
         };
         // URL pathname'i çıkar (item.url tam URL gelir, sondaki / ile)
         const pathname = new URL(item.url).pathname;

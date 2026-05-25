@@ -40,7 +40,7 @@ Polatlı ağırlıklı. Hizmet bölgesi projenin türü ve kapsamına göre değ
 - Polatlı Yenimahalle Camii — yerden ısıtma + doğalgaz + kazan
 - Polatlı Öğretmenevi — 27 oda kliması tedariki (montaj üreticinin yetkili servisi)
 - Zirvekent Plus — merkezi sistem + yerden ısıtma
-- Polatlı ESA İş Merkezi — yangın sprink + tesisat + hidrofor
+- Polatlı ESA İş Merkezi — yangın sprinkler + tesisat + hidrofor
 - Polatlı Boztepe İş Merkezi — yerden ısıtma + doğalgaz
 - Arzum Dinlenme Tesisleri — elektrikli kombi + yerden ısıtma
 - Provet Veteriner Ürünleri A.Ş. — LPG ısıtma + kombi
