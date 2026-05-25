@@ -1,7 +1,7 @@
 {
   "name": "BNS Enerji & Doğalgaz",
   "short_name": "BNS Enerji",
-  "description": "Polatlı / Ankara merkezli doğalgaz tesisatı, ısı pompası, klima ve yangın söndürme sistemleri. Bosch Partner Program üyesi, Polgaz yetkili iç tesisat firması.",
+  "description": "Polatlı / Ankara merkezli doğalgaz tesisatı, ısı pompası, klima ve yangın söndürme sistemleri. Polgaz yetkili iç tesisat firması (PG-1065); yetkili marka klima, kombi ve ısı pompası tedariki.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
@@ -51,10 +51,10 @@
       "icons": [{ "src": "/favicon-192.png", "sizes": "192x192" }]
     },
     {
-      "name": "Bosch Klima",
+      "name": "Klima Ürünleri",
       "short_name": "Klima",
-      "description": "Bosch Climate 2000 — stoktan teslim",
-      "url": "/urunler/bosch-klima",
+      "description": "Yetkili marka klima — stoktan teslim",
+      "url": "/urunler/",
       "icons": [{ "src": "/favicon-192.png", "sizes": "192x192" }]
     }
   ]

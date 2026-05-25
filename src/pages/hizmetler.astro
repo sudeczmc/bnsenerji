@@ -7,10 +7,10 @@ const sayfaURL = "https://bnsenerjidogalgaz.com/hizmetler/";
 /* Hub için Service collection + global FAQ */
 const hubSss = [
   { s: "Hangi hizmet ne zaman gerekir?", c: "Yeni konut veya iş yeri yapımında doğalgaz tesisatı + yerden ısıtma + kombi kombinasyonu. Mevcut binada modernizasyon için kombi değişimi veya ısı pompası dönüşümü. Çok bölümlü ticari yapılarda VRF klima sistemi. Yasal yapılarda yangın söndürme zorunlu. Anasayfadaki kesit çiziminden hangi sistemin nereye konduğunu görebilirsiniz." },
-  { s: "BNS Enerji hangi cihaz markalarını kullanıyor?", c: "Bosch Partner Program üyesi olarak Bosch Climate (klima), Condens (yoğuşmalı kombi), Compress (ısı pompası) ve Bosch Climate 5000 L (VRF) serilerinde orijinal ürün tedariki yapıyoruz. Klima montajı Bosch yetkili servisi tarafından gerçekleştirilir." },
+  { s: "BNS Enerji hangi cihaz markalarını tedarik ediyor?", c: "İhtiyaca ve bütçeye uygun yetkili marka cihazları tedarik ediyoruz — klima, yoğuşmalı kombi, ısı pompası ve VRF sistemleri dahil. Ürün ve montaj üretici garantisi kapsamındadır; montaj üreticinin yetkili servisi tarafından gerçekleştirilir." },
   { s: "Keşif ücretsiz mi, randevu nasıl alınır?", c: "Polatlı merkez ve çevresinde yerinde keşif ve ölçüm ücretsizdir. Telefon (0 532 499 39 86) veya WhatsApp üzerinden randevu alınabilir; iletişim sayfasındaki keşif talebi formu da kullanılabilir." },
   { s: "Hangi bölgelere hizmet veriyorsunuz?", c: "Hizmet bölgesi projenin türü ve kapsamına göre değişir. Polatlı ağırlıklı çalışıyoruz; özel projeler için iletişim sayfasından bize ulaşabilirsiniz." },
-  { s: "Tüm hizmetler tek elden mi yürütülüyor?", c: "Evet. Keşif, projelendirme, ürün tedariki, kurulum, devreye alma ve teslim — tüm süreç BNS Enerji koordinasyonunda yürür. Bosch klima montajı Bosch yetkili servisi tarafından yapılır, ancak müşterinin tek muhatabı BNS Enerji'dir." },
+  { s: "Tüm hizmetler tek elden mi yürütülüyor?", c: "Evet. Keşif, projelendirme, ürün tedariki, kurulum, devreye alma ve teslim — tüm süreç BNS Enerji koordinasyonunda yürür. Klima montajı üreticinin yetkili servisi tarafından yapılır, ancak müşterinin tek muhatabı BNS Enerji'dir." },
   { s: "Standart çalışma akışı nedir?", c: "Tüm hizmetlerde aynı disiplin: 1) Yerinde keşif ve ölçüm, 2) Projelendirme ve teklif, 3) Uygulama ve montaj, 4) Test, sızdırmazlık ve devreye alma. Doğalgazda dağıtım şirketi onayı + sızdırmazlık testi; yangın söndürmede hidrostatik test; klima/ısı pompasında sistem fonksiyon testi." },
 ];
 
@@ -43,14 +43,14 @@ const hubCollectionSchema = {
 const standartSurec = [
   { no: "01", baslik: "Yerinde Keşif", metin: "Mekân ölçüldü, mevcut sistem ve ihtiyaç analiz edilir." },
   { no: "02", baslik: "Projelendirme", metin: "İhtiyaca uygun sistem seçilir, teknik şartnameye göre projelendirilir." },
-  { no: "03", baslik: "Uygulama", metin: "Onaylı projeye göre montaj — doğalgazda Polgaz onayı, klima/ısı pompasında Bosch yetkili servisi koordinasyonu." },
+  { no: "03", baslik: "Uygulama", metin: "Onaylı projeye göre montaj — doğalgazda Polgaz onayı, klima/ısı pompasında üreticinin yetkili servisi koordinasyonu." },
   { no: "04", baslik: "Test ve Devreye Alma", metin: "Sızdırmazlık, basınç ve fonksiyon testleri sonrası sistem teslim edilir; kullanım ve güvenlik rehberi paylaşılır." },
 ];
 ---
 
 <Layout
   title="Polatlı Doğalgaz, Klima, Isı Pompası Hizmetleri | BNS Enerji"
-  description="Polatlı'da doğalgaz tesisatı, kombi, ısı pompası, klima, VRF, yerden ısıtma, merkezi ısıtma ve yangın söndürme. Polgaz yetkili + Bosch Partner — keşiften devreye almaya tek elden."
+  description="Polatlı'da doğalgaz tesisatı, kombi, ısı pompası, klima, VRF, yerden ısıtma, merkezi ısıtma ve yangın söndürme. Polgaz yetkili + yetkili marka tedariki — keşiften devreye almaya tek elden."
   extraSchemas={[hubCollectionSchema, hubFaqSchema]}
 >
   <section class="bolum bolum-beyaz">
@@ -64,9 +64,9 @@ const standartSurec = [
           ve merkezi ısıtma sistemleri alanında uçtan uca uygulama yapan
           tesisat firmasıdır.</strong>
           Keşiften devreye almaya kadar tüm süreç tek elden yürütülür; doğalgazda
-          Polgaz onayı, klima/kombi/ısı pompası/VRF'de Bosch Partner Program
-          orijinal ürün, yangın söndürmede Yangın Yönetmeliği (2007/12937)
-          uyumlu uygulama.
+          Polgaz onayı, klima/kombi/ısı pompası/VRF'de yetkili marka orijinal
+          ürün ve üreticinin yetkili servis montajı, yangın söndürmede Yangın
+          Yönetmeliği (2007/12937) uyumlu uygulama.
         </p>
       </header>
 
@@ -75,7 +75,7 @@ const standartSurec = [
         <ul>
           <li><strong>9 hizmet alanı</strong> — doğalgaz, kombi, kombi değişimi, klima, VRF, ısı pompası, yangın söndürme, yerden ısıtma, merkezi ısıtma.</li>
           <li><strong>2020'den bu yana Polatlı</strong> — 14 kurumsal referans (Belediye, Ticaret Odası, Şehir Stadı, Yenimahalle Camii, Öğretmenevi 27 ünite vb.).</li>
-          <li><strong>Yetki</strong> — Polgaz yetkili iç tesisat firması + Bosch Partner Program üyesi.</li>
+          <li><strong>Yetki</strong> — Polgaz yetkili iç tesisat firması; yetkili marka klima, yoğuşmalı kombi ve ısı pompası tedariki.</li>
           <li><strong>Hizmet alanı</strong> — Polatlı merkez ve mahalleleri (Fatih, Yenimahalle, Karşıyaka, Cumhuriyet, Şentepe, Yıldız, Atatürk).</li>
         </ul>
       </aside>
@@ -119,7 +119,7 @@ const standartSurec = [
           <strong>Polgaz yetkili iç tesisat firması</strong> — Polatlı doğalgaz dağıtım şirketi tarafından onaylı iç tesisat uygulayıcısı. Tüm doğalgaz iç tesisat projeleri Polgaz onayına sunulur.
         </li>
         <li>
-          <strong>Bosch Partner Program üyesi</strong> — Bosch Climate (klima), Condens (yoğuşmalı kombi), Compress (ısı pompası) ve Climate 5000 L (VRF) serilerinde orijinal ürün tedariki. Klima montajı Bosch yetkili servisi tarafından.
+          <strong>Yetkili marka tedariki</strong> — klima, yoğuşmalı kombi, ısı pompası ve VRF sistemlerinde ihtiyaca uygun yetkili marka orijinal ürün. Montaj üreticinin yetkili servisi tarafından, üretici garantisi tam.
         </li>
         <li>
           <strong>İSG uyumlu çalışma</strong> — şantiye ve montaj süreçlerinde iş sağlığı ve güvenliği protokolleri uygulanır.

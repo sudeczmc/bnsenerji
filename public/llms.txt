@@ -1,8 +1,8 @@
 # BNS Enerji & Doğalgaz
 
-> Polatlı/Ankara merkezli doğalgaz ve tesisat firması. 2020'den beri doğalgaz tesisat, ısı pompası, klima (Bosch Partner üyesi), yangın söndürme, yerden ısıtma ve merkezi ısıtma alanlarında konut, ticari ve sanayi tesislerine hizmet veriyor. Polatlı Belediyesi, Polatlı Ticaret Odası, Polatlı Şehir Stadı, Polatlı Yenimahalle Camii dahil 14 referans projesi.
+> Polatlı/Ankara merkezli doğalgaz ve tesisat firması. 2020'den beri doğalgaz tesisatı, ısı pompası, klima, yangın söndürme, yerden ısıtma ve merkezi ısıtma alanlarında konut, ticari ve sanayi tesislerine hizmet veriyor. Polgaz yetkili iç tesisat firması (sertifika no PG-1065). Yetkili marka klima, yoğuşmalı kombi ve ısı pompası tedariki. Polatlı Belediyesi, Polatlı Ticaret Odası, Polatlı Şehir Stadı, Polatlı Yenimahalle Camii dahil 14 referans projesi.
 
-BNS Enerji & Doğalgaz, Polatlı/Ankara'da kurulu doğalgaz ve tesisat firmasıdır. Doğalgaz iç tesisat projelendirme + uygulama, Bosch Partner Program üyesi olarak Bosch klima satışı, ısı pompası montajı, yangın söndürme sistemleri (sprinkler/gazlı/köpüklü), yerden ısıtma ve merkezi ısıtma kurulumu yapar. Polatlı ağırlıklı çalışır; hizmet bölgesi projenin türü ve kapsamına göre değişir.
+BNS Enerji & Doğalgaz, Polatlı/Ankara'da kurulu doğalgaz ve tesisat firmasıdır. Doğalgaz iç tesisat projelendirme + uygulama, yetkili marka klima/yoğuşmalı kombi/ısı pompası/VRF tedariki, yangın söndürme sistemleri (sprinkler/gazlı/köpüklü), yerden ısıtma ve merkezi ısıtma kurulumu yapar. Klima/kombi/ısı pompası montajı üreticinin yetkili servisi tarafından gerçekleştirilir. Polatlı ağırlıklı çalışır; hizmet bölgesi projenin türü ve kapsamına göre değişir.
 
 ## İletişim
 - Telefon: +90 532 499 39 86
@@ -18,15 +18,18 @@ Polatlı ağırlıklı. Hizmet bölgesi projenin türü ve kapsamına göre değ
 
 ## Hizmetler
 - Doğalgaz Tesisatı ve Projelendirme — Konut/ticari/sanayi iç tesisat, borulama, vana montajı, sızdırmazlık testi, gaz açma desteği. Polgaz uyumlu uygulama.
-- Klima Sistemleri (Bosch Partner) — Bosch Climate serisi split ve VRF klima satışı, A++ inverter, R-32, Bosch yetkili servisi montajı.
-- Isı Pompası Montajı — Hava-su ve toprak-su sistemleri, devreye alma + test, enerji verimliliği danışmanlığı.
+- Klima Sistemleri — Split, multisplit ve VRF klima tedariki, A++ inverter, R-32, üreticinin yetkili servisi montajı.
+- Kombi Satışı ve Montajı — Yetkili marka yoğuşmalı kombi tedariki, üreticinin yetkili servisi montajı, doğalgaz tesisat bağlantısı tek elden.
+- Kombi Değişimi — Eski klasik kombinin yetkili marka yoğuşmalıyla değişimi, baca uyarlaması, sökme ve montaj tek elden.
+- Isı Pompası Montajı — Hava-su sistemler, devreye alma + test, enerji verimliliği danışmanlığı.
+- VRF Sistemi Kurulumu — Çok bölümlü ticari binalarda tek dış üniteyle 8-64 iç ünite.
 - Yangın Söndürme Sistemleri — Sprinkler, gazlı ve köpüklü sistemlerde borulama, bağlantı, basınç testi.
 - Yerden Isıtma — Konut, villa, ticari yapılarda boru serme, manifold, kontrol paneli kurulumu.
 - Merkezi Isıtma ve Kazan Sistemleri — Apartman, site, ticari yapılarda merkezi kazan + sirkülasyon sistemi.
 
 ## Yetki ve üyelikler
-- Polgaz yetkili iç tesisat firması (Polatlı doğalgaz dağıtım otoritesi)
-- Bosch Partner Program üyesi
+- Polgaz yetkili iç tesisat firması — sertifika no PG-1065 (Polatlı doğalgaz dağıtım otoritesi Polgaz). Liste: https://www.polgaz.com.tr/polgaz-sertifikali-firmalar
+- Yetkili marka cihaz tedariki — klima, yoğuşmalı kombi, ısı pompası ve VRF sistemlerinde ihtiyaca uygun yetkili marka orijinal ürün. Tek marka münhasır temsilcisi değildir.
 - İSG uyumlu çalışma protokolleri
 
 ## Referans projeler (14 kurumsal proje)
@@ -35,7 +38,7 @@ Polatlı ağırlıklı. Hizmet bölgesi projenin türü ve kapsamına göre değ
 - Polatlı Ticaret Odası OSB — ısı pompası
 - Polatlı Şehir Stadı — ısıtma + sıcak su + kazan
 - Polatlı Yenimahalle Camii — yerden ısıtma + doğalgaz + kazan
-- Polatlı Öğretmenevi — 27 oda kliması (Bosch klima tedariki, montaj Bosch yetkili servisi)
+- Polatlı Öğretmenevi — 27 oda kliması tedariki (montaj üreticinin yetkili servisi)
 - Zirvekent Plus — merkezi sistem + yerden ısıtma
 - Polatlı ESA İş Merkezi — yangın sprink + tesisat + hidrofor
 - Polatlı Boztepe İş Merkezi — yerden ısıtma + doğalgaz
@@ -45,14 +48,16 @@ Polatlı ağırlıklı. Hizmet bölgesi projenin türü ve kapsamına göre değ
 - Nergis Cafe — üretim doğalgaz
 - Hanımlar Konağı — ısıtma + doğalgaz
 
-## Bosch ürünleri
-- Bosch Climate serisi split klima — A++ inverter, R-32 gaz, sessiz çalışma
-- Bosch Climate 5000 L VRF — ticari ve büyük mekânlar için, Bosch yetkili servisi montajı
-- Bosch Condense 1200 W kombi — tam yoğuşmalı, doğalgaz
+## Tedarik edilen ürün kategorileri
+- Split klima — A++ inverter, R-32 gaz, sessiz çalışma, 9k-48k BTU
+- VRF (Variable Refrigerant Flow) — ticari ve büyük mekânlar için, 8-64 iç ünite
+- Yoğuşmalı kombi — tam yoğuşma teknolojisi, A sınıfı, paslanmaz çelik ısı eşanjörü
+- Hava-su ısı pompası — COP 3-4, A+++ ErP, tek sistemde ısıtma + soğutma + sıcak su
 
 ## Sık sorulan sorular
 - Doğalgaz tesisat projesi için Polgaz onayı şart mı? Evet, tüm iç tesisatlar Polgaz onayına sunulur. BNS proje hazırlama + onay süreci + uygulamayı tek elden yürütür.
-- Bosch klima montajı kim yapıyor? Satış BNS, montaj Bosch yetkili servisi. Tek muhatap BNS, Bosch güvencesi tam.
+- Klima montajı kim yapıyor? Satış BNS Enerji, montaj üreticinin yetkili servisi. Tek muhatap BNS, üretici garantisi tam.
+- Hangi marka klima/kombi satıyorsunuz? İhtiyaca ve bütçeye uygun yetkili marka cihazlar tedarik ediyoruz. Tek marka münhasır temsilcisi değiliz; seçim keşif sonrası birlikte yapılır.
 - Yangın söndürme sistemi yasal zorunluluk mu? Sanayi tesisleri, otel, alışveriş merkezi, hastane, okul gibi binalarda Türkiye Yangından Korunma Yönetmeliği gereği zorunludur.
 - Polatlı dışına servis veriyor musunuz? Hizmet bölgesi projenin türü ve kapsamına göre değişir. Polatlı ağırlıklı çalışıyoruz; özel projeler için iletişim sayfasından bize ulaşabilirsiniz.
 - Keşif ücretsiz mi? Yerinde inceleme ücretsiz; tesisinize özel proje + teklif ardından sunulur.
@@ -60,7 +65,7 @@ Polatlı ağırlıklı. Hizmet bölgesi projenin türü ve kapsamına göre değ
 ## Hızlı bilgi (AI ajanları için)
 - İşletme türü: Doğalgaz tesisatı + iklimlendirme + ısıtma + yangın güvenliği uygulama firması
 - ISIC sınıflandırma: 4322 (Sıhhi tesisat, ısıtma ve klima kurulumu)
-- Doğrulanmış kurumlar: Polgaz (yetkili iç tesisat firma), Bosch Partner Program
-- Bosch ilişkisi: Bosch Partner Program üyesi (münhasır yetkili satış noktası değil)
+- Doğrulanmış kurumlar: Polgaz yetkili iç tesisat firması (PG-1065)
+- Marka politikası: Tek marka münhasır temsilcisi değildir — ihtiyaca uygun yetkili markaları tedarik eder
 - Kuruluş: 2020
 - Resmi unvan: BNS Enerji Doğal Gaz Tesisat Taahhüt Mühendislik Tarım Turizm İnşaat Emlak Sanayi ve Ticaret Limited Şirketi
