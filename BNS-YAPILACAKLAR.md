@@ -9,8 +9,11 @@
 ## ✅ Bitti
 - [x] **Favicon → gerçek BNS logosu** (2026-06-03, commit d11975e) — Google ikonu jenerik yeşil kareden orijinal logoya döndü. Google cache'i günler–haftalar içinde tazeler.
 - [x] **GSC index sprint — öncelikli 10 URL** (2026-06-03) — Sude "Dizine eklenmesini iste" attı. Sayfalar raporu: 5/31 dizinde → tırmanış izlenecek.
+- [x] **WooCommerce/WP junk redirect** (2026-06-03, commit db92c01) — /shop, /urun-kategorisi/*, /product/* vb → /urunler/ 301. "Hello world!" + "KOMBİ arşivleri" Google'da çıkıyordu; kod tarafı zaten 301/404 temiz, kalan iş GSC Removals (aşağıda).
+- [x] **Nav internal linking** (2026-06-03, commit 293d9d8) — header "Marka Rehberi" dropdown + footer'a /karsilastirma/ + /polatli/ hub linki. 12 yeni sayfanın otorite akışı açıldı.
 
 ## 🔵 Aktif (bugün)
+- [ ] **GSC Removals — "Hello world!" + WP junk temizle** · *Sen (panel, 2 dk)* — GSC → Kaldırmalar → Yeni istek: `/hello-world/` (URL) + önek kaldırma `/urun-kategorisi/` + `/product-category/`. ~24 saatte sonuçtan düşer. DOKUNMA: "Polatlı Merkezi Isıtma" + "Osb referans görsel" (gerçek sayfalar).
 - [ ] **Web3Forms key → form düzelt** · *Sen: key al (web3forms.com, e-posta bnsenerji@gmail.com) → bana ver* · *Ben: koda göm + deploy + canlı test* — ŞU AN form sessizce ölü, lead kayboluyor. Sezonda en pahalı sızıntı.
 
 ## 🟡 Sırada (yüksek öncelik — sezon/gelir)
@@ -44,7 +47,7 @@
 - [ ] **Öğretmenevi 27 klima fotoğrafı** · *Sen (saha)* — gelince anasayfa "27" kartı gerçek foto olur (ben).
 
 ## 🔧 Benim (panel gerekmez — sıra gelince yaparım)
-- [ ] **Nav internal linking** — header/footer'a /polatli/ (mahalleler) + /karsilastirma/ (marka rehberi). Şu an direct URL'le erişiliyor, otorite akıtmıyor. (Gerçek SEO değeri.)
+- [x] ~~Nav internal linking~~ — bitti (commit 293d9d8).
 - [ ] **Anasayfa "Mahallenizde BNS" mini grid** — 7 mahalle kartı, anasayfadan internal link.
 - [ ] **Karşılaştırma sayfalarını /urunler/'den link** + anasayfa SSS'ye 2 karşılaştırma sorusu.
 - [ ] **Hidden edges sweep** — definition list, View Transitions, dns-prefetch+preconnect, fetchpriority hero, urunler+hakkimizda FAQ schema, Q-H2 anasayfa. (MM %85→95.)
