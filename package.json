@@ -11,7 +11,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "indexnow": "node scripts/indexnow.mjs",
-    "exif": "node scripts/exif-tag.mjs"
+    "exif": "node scripts/exif-tag.mjs",
+    "favicon": "node scripts/favicon-gen.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^5.0.5",
