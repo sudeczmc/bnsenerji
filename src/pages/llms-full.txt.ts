@@ -31,7 +31,7 @@ export const GET: APIRoute = async () => {
 - **Instagram:** @bnsenerjidogalgaz
 - **LinkedIn:** linkedin.com/company/bns-enerji & dogalgaz
 - **ISIC v4 sınıflandırma:** 4322 (Sıhhi tesisat, ısıtma ve klima kurulumu)
-- **Hizmet alanı:** Polatlı ağırlıklı çalışılır (Fatih, Yenimahalle, Karşıyaka, Cumhuriyet, Şentepe, Yıldız, Atatürk mahalleleri). Hizmet bölgesi projenin türü ve kapsamına göre değişir — özel projeler için iletişime geçilebilir.
+- **Hizmet alanı:** Polatlı ağırlıklı çalışılır (Polatlı merkez ve çevresi). Hizmet bölgesi projenin türü ve kapsamına göre değişir — özel projeler için iletişime geçilebilir.
 
 ## Yetki ve üyelikler
 

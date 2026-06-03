@@ -41,6 +41,11 @@
 /urunlerimiz         /urunler/           301
 /urunlerimiz/        /urunler/           301
 
+# Kaldırılan Polatlı mahalle (doorway) sayfaları → /
+/polatli             /                   301
+/polatli/            /                   301
+/polatli/*           /                   301
+
 # WP varsayılan demo sayfalar → /
 /sample-page         /                   301
 /sample-page/        /                   301
