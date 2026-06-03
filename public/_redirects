@@ -54,6 +54,20 @@
 /date/*              /                   301
 /archive/*           /                   301
 
+# WooCommerce mağaza / ürün arşivleri → /urunler/ ("KOMBİ arşivleri" junk dahil)
+/shop                /urunler/           301
+/shop/               /urunler/           301
+/magaza              /urunler/           301
+/magaza/             /urunler/           301
+/product-category/*  /urunler/           301
+/urun-kategorisi/*   /urunler/           301
+/product/*           /urunler/           301
+/urun/*              /urunler/           301
+/cart/               /urunler/           301
+/sepet/              /urunler/           301
+/checkout/           /urunler/           301
+/my-account/         /                   301
+
 # WP yönetim/içerik prefix'leri (/wp-admin/*, /wp-content/*, /wp-includes/*,
 # /wp-json/*, /xmlrpc.php) için redirect TANIMLANMADI — Cloudflare Workers
 # Static Assets convention sadece 200/301/302/303/307/308 kabul ediyor (410
