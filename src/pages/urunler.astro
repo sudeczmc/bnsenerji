@@ -7,7 +7,6 @@ import Layout from "../layouts/Layout.astro";
 const urunler = [
   {
     kategori: "Inverter Split Klima",
-    karsilastirma: "inverter-klima-marka-karsilastirma",
     vitrinMarka: "Vitrin örneği · Bosch Climate Serisi",
     aciklama:
       "Konut ve iş yerleri için yüksek verimli inverter split klima — yaz serinliği, kış ısısı tek cihazda.",
@@ -21,7 +20,6 @@ const urunler = [
   },
   {
     kategori: "Yoğuşmalı Kombi",
-    karsilastirma: "yogusmali-kombi-marka-karsilastirma",
     vitrinMarka: "Vitrin örneği · Bosch Condens",
     aciklama:
       "Tam yoğuşma teknolojisiyle tasarruflu, dengeli ve sessiz ısınma — konut ve daireler için.",
@@ -36,7 +34,6 @@ const urunler = [
   },
   {
     kategori: "Hava-Su Isı Pompası",
-    karsilastirma: "hava-su-isi-pompasi-marka-karsilastirma",
     vitrinMarka: "Vitrin örneği · Bosch Compress",
     aciklama:
       "Hava kaynaklı ısı pompasıyla tek sistemde ısıtma, soğutma ve sıcak kullanım suyu.",
@@ -161,17 +158,7 @@ const urunSchema = {
                   </li>
                 ))}
               </ul>
-              <div class="urun-cta-grup">
-                <a class="btn btn-fill urun-cta" href="/iletisim/">Bilgi al</a>
-                {u.karsilastirma && (
-                  <a class="urun-karsilastir" href={`/karsilastirma/${u.karsilastirma}/`}>
-                    Marka karşılaştır
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M5 12h14M13 6l6 6-6 6" />
-                    </svg>
-                  </a>
-                )}
-              </div>
+              <a class="btn btn-fill urun-cta" href="/iletisim/">Bilgi al</a>
             </div>
           </article>
         ))}
@@ -224,47 +211,9 @@ const urunSchema = {
     margin-top: 3px;
     color: var(--color-primary);
   }
-  .urun-cta-grup {
-    margin-top: auto;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: var(--space-4) var(--space-6);
-  }
   .urun-cta {
+    margin-top: auto;
     align-self: flex-start;
-  }
-
-  /* İkincil link — marka karşılaştırma sayfasına (otorite akışı + uzun-kuyruk niyet) */
-  .urun-karsilastir {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-family: var(--font-mono, ui-monospace, monospace);
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.01em;
-    color: var(--color-primary-deep, #4f7a25);
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: gap 0.2s ease, border-color 0.2s ease;
-  }
-  .urun-karsilastir svg {
-    width: 1em;
-    height: 1em;
-    transition: transform 0.2s ease;
-  }
-  .urun-karsilastir:hover {
-    border-bottom-color: currentColor;
-  }
-  .urun-karsilastir:hover svg {
-    transform: translateX(3px);
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .urun-karsilastir,
-    .urun-karsilastir svg {
-      transition: none;
-    }
   }
 
   /* Vitrin marka etiketi — kart başlığının üstünde küçük üst etiket */

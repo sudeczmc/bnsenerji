@@ -14,7 +14,8 @@
 
 ## 🔵 Aktif (bugün)
 - [ ] **GSC Removals — "Hello world!" + WP junk temizle** · *Sen (panel, 2 dk)* — GSC → Kaldırmalar → Yeni istek: `/hello-world/` (URL) + önek kaldırma `/urun-kategorisi/` + `/product-category/`. ~24 saatte sonuçtan düşer. DOKUNMA: "Polatlı Merkezi Isıtma" + "Osb referans görsel" (gerçek sayfalar).
-- [ ] **Web3Forms key → form düzelt** · *Sen: key al (web3forms.com, e-posta bnsenerji@gmail.com) → bana ver* · *Ben: koda göm + deploy + canlı test* — ŞU AN form sessizce ölü, lead kayboluyor. Sezonda en pahalı sızıntı.
+- [x] **Web3Forms key → form düzelt** (2026-06-04, commit 4a725dc) — key `d32c27fe…` iletisim.astro'ya gömüldü (fallback). Sude canlı test etti: form çalışıyor, lead düşüyor. ✅
+- [x] **🔴 KRİTİK: Auto-deploy ~1 haftadır kopuktu — ÇÖZÜLDÜ** (2026-06-04, commit 24c4700) — @astrojs/cloudflare adapter bug'ı (withastro/astro#15802): ID'siz SESSION KV binding her deploy'da "already exists [10014]" veriyordu. 26 May'tan beri TEK deploy geçmemiş. Fix: adapter açıkça kuruldu + `scripts/fix-wrangler.mjs` build sonrası SESSION binding'i temizliyor. **Artık her push canlıya gidiyor — AMA her push sonrası canlı doğrulama ZORUNLU (curl ile commit izi kontrol).**
 
 ## 🟡 Sırada (yüksek öncelik — sezon/gelir)
 - [x] **GBP optimize** (2026-06-04, Sude "hallettim") — Google İşletme Profili düzenlendi. ⏳ İzle: 1-2 hafta sonra "Polatlı klima/ısı pompası" yerel pack'te BNS çıkıyor mu kontrol et.

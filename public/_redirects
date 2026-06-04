@@ -46,6 +46,11 @@
 /polatli/            /                   301
 /polatli/*           /                   301
 
+# Kaldırılan Marka Rehberi / marka karşılaştırma sayfaları → /urunler/
+/karsilastirma       /urunler/           301
+/karsilastirma/      /urunler/           301
+/karsilastirma/*     /urunler/           301
+
 # WP varsayılan demo sayfalar → /
 /sample-page         /                   301
 /sample-page/        /                   301

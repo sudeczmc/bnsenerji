@@ -97,8 +97,6 @@ const sss = [
   { s: "Klima montajını siz mi yapıyorsunuz?", c: "Klima satışını BNS Enerji yapıyor; montaj, üreticinin yetkili servisi tarafından gerçekleştiriliyor — tek elden üretici güvencesiyle koordine ediyoruz." },
   { s: "Hangi bölgelere hizmet veriyorsunuz?", c: "Polatlı merkez ve çevresine doğalgaz, ısıtma, klima ve yangın söndürme sistemleri hizmeti veriyoruz." },
   { s: "Keşif için nasıl randevu alabilirim?", c: "Telefon ya da WhatsApp üzerinden bize ulaşarak keşif ve ölçüm talebi oluşturabilirsiniz." },
-  { s: "Yoğuşmalı kombide hangi marka tercih edilmeli?", c: "Tek bir doğru marka yok; seçim daireye, kullanım alışkanlığına ve yerel yetkili servis erişimine göre değişir. Bosch, Vaillant, Buderus ve DemirDöküm'ün resmi teknik verilerini yan yana koyduğumuz marka rehberini inceleyebilir, keşifte ihtiyacınıza uygun olanı birlikte seçebilirsiniz.", link: { href: "/karsilastirma/yogusmali-kombi-marka-karsilastirma/", metin: "Yoğuşmalı kombi marka rehberi" } },
-  { s: "Klima alırken hangi markayı seçmeliyim?", c: "Marka kadar doğru kapasite (BTU), enerji sınıfı ve montaj kalitesi belirleyicidir. Daikin, Mitsubishi Electric, Bosch ve LG inverter klimaların özelliklerini karşılaştırdığımız rehberden başlayabilir, keşifte mekânınıza uygun seçimi netleştirebilirsiniz.", link: { href: "/karsilastirma/inverter-klima-marka-karsilastirma/", metin: "Inverter klima marka rehberi" } },
 ];
 
 const istatistik = [
@@ -195,8 +193,8 @@ const faqSchema = {
       <div class="container sezon-ribbon-inner">
         <span class="sezon-ribbon-tag" aria-hidden="true">MAYIS – EYLÜL</span>
         <p class="sezon-ribbon-metin">
-          <strong>Klima sezonu açık.</strong> Yaz aylarında keşif randevuları sıraya
-          giriyor — bu hafta talep eden hafta içinde montaj.
+          <strong>Klima sezonu.</strong> Keşif randevunuzu oluşturun; mekânınıza
+          uygun sistemi birlikte planlayalım.
         </p>
         <a class="sezon-ribbon-cta" href="/iletisim/#kesif-formu">Keşif talebi →</a>
       </div>
@@ -375,11 +373,12 @@ const faqSchema = {
   <section class="bolum bolum-beyaz">
     <div class="container bosch-split">
       <div class="bosch-metin">
-        <p class="bolum-kicker"><span class="kicker-tick" aria-hidden="true"></span>İsteğinize Göre Marka</p>
-        <h2 class="bolum-title">Klima ve kombi sistemleri</h2>
+        <p class="bolum-kicker"><span class="kicker-tick" aria-hidden="true"></span>Markadan Bağımsız</p>
+        <h2 class="bolum-title">Size en uygun markayı birlikte seçelim</h2>
         <p class="bolum-aciklama">
-          İsteğinize ve bütçenize uygun markada klima ve yoğuşmalı kombi
-          tedarik edilir; üretici garantisi ve yetkili servis montajı standart.
+          Tek bir markaya bağlı değiliz. İhtiyacınızı ve bütçenizi dinler, klima
+          ve yoğuşmalı kombide size en uygun seçeneği öneririz — üretici garantisi
+          ve yetkili servis montajı her zaman standarttır.
         </p>
         <a class="bolum-link" href="/urunler/">Tüm ürünleri gör →</a>
       </div>
@@ -470,11 +469,6 @@ const faqSchema = {
           <details class="sss-item">
             <summary>{q.s}</summary>
             <p>{q.c}</p>
-            {q.link && (
-              <p class="sss-link">
-                <a href={q.link.href}>{q.link.metin} →</a>
-              </p>
-            )}
           </details>
         ))}
       </div>
@@ -1229,19 +1223,6 @@ const faqSchema = {
     line-height: var(--leading-body);
     color: var(--color-text-body);
   }
-  .sss-link {
-    margin-top: var(--space-3) !important;
-  }
-  .sss-link a {
-    font-family: var(--font-mono, ui-monospace, monospace);
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--color-primary-deep, #4f7a25);
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.2s ease;
-  }
-  .sss-link a:hover { border-bottom-color: currentColor; }
 
   /* ═══ KAPANIŞ — editorial split, kiremit turuncu (canlı doğalgaz alev tonu) ═══ */
   .kapanis {
