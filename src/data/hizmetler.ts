@@ -139,7 +139,7 @@ export const hizmetler: Hizmet[] = [
       "Split, multisplit ve VRF sistemlerinin montajı, bağlantı ve devreye alma işlemleriyle konforlu ortamlar oluşturulur.",
     gorsel: "/images/wp/9f404e1487a6bb753e9bb83ca3e4937f.jpg",
     tldr:
-      "Klima BNS Enerji'den satılır; isteğinize uygun markada cihaz tedarik edilir, montaj üreticinin yetkili servisi tarafından yapılır — üretici garantisi sürer. Mayıs–Eylül arası talep yoğun; keşif randevusu için erken iletişim önerilir.",
+      "Klima, yaz serinliği ve kış ısısını tek cihazda sunan; konut, ofis ve büyük binalar için split, multisplit ve VRF tipleriyle kurulan bir iklimlendirme sistemidir.",
     giris:
       "Klima sistemleri mekânın büyüklüğüne ve kullanımına göre seçilir. Split sistemler tek bir oda veya konut için, multisplit sistemler tek dış üniteyle birden fazla iç ünite için, VRF sistemleri ise çok bölümlü büyük binalar için uygundur. Doğru kapasite ve montaj; hem konfor hem enerji verimliliği için belirleyicidir.",
     adimlar: [
