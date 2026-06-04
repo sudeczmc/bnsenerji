@@ -48,7 +48,7 @@
 
 ## 🔧 Benim (panel gerekmez — sıra gelince yaparım)
 - [x] ~~Nav internal linking~~ — bitti (commit 293d9d8).
-- [ ] **Anasayfa "Mahallenizde BNS" mini grid** — 7 mahalle kartı, anasayfadan internal link.
+- [x] ~~Mahalle grid / mahalle vurgusu~~ — İPTAL (Sude kararı 2026-06-04: mahalle vurgusu istemiyor; doorway sayfaları zaten commit 382ee80 ile silinmişti).
 - [ ] **Karşılaştırma sayfalarını /urunler/'den link** + anasayfa SSS'ye 2 karşılaştırma sorusu.
 - [ ] **Hidden edges sweep** — definition list, View Transitions, dns-prefetch+preconnect, fetchpriority hero, urunler+hakkimizda FAQ schema, Q-H2 anasayfa. (MM %85→95.)
 - [ ] **IndexNow toplu tetik** — `npm run indexnow` her major deploy sonrası.
