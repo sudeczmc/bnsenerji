@@ -17,7 +17,7 @@
 - [ ] **Web3Forms key → form düzelt** · *Sen: key al (web3forms.com, e-posta bnsenerji@gmail.com) → bana ver* · *Ben: koda göm + deploy + canlı test* — ŞU AN form sessizce ölü, lead kayboluyor. Sezonda en pahalı sızıntı.
 
 ## 🟡 Sırada (yüksek öncelik — sezon/gelir)
-1. [ ] **GBP optimize** · *Sen (saha+panel, 1-2 saat)* — kategori düzelt + 30+ foto + haftalık post + yorum daveti. "Polatlı klima/ısı pompası" yerel pack'te çıkmıyor. En büyük yerel görünürlük kaybı, tam sezon.
+- [x] **GBP optimize** (2026-06-04, Sude "hallettim") — Google İşletme Profili düzenlendi. ⏳ İzle: 1-2 hafta sonra "Polatlı klima/ısı pompası" yerel pack'te BNS çıkıyor mu kontrol et.
 2. [ ] **Bing Webmaster doğrulama** · *Sen: meta etiket içeriğini bana ver → ben Layout'a ekle + deploy → sen "Doğrula" → API key generate → bana ver* · *Ben: sitemap + 31 URL push.* (ChatGPT Search Bing'den besleniyor — BNS orada zaten güçlü.)
 3. [ ] **Cloudflare Crawler Hints** · *Sen (panel, 10 sn)* — zone Caching → Crawler Hints ON.
 

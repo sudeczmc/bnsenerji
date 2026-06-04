@@ -50,7 +50,9 @@ const hizmetSecenek = [
   "Diğer / Emin değilim",
 ];
 
-const web3key = import.meta.env.PUBLIC_WEB3FORMS_KEY || "";
+// Web3Forms access key — client-side gönderilir, gizli değil (repoya gömmek güvenli).
+// CF panelinde PUBLIC_WEB3FORMS_KEY tanımlanırsa onu kullanır, yoksa bu fallback.
+const web3key = import.meta.env.PUBLIC_WEB3FORMS_KEY || "d32c27fe-ce49-4476-b78d-0cf73dbc62bf";
 ---
 
 <Layout
