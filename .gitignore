@@ -28,3 +28,6 @@ _akis-oncesi-yedek/
 _eski-tasarim-arsiv/
 _kesit-oncesi-yedek/
 _bns-wp-snapshot/
+
+# Cloudflare adapter / wrangler build artiklari
+.wrangler/
