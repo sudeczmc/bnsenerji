@@ -246,7 +246,7 @@ export const hizmetler: Hizmet[] = [
       { baslik: "Projelendirme ve Tadilat", metin: "Kombi ve doğalgaz tesisatı projesi hazırlanır; gerekirse mevcut tesisatta tadilat planlanır ve dağıtım şirketinin onayına sunulur." },
       { baslik: "Doğalgaz Tesisatı ve Kombi Montajı", metin: "Boru hattı, vana montajı ve kombinin hidrolik + gaz bağlantıları BNS Enerji tarafından tamamlanır." },
       { baslik: "Sızdırmazlık Testi ve Gaz Açma", metin: "BNS Enerji sızdırmazlık testi yapar; ardından dağıtım şirketi (Polatlı'da Polgaz) teyit testiyle gaz açma belgesi düzenler." },
-      { baslik: "Teslim ve Devreye Alma", metin: "Sistem devreye alınır, kullanım ve güvenlik rehberi paylaşılır. Sonraki dönem kombi arıza ve bakım üreticinin yetkili servisinde; tesisat tarafıyla ilgili her durumda BNS Enerji tek muhatap." },
+      { baslik: "Teslim ve Devreye Alma", metin: "Sistemi devreye alır, kullanım ve güvenlik rehberini paylaşırız. Sonraki dönemde kombinin arıza ve bakımı üreticinin yetkili servisine aittir; tesisatla ilgili her durumda tek muhatabınız BNS Enerji'dir." },
     ],
     alanlar: ["Konut ve daireler", "Villalar", "Küçük ticari mekânlar"],
     sss: [
@@ -291,7 +291,7 @@ export const hizmetler: Hizmet[] = [
       { baslik: "Mevcut Sistem Teşhisi", metin: "Eski kombinin tipi, kapasitesi, baca durumu ve tesisat altyapısı yerinde incelenir." },
       { baslik: "Yeni Kombi Seçimi ve Uygunluk Kontrolü", metin: "Müşterinin isteğine ve bütçesine göre yoğuşmalı kombi markası ve modeli birlikte seçilir; baca, kondens drenajı ve doğalgaz hattı uyumu doğrulanır." },
       { baslik: "Sökme, Tadilat ve Montaj", metin: "Eski kombi güvenli sökülür, gerekiyorsa baca borusu ve drenaj hattı revize edilir, yeni kombi BNS Enerji tarafından monte edilir." },
-      { baslik: "Sızdırmazlık Testi ve Gaz Açma", metin: "BNS Enerji sızdırmazlık testi yapar; dağıtım şirketi (Polatlı'da Polgaz) teyit testiyle gaz açma belgesi düzenler ve sistem devreye alınır. Sonraki dönem kombi arıza ve bakım üreticinin yetkili servisinde." },
+      { baslik: "Sızdırmazlık Testi ve Gaz Açma", metin: "BNS Enerji sızdırmazlık testi yapar; dağıtım şirketi (Polatlı'da Polgaz) teyit testiyle gaz açma belgesi düzenler ve sistem devreye alınır. Sonraki dönemde kombinin arıza ve bakımı üreticinin yetkili servisine aittir." },
     ],
     alanlar: ["Konut ve daireler", "Apartman ve site daireleri", "Küçük ticari mekânlar"],
     sss: [
