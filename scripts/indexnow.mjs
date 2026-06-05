@@ -12,12 +12,18 @@
  */
 
 import { readFile } from "node:fs/promises";
+import { existsSync } from "node:fs";
 import { resolve } from "node:path";
 
 const HOST = "bnsenerjidogalgaz.com";
 const KEY = "443f2959afab45e9bcde635a5d50dfb1";
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
-const SITEMAP_PATH = resolve(process.cwd(), "dist", "sitemap-0.xml");
+// @astrojs/cloudflare adapter sitemap'i dist/client/ altina koyuyor; adapter
+// yoksa dist/ koku. Ikisini de destekle.
+const SITEMAP_PATH = [
+  resolve(process.cwd(), "dist", "client", "sitemap-0.xml"),
+  resolve(process.cwd(), "dist", "sitemap-0.xml"),
+].find((p) => existsSync(p)) ?? resolve(process.cwd(), "dist", "client", "sitemap-0.xml");
 const ENDPOINTS = [
   "https://api.indexnow.org/IndexNow",
   "https://www.bing.com/indexnow",
