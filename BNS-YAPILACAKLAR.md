@@ -19,8 +19,13 @@
 - [x] **VRF "Polatlı projeleri var" → ONAYLANDI gerçek** (2026-06-05, Sude) — uydurma değil, cümle kalır. KAPANDI.
 - [x] **IndexNow toplu tetik** (2026-06-05) — 19 URL, 3/3 endpoint başarılı. + `indexnow.mjs` sitemap path dist/client/ fix (commit 6d5c345, adapter sonrası ENOENT veriyordu).
 
-## 🔵 SIRADAKİ AKTİF — Bing Webmaster (Sude başlatacak)
-- [ ] **Bing Webmaster doğrulama** · *Sen: bing.com/webmasters → site ekle → HTML Meta Etiketi yöntemi → çıkan `<meta name="msvalidate.01" content="...">` içeriğini bana ver → ben Layout.astro head'e ekle + deploy → sen "Doğrula" → Settings → API Access → key üret → bana ver* · *Ben: sitemap + 20 URL push.* (ChatGPT Search Bing'den besleniyor — BNS orada zaten güçlü, sağlamlaştırma.)
+## 🔴 KRİTİK ALTYAPI — auto-deploy CI 5 Haziran'dan beri ÖLÜ
+- [x] **Manuel deploy çözüldü** (2026-06-11) — CF Worker `bnsenerji` 5 Haz'dan beri auto-deploy etmiyordu (6 gün; tüm commit'ler GitHub'da ama canlıya gitmemiş). CF API token (Workers Scripts Write, hesap sudenurczmc, Account ID `cd7916cd7412854204436c89ed54ebfe`) ile `wrangler deploy --name bnsenerji` (dist/client'ten, .wrangler kenara alınarak) → canlı. Bing tag + Wikidata sameAs doğrulandı canlıda.
+- [ ] **⚠️ Auto-deploy CI neden durdu — kök sebep bulunmadı** · *Sen (panel)* — Workers & Pages → bnsenerji → Settings/Builds: GitHub auto-deploy build'leri fail mi, tetik mi kopuk? Bulunana kadar **her push sonrası manuel `wrangler deploy` gerekiyor** (token ile ben yaparım). Token bu oturum duruyor, sonunda sil.
+
+## 🔵 SIRADAKİ AKTİF — Bing Webmaster (Sude doğrulayacak)
+- [x] **Bing meta tag eklendi + canlı** (2026-06-11, commit e4275b4) — `373A1CDF5740BD1D9330726FABB30BBE` Layout head'de, canlıda doğrulandı.
+- [ ] **Bing "Doğrula" + API key** · *Sen: bing.com/webmasters → BNS → "Doğrula" (tag canlı, geçer) → Settings → API Access → Generate Key → bana ver* · *Ben: sitemap + 20 URL push.* (ChatGPT Search Bing'den besleniyor.)
 - [ ] **GSC Removals — "Hello world!" + WP/junk temizle** · *Sen (panel, 2 dk)* — GSC → Kaldırmalar → Yeni istek: `/hello-world/` + önek kaldırma `/urun-kategorisi/`, `/product-category/`, **`/karsilastirma/`** (marka rehberi silindi), `/polatli/` (mahalle silindi). ~24 saatte düşer. DOKUNMA: gerçek sayfalar.
 - [ ] **Cloudflare Crawler Hints** · *Sen (panel, 10 sn)* — zone Caching → Crawler Hints ON.
 
@@ -38,7 +43,7 @@
 7. [ ] Polatlı Ticaret Odası + Esnaf Odası üye dizini
 
 ## 🟠 Off-page / entity (taslaklar HAZIR → docs/)
-- [ ] **Wikidata entity submit** · *Sen (panel)* — `docs/wikidata-bns-entity.md` izle: wikidata.org → Item Create → 12 property → Publish → Q-ID. Sonra ben Layout.astro `sameAs`'a Q-ID eklerim. (AI search'ün BNS'i tanıması için güçlü sinyal.)
+- [x] **Wikidata entity submit** (2026-06-11) — **Q140173975** oluşturuldu (API ile, bot password). 10 statement temiz. Layout.astro `sameAs`'a eklendi (commit push). ⚠️ Taslaktaki 3 Q-ID YANLIŞTI, doğrulandı: Polatlı=Q945388 (Q257619 değil), company=Q783794, HVAC=Q1798773. Telefon/email/adres bilerek atlandı (silinme riski). Referanslar: find.com.tr + Polgaz. → İzle: 2-4 hafta sonra Knowledge Panel adaylığı + AI entity tanıma.
 - [ ] **PTO + POSAD + ATO + TESKON üyelik başvurusu** · *Baba imza* — `docs/uyelik-basvurulari.md` metinleri hazır, e-posta/dilekçe gönder.
 - [ ] **Basın bülteni gönderimi** · *Sen (e-posta)* — `docs/basin-bulteni-2026-05.md` + 6 yerel medya hedefi hazır.
 - [ ] **Yandex Webmaster kayıt + sitemap** · *Sen+ben* — hiç açılmadı (Bing'le aynı mantık).
