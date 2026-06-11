@@ -61,4 +61,11 @@
 - [ ] **IndexNow** — her major deploy sonrası `npm run indexnow` (artık dist/client path fix'li).
 
 ---
-*Son güncelleme: 2026-06-05. Bugün: deploy fix (kritik) + marka rehberi silme + metin düzeltmeleri + IndexNow. Sıradaki: **Bing Webmaster doğrulama** (Sude meta tag → ben). Asıl leverage: off-page (Wikidata/dizin/üyelik) — on-page bitti.*
+## ▶ YARIN DEVAM NOKTASI ("bns web site" tetik) — 2026-06-12
+**Bıraktığımız tam yer:** Bing Webmaster doğrulaması son adımda takıldı (bayat tarama). Sıra:
+1. **Sen:** CF panel → Caching → Configuration → **Purge Everything** (deploy SONRASI temizlik) → ~30 sn bekle → Bing'de **"Doğrula"** bas. Tag canlı + doğru yerde (kontrol edildi), purge sonrası geçer.
+2. Geçince → Bing **Settings → API Access → Generate Key** → bana ver → **ben sitemap + 20 URL push**.
+3. **Token:** `bns-deploy-claude` (Workers Scripts Write) HÂLÂ AKTİF — auto-deploy kopuk olduğu için duruyor. Duplicate olanı sil, çalışanı dursun. Account ID `cd7916cd7412854204436c89ed54ebfe`. Deploy komutu memory'de ([[project_bns_enerji_site]]).
+4. Sonra off-page: Wikidata item oturunca hizmet ekleme + dizin/üyelik (MARKA-KUNYE.md / docs).
+
+*Son güncelleme: 2026-06-11. Bugün: 🔴 auto-deploy 6 gün ölüydü → token ile manuel deploy çözüldü · Wikidata entity Q140173975 oluşturuldu + canlı · Bing meta tag canlı (doğrulama purge'a takıldı). Asıl leverage: off-page — on-page bitti.*
