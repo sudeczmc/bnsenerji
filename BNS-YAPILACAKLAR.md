@@ -65,7 +65,9 @@
 **Bıraktığımız tam yer:** Bing Webmaster doğrulaması son adımda takıldı (bayat tarama). Sıra:
 1. **Sen:** CF panel → Caching → Configuration → **Purge Everything** (deploy SONRASI temizlik) → ~30 sn bekle → Bing'de **"Doğrula"** bas. Tag canlı + doğru yerde (kontrol edildi), purge sonrası geçer.
 2. Geçince → Bing **Settings → API Access → Generate Key** → bana ver → **ben sitemap + 20 URL push**.
-3. **Token:** `bns-deploy-claude` (Workers Scripts Write) HÂLÂ AKTİF — auto-deploy kopuk olduğu için duruyor. Duplicate olanı sil, çalışanı dursun. Account ID `cd7916cd7412854204436c89ed54ebfe`. Deploy komutu memory'de ([[project_bns_enerji_site]]).
+3. **🔑 GECE AKTİF KALAN 2 KİMLİK (yarın gözden geçir):**
+   - **CF API token** `bns-deploy-claude` (Workers Scripts Write) — auto-deploy kopuk olduğu için duruyor. Duplicate olanı sil. Account ID `cd7916cd7412854204436c89ed54ebfe`. Deploy komutu memory'de ([[project_bns_enerji_site]]).
+   - **Wikidata bot password** `Sudeczmc@bns-claude` — item oluşturuldu (Q140173975), şu an gerekmiyor. Yarın hizmet ekleme yapmayacaksak `Special:BotPasswords`'tan SİL; ekleme yapacaksak dursun.
 4. Sonra off-page: Wikidata item oturunca hizmet ekleme + dizin/üyelik (MARKA-KUNYE.md / docs).
 
 *Son güncelleme: 2026-06-11. Bugün: 🔴 auto-deploy 6 gün ölüydü → token ile manuel deploy çözüldü · Wikidata entity Q140173975 oluşturuldu + canlı · Bing meta tag canlı (doğrulama purge'a takıldı). Asıl leverage: off-page — on-page bitti.*
