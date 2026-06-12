@@ -1,0 +1,14 @@
+/* FİRMA */
+  Ad:        BNS Enerji & Doğalgaz
+  Konum:     Polatlı, Ankara, Türkiye
+  İletişim:  bnsenerji [at] gmail.com
+  Yetki:     Polgaz Sertifikalı İç Tesisat Firması — PG-1065
+
+/* HİZMET */
+  Doğalgaz tesisatı, kombi, klima, ısı pompası,
+  yerden ısıtma, merkezi ısıtma, yangın söndürme sistemleri.
+
+/* SİTE */
+  Standartlar:  HTML5, CSS3, Schema.org, JSON-LD
+  Bileşenler:   Astro, Cloudflare Workers
+  Dil:          Türkçe (tr-TR)

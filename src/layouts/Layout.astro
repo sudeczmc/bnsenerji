@@ -100,11 +100,32 @@ const webPageSchema = {
   ...(mainEntityId && { mainEntity: { "@id": mainEntityId } }),
 };
 
+/* ── Polgaz yetki belgesi (PG-1065) — doğrulanmış otorite kanıtı ── */
+const polgazCredential = {
+  "@type": "EducationalOccupationalCredential",
+  "@id": "https://bnsenerjidogalgaz.com/#polgaz-credential",
+  name: "Polgaz Yetkili İç Tesisat Firması Belgesi",
+  credentialCategory: "Yetki Belgesi",
+  identifier: "PG-1065",
+  recognizedBy: {
+    "@type": "Organization",
+    name: "Polgaz Doğal Gaz Dağıtım A.Ş.",
+    url: "https://www.polgaz.com.tr/polgaz-sertifikali-firmalar",
+  },
+};
+
+const hvacAdditionalType = [
+  "https://schema.org/HVACBusiness",
+  "https://www.wikidata.org/wiki/Q1798773",
+];
+
 /* ── SCHEMA: Organization ── */
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": "https://bnsenerjidogalgaz.com/#organization",
+  additionalType: hvacAdditionalType,
+  hasCredential: polgazCredential,
   name: "BNS Enerji & Doğalgaz",
   alternateName: ["BNS Enerji", "BNS Doğalgaz", "Polatlı BNS Enerji", "BNS Enerji Doğal Gaz"],
   legalName: "BNS Enerji Doğal Gaz Tesisat Taahhüt Mühendislik Tarım Turizm İnşaat Emlak Sanayi ve Ticaret Limited Şirketi",
@@ -142,6 +163,8 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "@id": "https://bnsenerjidogalgaz.com/#business",
+  additionalType: hvacAdditionalType,
+  hasCredential: { "@id": "https://bnsenerjidogalgaz.com/#polgaz-credential" },
   name: "BNS Enerji & Doğalgaz",
   alternateName: ["BNS Enerji", "BNS Doğalgaz", "Polatlı BNS Enerji"],
   description: "Polatlı/Ankara merkezli doğalgaz tesisat, klima, ısı pompası, yangın söndürme, yerden ısıtma ve merkezi ısıtma hizmeti.",
@@ -225,6 +248,8 @@ const nav = [
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#6B9F35" />
+    <meta name="msapplication-TileColor" content="#6B9F35" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
     <meta name="msvalidate.01" content="373A1CDF5740BD1D9330726FABB30BBE" />
 
     <title>{title}</title>

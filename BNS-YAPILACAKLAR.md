@@ -18,6 +18,7 @@
 - [x] **Metin düzeltmeleri** (2026-06-04/05, commit 553bbce + edc9d5d) — klima TL;DR tanım tarzı, kombi adım 5 + kombi-degisimi devrik, sezon ribbon, anasayfa "Markadan Bağımsız" kart+section. ⚠️ B grubu özet alanları (klima/ısı pompası vb "ozet") → Sude "olduğu gibi bırak", DOKUNMA.
 - [x] **VRF "Polatlı projeleri var" → ONAYLANDI gerçek** (2026-06-05, Sude) — uydurma değil, cümle kalır. KAPANDI.
 - [x] **IndexNow toplu tetik** (2026-06-05) — 19 URL, 3/3 endpoint başarılı. + `indexnow.mjs` sitemap path dist/client/ fix (commit 6d5c345, adapter sonrası ENOENT veriyordu).
+- [x] **ImageObject copyrightNotice** (2026-06-12, commit fc179aa) — GSC structured data uyarısı (18 öğe: og-image.png + cropped-IMG_9920 logo). İki ImageObject'e telif metni eklendi → manuel deploy (token) → canlıda doğrulandı (2 örnek/sayfa). ⏳ Sude GSC'de "Doğrula" tekrar basacak, 24-48 saat içinde yeşile döner.
 
 ## 🔴 KRİTİK ALTYAPI — auto-deploy CI 5 Haziran'dan beri ÖLÜ
 - [x] **Manuel deploy çözüldü** (2026-06-11) — CF Worker `bnsenerji` 5 Haz'dan beri auto-deploy etmiyordu (6 gün; tüm commit'ler GitHub'da ama canlıya gitmemiş). CF API token (Workers Scripts Write, hesap sudenurczmc, Account ID `cd7916cd7412854204436c89ed54ebfe`) ile `wrangler deploy --name bnsenerji` (dist/client'ten, .wrangler kenara alınarak) → canlı. Bing tag + Wikidata sameAs doğrulandı canlıda.
@@ -25,9 +26,9 @@
 
 ## 🔵 SIRADAKİ AKTİF — Bing Webmaster (Sude doğrulayacak)
 - [x] **Bing meta tag eklendi + canlı** (2026-06-11, commit e4275b4) — `373A1CDF5740BD1D9330726FABB30BBE` Layout head'de, canlıda doğrulandı.
-- [ ] **Bing "Doğrula" + API key** · *Sen: bing.com/webmasters → BNS → "Doğrula" (tag canlı, geçer) → Settings → API Access → Generate Key → bana ver* · *Ben: sitemap + 20 URL push.* (ChatGPT Search Bing'den besleniyor.)
+- [x] **Bing doğrulandı + sitemap + 19 URL push** (2026-06-12) — IsVerified:true. SubmitFeed (sitemap-index.xml) + SubmitUrlbatch 19 URL, ikisi de kabul ({"d":null}). API key `b8162c5d...` (Sude'nin Bing Webmaster key'i). Kota 81/gün, 1881/ay. ChatGPT Search Bing'den besleniyor → AI citation hızlanır.
 - [ ] **GSC Removals — "Hello world!" + WP/junk temizle** · *Sen (panel, 2 dk)* — GSC → Kaldırmalar → Yeni istek: `/hello-world/` + önek kaldırma `/urun-kategorisi/`, `/product-category/`, **`/karsilastirma/`** (marka rehberi silindi), `/polatli/` (mahalle silindi). ~24 saatte düşer. DOKUNMA: gerçek sayfalar.
-- [ ] **Cloudflare Crawler Hints** · *Sen (panel, 10 sn)* — zone Caching → Crawler Hints ON.
+- [x] **Cloudflare Crawler Hints ON** (2026-06-12, Sude panel). + API'den 4 ayar açıldı (`bns-cf-settings-claude` token, Zone Settings Edit): 0-RTT on · Always Online on · Early Hints on · Min TLS 1.0→1.2. Crawler Hints'in API'si yok (dashboard-only, community teyitli). Token şimdilik duruyor, sonra silinecek.
 
 ## 🟢 Index izleme (birkaç gün arayla)
 - [ ] **GSC kalan 21 URL sprint** — gün 2: mahalle sayfaları (/polatli/*) + karşılaştırma; gün 3: yardımcı sayfalar. Listeyi her gün ben sıraya koyarım.
@@ -56,7 +57,7 @@
 
 ## 🔧 Benim (panel gerekmez — sıra gelince yaparım)
 - [x] ~~Nav internal linking~~ · ~~Mahalle grid~~ (İPTAL) · ~~Karşılaştırma link~~ (marka rehberi silindi, geçersiz) · ~~IndexNow tetik~~ (2026-06-05 yapıldı).
-- [ ] **Hidden edges sweep** — definition list, View Transitions, dns-prefetch+preconnect, fetchpriority hero, urunler+hakkimizda FAQ schema, Q-H2 anasayfa. (MM %85→95, **marjinal** — off-page'den sonra.)
+- [x] **Hidden edges — denetim sonucu** (2026-06-12): perf edge'leri ZATEN tam (fontlar self-hosted → preconnect moot; hero `fetchpriority=high` mevcut; görseller lazy). **Hakkımızda FAQ accordion + FAQPage schema** eklendi (commit, 5 doğrulanmış Q-A, canlı doğrulandı 5 görünür=5 schema). Kalan marjinal: urunler FAQ, Q-H2 anasayfa, definition list — off-page'den sonra, düşük öncelik.
 - [ ] **Lighthouse PSI** — PSI anonim API kotası doldu (2026-06-05). Sude pagespeed.web.dev'den 2 dk bakabilir; ya da atla (site zaten optimize: static + inline CSS + font subset + lazy-load). **Marjinal, öncelik değil.**
 - [ ] **IndexNow** — her major deploy sonrası `npm run indexnow` (artık dist/client path fix'li).
 
