@@ -1,10 +1,46 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+/* ── SSS — yalnızca doğrulanmış firma gerçekleri ── */
+const sss = [
+  {
+    s: "BNS Enerji ne zaman kuruldu?",
+    c: "BNS Enerji 2020 yılında kuruldu. Polatlı merkezli; doğalgaz tesisatı, kombi, klima, ısı pompası, yerden ısıtma, merkezi ısıtma ve yangın söndürme sistemleri kuruyor.",
+  },
+  {
+    s: "BNS Enerji Polgaz yetkili firma mı?",
+    c: "Evet. BNS Enerji, Polgaz yetkili iç tesisat firmasıdır; sertifika numarası PG-1065. Polgaz Sertifikalı Firmalar listesinde yer alır.",
+  },
+  {
+    s: "BNS Enerji hangi bölgelere hizmet veriyor?",
+    c: "Hizmet bölgesi projenin türü ve kapsamına göre değişir. Polatlı ağırlıklı çalışıyoruz; özel projeler için iletişime geçebilirsiniz.",
+  },
+  {
+    s: "Klima ve kombide hangi markaları tedarik ediyorsunuz?",
+    c: "Klima, kombi ve ısı pompasında markadan bağımsız çalışıyoruz; müşterinin isteğine uygun markada tedarik ediyoruz. Montaj ve garanti üreticinin yetkili servisi üzerinden yürür.",
+  },
+  {
+    s: "BNS Enerji periyodik bakım yapıyor mu?",
+    c: "BNS Enerji keşif, projelendirme, montaj, devreye alma ve sızdırmazlık testlerini yürütür. Periyodik bakım ve servis, ürünün yetkili servisi tarafından yapılır.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://bnsenerjidogalgaz.com/hakkimizda/#faq",
+  mainEntity: sss.map((q) => ({
+    "@type": "Question",
+    name: q.s,
+    acceptedAnswer: { "@type": "Answer", text: q.c },
+  })),
+};
 ---
 
 <Layout
   title="Hakkımızda — Polatlı'nın Enerji ve Tesisat Firması | BNS"
   description="BNS Enerji, Polatlı'da 2020'den bu yana doğalgaz, kombi, klima, ısı pompası ve yangın söndürme sistemleri kuruyor. Polgaz Sertifikalı (PG-1065), 14 kurumsal proje."
+  extraSchemas={[faqSchema]}
 >
   <section class="bolum bolum-beyaz">
     <div class="container">
@@ -54,6 +90,18 @@ import Layout from "../layouts/Layout.astro";
               yapmak.
             </p>
           </article>
+        </div>
+      </div>
+
+      <div class="hk-sss-blok">
+        <h2 class="hk-h2">Sık sorulan sorular</h2>
+        <div class="hk-sss-list">
+          {sss.map((q) => (
+            <details class="hk-sss-item">
+              <summary>{q.s}</summary>
+              <p>{q.c}</p>
+            </details>
+          ))}
         </div>
       </div>
 
@@ -113,5 +161,51 @@ import Layout from "../layouts/Layout.astro";
       grid-template-columns: 1fr;
       gap: var(--space-10);
     }
+  }
+
+  /* ═══ Hakkımızda SSS accordion ═══ */
+  .hk-sss-blok { margin-top: var(--space-16); }
+  .hk-h2 {
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-bold);
+    color: var(--color-text);
+    margin-bottom: var(--space-6);
+  }
+  .hk-sss-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    max-width: 820px;
+  }
+  .hk-sss-item {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-card-bg);
+    overflow: hidden;
+  }
+  .hk-sss-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: var(--space-5) var(--space-6);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+  }
+  .hk-sss-item summary::-webkit-details-marker { display: none; }
+  .hk-sss-item summary::after {
+    content: "+";
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+  .hk-sss-item[open] summary::after { content: "−"; }
+  .hk-sss-item p {
+    padding: 0 var(--space-6) var(--space-5);
+    color: var(--color-text-body);
+    line-height: var(--leading-loose);
   }
 </style>
