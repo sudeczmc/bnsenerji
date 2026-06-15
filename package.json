@@ -8,11 +8,13 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build && node scripts/fix-wrangler.mjs",
-    "preview": "astro preview",
+    "preview": "npm run build && wrangler dev",
     "astro": "astro",
     "indexnow": "node scripts/indexnow.mjs",
     "exif": "node scripts/exif-tag.mjs",
-    "favicon": "node scripts/favicon-gen.mjs"
+    "favicon": "node scripts/favicon-gen.mjs",
+    "generate-types": "wrangler types",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^13.6.1",
@@ -41,6 +43,9 @@
     "exiftool-vendored": "^35.20.0",
     "sharp": "^0.34.5",
     "tailwindcss": "^4.3.0",
-    "wrangler": "^4.92.0"
+    "wrangler": "^4.98.0"
+  },
+  "overrides": {
+    "vite": "^7"
   }
 }
