@@ -119,6 +119,25 @@ const hvacAdditionalType = [
   "https://www.wikidata.org/wiki/Q1798773",
 ];
 
+/* ── ENTITY GROUNDING: DefinedTermSet ──
+   LLM/AI search'e "BNS bu teknik kavramların otoritesidir" sinyali.
+   Her terim, kavramı görünür biçimde tanımlayan hizmet sayfasının #concept node'una bağlanır.
+   Saf semantik grounding (rich-result değil) → görünürlük zorunluluğu yok, geri alınabilir. */
+const definedTermSet = {
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "@id": "https://bnsenerjidogalgaz.com/#bns-terms",
+  name: "BNS Enerji & Doğalgaz — Teknik Terimler",
+  description:
+    "Doğalgaz tesisatı, ısıtma, iklimlendirme ve yangın güvenliği alanında BNS Enerji & Doğalgaz'ın uzmanlık terimleri.",
+  inLanguage: "tr-TR",
+  hasDefinedTerm: hizmetler.map((h) => ({
+    "@type": "DefinedTerm",
+    "@id": `https://bnsenerjidogalgaz.com/hizmetler/${h.slug}/#concept`,
+    name: h.kisaAd,
+  })),
+};
+
 /* ── SCHEMA: Organization ── */
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -136,6 +155,9 @@ const organizationSchema = {
   legalName: "BNS Enerji Doğal Gaz Tesisat Taahhüt Mühendislik Tarım Turizm İnşaat Emlak Sanayi ve Ticaret Limited Şirketi",
   description: "Polatlı/Ankara merkezli doğalgaz ve tesisat firması. Doğalgaz tesisatı, klima, ısı pompası, yangın söndürme, yerden ısıtma ve merkezi ısıtma sistemleri.",
   url: "https://bnsenerjidogalgaz.com",
+  knowsAbout: hizmetler.map((h) => ({
+    "@id": `https://bnsenerjidogalgaz.com/hizmetler/${h.slug}/#concept`,
+  })),
   logo: {
     "@type": "ImageObject",
     "@id": "https://bnsenerjidogalgaz.com/#logo",
@@ -229,6 +251,7 @@ const allSchemas = [
   webPageSchema,
   organizationSchema,
   localBusinessSchema,
+  definedTermSet,
   ...(breadcrumbSchema ? [breadcrumbSchema] : []),
   ...extraSchemas,
 ];

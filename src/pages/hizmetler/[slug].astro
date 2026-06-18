@@ -13,6 +13,19 @@ const { hizmet } = Astro.props;
 const digerleri = hizmetler.filter((h) => h.slug !== hizmet.slug);
 const sayfaURL = `https://bnsenerjidogalgaz.com/hizmetler/${hizmet.slug}/`;
 
+/* ── ENTITY GROUNDING: DefinedTerm ──
+   Hizmetin çekirdek kavramı, sayfada görünür TL;DR tanımıyla (defensible) makine-okunur terim.
+   Site-genelindeki #bns-terms DefinedTermSet'e ve Organization.knowsAbout'a bağlanır. */
+const conceptTerm = {
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "@id": sayfaURL + "#concept",
+  name: hizmet.kisaAd,
+  description: hizmet.tldr,
+  termCode: hizmet.slug,
+  inDefinedTermSet: { "@id": "https://bnsenerjidogalgaz.com/#bns-terms" },
+};
+
 /* ── SCHEMA: Service ── */
 const serviceSchema = {
   "@context": "https://schema.org",
@@ -21,11 +34,19 @@ const serviceSchema = {
   name: `Polatlı ${hizmet.kisaAd}`,
   description: hizmet.ozet,
   serviceType: hizmet.ad,
+  inLanguage: "tr-TR",
+  category: hizmet.ad,
+  about: { "@id": sayfaURL + "#concept" },
   provider: { "@id": "https://bnsenerjidogalgaz.com/#business" },
   areaServed: [
     { "@type": "City", name: "Polatlı" },
     { "@type": "AdministrativeArea", name: "Ankara" },
   ],
+  availableChannel: {
+    "@type": "ServiceChannel",
+    serviceUrl: sayfaURL,
+    servicePhone: { "@type": "ContactPoint", telephone: "+905324993986" },
+  },
   url: sayfaURL,
 };
 
@@ -33,6 +54,8 @@ const serviceSchema = {
 const howToSchema = {
   "@context": "https://schema.org",
   "@type": "HowTo",
+  "@id": sayfaURL + "#howto",
+  inLanguage: "tr-TR",
   name: hizmet.surecBaslik || `${hizmet.kisaAd} nasıl yapılır?`,
   description: hizmet.giris,
   step: hizmet.adimlar.map((a, i) => ({
@@ -59,7 +82,8 @@ const faqSchema = {
 <Layout
   title={`Polatlı ${hizmet.kisaAd} — BNS Enerji & Doğalgaz`}
   description={`Polatlı'da ${hizmet.kisaAd.toLowerCase()} hizmeti — ${hizmet.ozet}`}
-  extraSchemas={[serviceSchema, howToSchema, faqSchema]}
+  extraSchemas={[conceptTerm, serviceSchema, howToSchema, faqSchema]}
+  mainEntityId={sayfaURL + "#service"}
   breadcrumbs={[
     { name: "Anasayfa", href: "/" },
     { name: "Hizmetler", href: "/hizmetler/" },

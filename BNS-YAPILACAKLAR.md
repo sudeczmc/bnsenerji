@@ -48,7 +48,7 @@
 - [ ] **PTO + POSAD + ATO + TESKON üyelik başvurusu** · *Baba imza* — `docs/uyelik-basvurulari.md` metinleri hazır, e-posta/dilekçe gönder.
 - [ ] **Basın bülteni gönderimi** · *Sen (e-posta)* — `docs/basin-bulteni-2026-05.md` + 6 yerel medya hedefi hazır.
 - [ ] **Yandex Webmaster kayıt + sitemap** · *Sen+ben* — hiç açılmadı (Bing'le aynı mantık).
-- [ ] **HSTS preload Chrome listesi kontrol** · *Sen (1 dk)* — son submit 2026-05-24, 6-12 hafta süreç; girdi mi bak.
+- [x] **HSTS preload → listede** (2026-06-18) — hstspreload.org API `status: preloaded`. Chrome/Firefox/Safari built-in HTTPS-only listesine girdi. KAPANDI.
 
 ## ⚪ İçerik / sosyal / doğrulama
 - [ ] **Babana 3 yetki sorusu** · *Sen (5 dk)* — VRF bayilik / yangın söndürme sertifika / Bosch Home Comfort dealer kaydı. Cevap gelmeden bu konularda içerik yazılamaz (uydurma yasağı).
@@ -62,13 +62,18 @@
 - [ ] **IndexNow** — her major deploy sonrası `npm run indexnow` (artık dist/client path fix'li).
 
 ---
-## ▶ YARIN DEVAM NOKTASI ("bns web site" tetik) — 2026-06-12
-**Bıraktığımız tam yer:** Bing Webmaster doğrulaması son adımda takıldı (bayat tarama). Sıra:
-1. **Sen:** CF panel → Caching → Configuration → **Purge Everything** (deploy SONRASI temizlik) → ~30 sn bekle → Bing'de **"Doğrula"** bas. Tag canlı + doğru yerde (kontrol edildi), purge sonrası geçer.
-2. Geçince → Bing **Settings → API Access → Generate Key** → bana ver → **ben sitemap + 20 URL push**.
-3. **🔑 GECE AKTİF KALAN 2 KİMLİK (yarın gözden geçir):**
-   - **CF API token** `bns-deploy-claude` (Workers Scripts Write) — auto-deploy kopuk olduğu için duruyor. Duplicate olanı sil. Account ID `cd7916cd7412854204436c89ed54ebfe`. Deploy komutu memory'de ([[project_bns_enerji_site]]).
-   - **Wikidata bot password** `Sudeczmc@bns-claude` — item oluşturuldu (Q140173975), şu an gerekmiyor. Yarın hizmet ekleme yapmayacaksak `Special:BotPasswords`'tan SİL; ekleme yapacaksak dursun.
-4. Sonra off-page: Wikidata item oturunca hizmet ekleme + dizin/üyelik (MARKA-KUNYE.md / docs).
+## ▶ DEVAM NOKTASI ("bns web site" tetik) — 2026-06-12 sonu
+**Bugün bitenler:** copyrightNotice fix (GSC, canlı) · Bing doğrulandı + sitemap + 19 URL push · Hakkımızda FAQ (5 Q-A) · CF 4 ayar + Crawler Hints + SSL strict · **AYSA paritesi kapatıldı** (hasCredential PG-1065 + additionalType HVAC + humans/security/browserconfig) · **memberOf Polatlı Ticaret Odası**. On-page TAVAN — teknikte iş kalmadı.
 
-*Son güncelleme: 2026-06-11. Bugün: 🔴 auto-deploy 6 gün ölüydü → token ile manuel deploy çözüldü · Wikidata entity Q140173975 oluşturuldu + canlı · Bing meta tag canlı (doğrulama purge'a takıldı). Asıl leverage: off-page — on-page bitti.*
+**Asıl leverage artık SADECE off-page. Sıra (hepsi panel/saha):**
+1. **GBP yorum motoru (EN BÜYÜK).** WhatsApp yorum-isteme metni hazır (yukarıda chat'te). Kalan: Sude GBP → "Yorum isteyin" → kısa link (`g.page/r/...`) → ben QR kartı üretirim. Yorum gelince site AggregateRating schema.
+2. **PTO üye dizini → YOK** (kontrol edildi, pto.org.tr'de public üye listesi yok). Bu backlink yolu kapalı, zorlama.
+3. **Dizin NAP (Sude, 5 dk her biri):** Yandex İşletmem + Foursquare. Kit: MARKA-KUNYE.md.
+4. **Off-page taslaklar (baba imza):** PTO/POSAD üyelik + basın bülteni → docs/. Sadece GÖNDERİLECEK.
+5. **Başka üyelik/yetki envanteri:** Sude'ye soruldu — esnaf/sanayi odası, sektörel dernek var mı? Her biri = memberOf/hasCredential + dizin. Cevap bekliyor.
+
+**🔑 AÇIK KİMLİKLER (Sude "şimdilik dursun sonra sileriz" dedi):**
+- CF deploy token `bns-deploy-claude` (+1 duplicate) · CF settings token `bns-cf-settings-claude` · Wikidata bot password `Sudeczmc@bns-claude`. İş bitince hepsini sil. (Bing key `b8162c5d...` kalıcı, sorun değil.)
+- ⚠️ Auto-deploy CI hâlâ kopuk → her push sonrası manuel `wrangler deploy --name bnsenerji` (komut memory'de).
+
+*Son güncelleme: 2026-06-12. On-page %100 + AYSA paritesi tam. BNS AI-search'te zaten AYSA'dan önde (ChatGPT "polatlı doğalgaz" #1). Sonraki tek gerçek hamle: GBP yorumları.*
